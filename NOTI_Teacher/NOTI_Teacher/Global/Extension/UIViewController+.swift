@@ -35,6 +35,14 @@ extension UIViewController {
         view.endEditing(true)
     }
     
+    @objc func popVC() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func dismissVC() {
+        dismiss(animated: true)
+    }
+    
     /// 로딩을 보여주는 메서드
     func loading(loading: Bool) {
         if loading {
