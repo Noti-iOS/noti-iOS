@@ -13,18 +13,26 @@ import RxGesture
 import RxSwift
 
 class HomeVC: BaseViewController {
+    private let naviBar = NavigationBar()
+    
+    private let headerView = UIView()
+        .then {
+            $0.backgroundColor = .main
+        }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
     }
     
     override func configureView() {
         super.configureView()
+        configureContentView()
+        configureNaviBar()
     }
     
     override func layoutView() {
         super.layoutView()
+        configureLayout()
     }
     
     override func bindInput() {
@@ -40,13 +48,25 @@ class HomeVC: BaseViewController {
 // MARK: - Configure
 
 extension HomeVC {
+    private func configureContentView() {
+        view.addSubviews([headerView])
+    }
     
+    private func configureNaviBar() {
+        naviBar.configureNaviBar(targetVC: self)
+        naviBar.configureRightBarBtn(image: UIImage(named: "alarm")!)
+    }
 }
 
 // MARK: - Layout
 
 extension HomeVC {
-    
+    private func configureLayout() {
+        headerView.snp.makeConstraints {
+            $0.top.leading.trailing.equalToSuperview()
+            $0.height.equalTo(184)
+        }
+    }
 }
 
 // MARK: - Input
