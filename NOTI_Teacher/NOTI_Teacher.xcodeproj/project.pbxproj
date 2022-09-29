@@ -35,7 +35,9 @@
 		235281F828E47071002BB290 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235281F728E47071002BB290 /* HomeVC.swift */; };
 		235281FA28E47760002BB290 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235281F928E47760002BB290 /* NavigationBar.swift */; };
 		235281FD28E477BC002BB290 /* NaviType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235281FC28E477BC002BB290 /* NaviType.swift */; };
-		2352820128E5D134002BB290 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2352820028E5D134002BB290 /* TabBarController.swift */; };
+		2352820128E5D134002BB290 /* NotiTBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2352820028E5D134002BB290 /* NotiTBC.swift */; };
+		2352820528E60875002BB290 /* NotiTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2352820428E60875002BB290 /* NotiTabBar.swift */; };
+		2352820728E61164002BB290 /* NotiTBC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2352820628E61164002BB290 /* NotiTBC.storyboard */; };
 		F3B0BB4615B77D5BCC39C145 /* Pods_NOTI_Teacher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ACA048264682F6568D35C61 /* Pods_NOTI_Teacher.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,7 +72,9 @@
 		235281F728E47071002BB290 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		235281F928E47760002BB290 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		235281FC28E477BC002BB290 /* NaviType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaviType.swift; sourceTree = "<group>"; };
-		2352820028E5D134002BB290 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		2352820028E5D134002BB290 /* NotiTBC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotiTBC.swift; sourceTree = "<group>"; };
+		2352820428E60875002BB290 /* NotiTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotiTabBar.swift; sourceTree = "<group>"; };
+		2352820628E61164002BB290 /* NotiTBC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NotiTBC.storyboard; sourceTree = "<group>"; };
 		338C765C1AB61DC5483BE708 /* Pods-NOTI_Teacher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NOTI_Teacher.release.xcconfig"; path = "Target Support Files/Pods-NOTI_Teacher/Pods-NOTI_Teacher.release.xcconfig"; sourceTree = "<group>"; };
 		6ACA048264682F6568D35C61 /* Pods_NOTI_Teacher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NOTI_Teacher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7088932F122A8D9A7DFCCE4F /* Pods-NOTI_Teacher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NOTI_Teacher.debug.xcconfig"; path = "Target Support Files/Pods-NOTI_Teacher/Pods-NOTI_Teacher.debug.xcconfig"; sourceTree = "<group>"; };
@@ -242,7 +246,9 @@
 		235281FF28E5D07A002BB290 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
-				2352820028E5D134002BB290 /* TabBarController.swift */,
+				2352820628E61164002BB290 /* NotiTBC.storyboard */,
+				2352820028E5D134002BB290 /* NotiTBC.swift */,
+				2352820428E60875002BB290 /* NotiTabBar.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -316,6 +322,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2352820728E61164002BB290 /* NotiTBC.storyboard in Resources */,
 				235281F028E46EE0002BB290 /* NotoSansKR-Medium.otf in Resources */,
 				235281EF28E46EE0002BB290 /* NotoSansKR-Light.otf in Resources */,
 				235281B628E45B5D002BB290 /* LaunchScreen.storyboard in Resources */,
@@ -382,7 +389,7 @@
 				235281FD28E477BC002BB290 /* NaviType.swift in Sources */,
 				235281E128E46D0F002BB290 /* BaseNAvigationController.swift in Sources */,
 				235281DF28E46CEE002BB290 /* BaseViewModel.swift in Sources */,
-				2352820128E5D134002BB290 /* TabBarController.swift in Sources */,
+				2352820128E5D134002BB290 /* NotiTBC.swift in Sources */,
 				235281E928E46DA1002BB290 /* APISession.swift in Sources */,
 				235281D128E466BF002BB290 /* UIViewController+.swift in Sources */,
 				235281DB28E46C96002BB290 /* BaseView.swift in Sources */,
@@ -392,6 +399,7 @@
 				235281C928E463A1002BB290 /* Loadable.swift in Sources */,
 				235281CB28E46410002BB290 /* String+.swift in Sources */,
 				235281F828E47071002BB290 /* HomeVC.swift in Sources */,
+				2352820528E60875002BB290 /* NotiTabBar.swift in Sources */,
 				235281C728E4638B002BB290 /* Output.swift in Sources */,
 				235281D628E46BE8002BB290 /* Date+.swift in Sources */,
 				235281E328E46D21002BB290 /* APIError.swift in Sources */,
@@ -541,6 +549,7 @@
 				INFOPLIST_FILE = NOTI_Teacher/Support/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = NotiTBC;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -569,6 +578,7 @@
 				INFOPLIST_FILE = NOTI_Teacher/Support/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = NotiTBC;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
