@@ -15,7 +15,7 @@ import RxSwift
 class HomeVC: BaseViewController {
     private let naviBar = NavigationBar()
     
-    private let headerView = UIView()
+    private let headerView = HomeHeaderView()
         .then {
             $0.backgroundColor = .main
         }
