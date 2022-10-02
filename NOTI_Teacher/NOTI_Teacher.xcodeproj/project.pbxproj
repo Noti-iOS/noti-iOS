@@ -41,7 +41,8 @@
 		237A2E8528E697C60030FBCE /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237A2E8428E697C60030FBCE /* HomeHeaderView.swift */; };
 		237A2E8728E6999C0030FBCE /* DateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237A2E8628E6999C0030FBCE /* DateType.swift */; };
 		237A2E8928E6A43F0030FBCE /* UserDefaults+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237A2E8828E6A43F0030FBCE /* UserDefaults+.swift */; };
-		237A2E8D28E6AAB00030FBCE /* ClassProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237A2E8C28E6AAB00030FBCE /* ClassProgressView.swift */; };
+		237A2E8D28E6AAB00030FBCE /* ClassProgressCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237A2E8C28E6AAB00030FBCE /* ClassProgressCVC.swift */; };
+		237A2E9128E9A2B80030FBCE /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237A2E9028E9A2B80030FBCE /* BaseCollectionViewCell.swift */; };
 		F3B0BB4615B77D5BCC39C145 /* Pods_NOTI_Teacher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ACA048264682F6568D35C61 /* Pods_NOTI_Teacher.framework */; };
 /* End PBXBuildFile section */
 
@@ -82,7 +83,8 @@
 		237A2E8428E697C60030FBCE /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
 		237A2E8628E6999C0030FBCE /* DateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateType.swift; sourceTree = "<group>"; };
 		237A2E8828E6A43F0030FBCE /* UserDefaults+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+.swift"; sourceTree = "<group>"; };
-		237A2E8C28E6AAB00030FBCE /* ClassProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassProgressView.swift; sourceTree = "<group>"; };
+		237A2E8C28E6AAB00030FBCE /* ClassProgressCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassProgressCVC.swift; sourceTree = "<group>"; };
+		237A2E9028E9A2B80030FBCE /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		338C765C1AB61DC5483BE708 /* Pods-NOTI_Teacher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NOTI_Teacher.release.xcconfig"; path = "Target Support Files/Pods-NOTI_Teacher/Pods-NOTI_Teacher.release.xcconfig"; sourceTree = "<group>"; };
 		6ACA048264682F6568D35C61 /* Pods_NOTI_Teacher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NOTI_Teacher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7088932F122A8D9A7DFCCE4F /* Pods-NOTI_Teacher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NOTI_Teacher.debug.xcconfig"; path = "Target Support Files/Pods-NOTI_Teacher/Pods-NOTI_Teacher.debug.xcconfig"; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				235281DC28E46CB3002BB290 /* BaseViewController.swift */,
 				235281DE28E46CEE002BB290 /* BaseViewModel.swift */,
 				235281E028E46D0F002BB290 /* BaseNAvigationController.swift */,
+				237A2E9028E9A2B80030FBCE /* BaseCollectionViewCell.swift */,
 			);
 			path = BaseClass;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 			children = (
 				237A2E8328E697A80030FBCE /* View */,
 				237A2E8028E697730030FBCE /* ViewController */,
+				237A2E9228E9AC210030FBCE /* Cell */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -276,9 +280,16 @@
 			isa = PBXGroup;
 			children = (
 				237A2E8428E697C60030FBCE /* HomeHeaderView.swift */,
-				237A2E8C28E6AAB00030FBCE /* ClassProgressView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		237A2E9228E9AC210030FBCE /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				237A2E8C28E6AAB00030FBCE /* ClassProgressCVC.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		6DC2750819BAA67E30D68415 /* Pods */ = {
@@ -413,6 +424,7 @@
 				235281DD28E46CB3002BB290 /* BaseViewController.swift in Sources */,
 				235281CD28E465F2002BB290 /* UILabel+.swift in Sources */,
 				235281C528E46374002BB290 /* Input.swift in Sources */,
+				237A2E9128E9A2B80030FBCE /* BaseCollectionViewCell.swift in Sources */,
 				235281FA28E47760002BB290 /* NavigationBar.swift in Sources */,
 				235281FD28E477BC002BB290 /* NaviType.swift in Sources */,
 				235281E128E46D0F002BB290 /* BaseNAvigationController.swift in Sources */,
@@ -433,7 +445,7 @@
 				235281D628E46BE8002BB290 /* Date+.swift in Sources */,
 				237A2E8728E6999C0030FBCE /* DateType.swift in Sources */,
 				235281E328E46D21002BB290 /* APIError.swift in Sources */,
-				237A2E8D28E6AAB00030FBCE /* ClassProgressView.swift in Sources */,
+				237A2E8D28E6AAB00030FBCE /* ClassProgressCVC.swift in Sources */,
 				235281AA28E45B5B002BB290 /* AppDelegate.swift in Sources */,
 				235281D328E4671C002BB290 /* UIColor+.swift in Sources */,
 				237A2E8528E697C60030FBCE /* HomeHeaderView.swift in Sources */,
