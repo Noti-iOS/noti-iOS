@@ -26,12 +26,14 @@ class HomeHeaderView: BaseView {
     
     private let nameLabel = UILabel()
         .then {
+            $0.text = "T,"
             $0.font = .notoSansKR_Medium(size: 16)
             $0.textColor = .white
         }
     
     private let messageLabel = UILabel()
         .then {
+            $0.text = "노티에서 수업 관리를 해보세요!"
             $0.font = .notoSansKR_Medium(size: 14)
             $0.textColor = .white
         }
@@ -57,10 +59,15 @@ extension HomeHeaderView {
                      messageLabel])
     }
     
-    func setHeaderValue(firstClassTime: String) {
-        guard let nickname = UserDefaults.standard.string(forKey: UserDefaults.Keys.nickname) else { return }
-        nameLabel.text = nickname + "T,"
-        messageLabel.text = "오늘의 첫 수업은 \(firstClassTime)입니다."
+    func setHeaderValue(firstClassTime: String? = nil) {
+        // TODO: - 닉네임 연결 후 수정
+//        guard let nickname = UserDefaults.standard.string(forKey: UserDefaults.Keys.nickname) else { return }
+//        nameLabel.text = nickname + "T,"
+        
+        messageLabel.text
+        = firstClassTime != nil
+        ? "오늘의 첫 수업은 \(firstClassTime!)입니다."
+        : "오늘은 수업이 없습니다!"
     }
 }
 
