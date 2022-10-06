@@ -20,6 +20,13 @@ class HomeVC: BaseViewController {
             $0.backgroundColor = .main
         }
     
+    private let baseScrollView = UIScrollView()
+        .then {
+            $0.showsVerticalScrollIndicator = false
+        }
+    
+    private let contentView = UIView()
+    
     private let classProgressCV = UICollectionView(frame: .zero,
                                                    collectionViewLayout: UICollectionViewLayout())
         .then {
@@ -66,6 +73,11 @@ class HomeVC: BaseViewController {
         super.bindOutput()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setHomeworkTVHeight()
+    }
+    
 }
 
 // MARK: - Configure
@@ -73,8 +85,10 @@ class HomeVC: BaseViewController {
 extension HomeVC {
     private func configureContentView() {
         view.addSubviews([headerView,
-                          classProgressCV,
-                          homeworkTV])
+                          baseScrollView])
+        baseScrollView.addSubview(contentView)
+        contentView.addSubviews([classProgressCV,
+                                 homeworkTV])
     }
     
     private func configureNaviBar() {
@@ -93,6 +107,16 @@ extension HomeVC {
         homeworkTV.dataSource = self
         homeworkTV.delegate = self
     }
+    
+    private func setHomeworkTVHeight() {
+        let height = homeworkTV.contentSize.height
+        
+        homeworkTV.snp.updateConstraints {
+            $0.height.equalTo(height)
+        }
+        
+        view.layoutIfNeeded()
+    }
 }
 
 // MARK: - Layout
@@ -104,8 +128,17 @@ extension HomeVC {
             $0.height.equalTo(184)
         }
         
+        baseScrollView.snp.makeConstraints {
+            $0.top.equalTo(headerView.snp.bottom)
+            $0.leading.trailing.bottom.equalToSuperview()
+        }
+        
+        contentView.snp.makeConstraints {
+            $0.edges.width.equalToSuperview()
+        }
+        
         classProgressCV.snp.makeConstraints {
-            $0.top.equalTo(headerView.snp.bottom).offset(34)
+            $0.top.equalToSuperview().offset(34)
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(74)
         }
@@ -115,7 +148,7 @@ extension HomeVC {
             $0.leading.equalToSuperview().offset(20)
             $0.trailing.equalToSuperview().offset(-20)
             $0.bottom.equalToSuperview().offset(-70)
-            $0.height.equalTo(300)
+            $0.height.equalTo(0)
         }
     }
 }
