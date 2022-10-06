@@ -34,6 +34,11 @@ class HomeVC: BaseViewController {
             $0.backgroundColor = .clear
         }
     
+    private let homeworkTV = UITableView()
+        .then {
+            $0.isScrollEnabled = false
+        }
+    
     private let bag = DisposeBag()
     
     override func viewDidLoad() {
@@ -45,6 +50,7 @@ class HomeVC: BaseViewController {
         configureContentView()
         configureNaviBar()
         configureClassProgressCV()
+        configureHomeworkTV()
     }
     
     override func layoutView() {
@@ -67,7 +73,8 @@ class HomeVC: BaseViewController {
 extension HomeVC {
     private func configureContentView() {
         view.addSubviews([headerView,
-                          classProgressCV])
+                          classProgressCV,
+                          homeworkTV])
     }
     
     private func configureNaviBar() {
@@ -79,6 +86,12 @@ extension HomeVC {
         classProgressCV.register(ClassProgressCVC.self, forCellWithReuseIdentifier: ClassProgressCVC.className)
         classProgressCV.dataSource = self
         classProgressCV.delegate = self
+    }
+    
+    private func configureHomeworkTV() {
+        homeworkTV.register(HomeworkTVC.self, forCellReuseIdentifier: HomeworkTVC.className)
+        homeworkTV.dataSource = self
+        homeworkTV.delegate = self
     }
 }
 
@@ -95,6 +108,14 @@ extension HomeVC {
             $0.top.equalTo(headerView.snp.bottom).offset(34)
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(74)
+        }
+        
+        homeworkTV.snp.makeConstraints {
+            $0.top.equalTo(classProgressCV.snp.bottom).offset(32)
+            $0.leading.equalToSuperview().offset(20)
+            $0.trailing.equalToSuperview().offset(-20)
+            $0.bottom.equalToSuperview().offset(-70)
+            $0.height.equalTo(300)
         }
     }
 }
@@ -132,5 +153,34 @@ extension HomeVC: UICollectionViewDataSource {
 extension HomeVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 78, height: 74)
+    }
+}
+
+// MARK: - UITableViewDataSource
+
+extension HomeVC: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        3
+    }
+
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        <#code#>
+//    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeworkTVC.className, for: indexPath) as? HomeworkTVC else { fatalError() }
+        cell.configureCell()
+        
+        return cell
+    }
+}
+
+extension HomeVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        52
     }
 }
