@@ -43,7 +43,7 @@ class ClassProgressCVC: BaseCollectionViewCell {
     
     private let classTitleLabel = UILabel()
         .then {
-            $0.font = .notoSansKR_Medium(size: 10)
+            $0.font = .notoSansKR_Medium(size: 12)
             $0.textAlignment = .center
         }
     
@@ -76,6 +76,9 @@ extension ClassProgressCVC {
         [percentLabel, unitLabel].forEach {
             percentStackView.addArrangedSubview($0)
         }
+        
+        layer.cornerRadius = 5
+        backgroundColor = .white
     }
     
     func setClassProgress() {
@@ -96,10 +99,10 @@ extension ClassProgressCVC {
 extension ClassProgressCVC {
     private func configureLayout() {
         circleProgressView.snp.makeConstraints {
-            $0.top.equalToSuperview()
+            $0.top.equalToSuperview().offset(10)
             $0.leading.equalToSuperview().offset(14)
             $0.trailing.equalToSuperview().offset(-14)
-            $0.width.height.equalTo(50)
+            $0.width.height.equalTo(66)
         }
         
         percentStackView.snp.makeConstraints {
@@ -107,8 +110,10 @@ extension ClassProgressCVC {
         }
         
         classTitleLabel.snp.makeConstraints {
-            $0.top.greaterThanOrEqualTo(circleProgressView.snp.bottom).offset(10)
-            $0.centerX.bottom.equalToSuperview()
+            $0.top.greaterThanOrEqualTo(circleProgressView.snp.bottom).offset(14)
+            $0.leading.equalToSuperview().offset(5)
+            $0.trailing.equalToSuperview().offset(-5)
+            $0.bottom.equalToSuperview().offset(-14)
         }
     }
 }
