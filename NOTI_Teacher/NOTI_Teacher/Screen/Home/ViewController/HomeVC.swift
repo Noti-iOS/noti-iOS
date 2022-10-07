@@ -138,9 +138,9 @@ extension HomeVC {
         }
         
         classProgressCV.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(34)
+            $0.top.equalToSuperview().offset(18)
             $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(74)
+            $0.height.equalTo(120)
         }
         
         homeworkTV.snp.makeConstraints {
@@ -177,6 +177,7 @@ extension HomeVC: UICollectionViewDataSource {
                                                             for: indexPath) as? ClassProgressCVC
         else { fatalError() }
         cell.setClassProgress()
+        cell.addShadow()
         return cell
     }
 }
@@ -185,7 +186,11 @@ extension HomeVC: UICollectionViewDataSource {
 
 extension HomeVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 78, height: 74)
+        return CGSize(width: 94, height: 118)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        10
     }
 }
 
