@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.6.2)
+  - CircleProgressView (1.2.0)
   - Differentiator (5.0.0)
   - RxCocoa (6.1.0):
     - RxRelay (= 6.1.0)
@@ -19,6 +20,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - CircleProgressView (~> 1.0)
   - RxCocoa (< 6.2.0)
   - RxDataSources (< 5.1.0)
   - RxGesture (< 4.1.0)
@@ -29,6 +31,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - CircleProgressView
     - Differentiator
     - RxCocoa
     - RxDataSources
@@ -40,6 +43,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
+  CircleProgressView: 6b5b091d59dc5e5d2fda84e637a40498cdc39937
   Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
   RxCocoa: 5c51f02d562cbd94629f6c26cf0c80fe4ab8d343
   RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
@@ -49,6 +53,6 @@ SPEC CHECKSUMS:
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   Then: 844265ae87834bbe1147d91d5d41a404da2ec27d
 
-PODFILE CHECKSUM: cf5450a74ffeb8d213ef31794f8da65ed5a79e72
+PODFILE CHECKSUM: da381f4155324ade4b0ecbd27448364490b5742e
 
 COCOAPODS: 1.11.3

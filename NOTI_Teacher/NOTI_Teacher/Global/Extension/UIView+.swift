@@ -39,4 +39,13 @@ extension UIView {
     var className: String {
         NSStringFromClass(self.classForCoder).components(separatedBy: ".").last!
     }
+    
+    /// view에 shadow를 추가하는 함수
+    func addShadow(opacity: Float = 0.2) {
+        layer.masksToBounds = false
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = opacity
+        layer.shadowOffset = .zero
+        layer.shadowRadius = 2
+    }
 }
