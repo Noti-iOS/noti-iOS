@@ -31,9 +31,8 @@ class HomeVC: BaseViewController {
                                                    collectionViewLayout: UICollectionViewLayout())
         .then {
             let layout = UICollectionViewFlowLayout()
-            layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
-            layout.minimumLineSpacing = 0
-            layout.minimumInteritemSpacing = 0
+            layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+            layout.minimumLineSpacing = 10
             layout.scrollDirection = .horizontal
             
             $0.collectionViewLayout = layout
@@ -41,16 +40,29 @@ class HomeVC: BaseViewController {
             $0.backgroundColor = .clear
         }
     
-    private let homeworkTV = UITableView()
+    private let homeworkTV = UITableView(frame: .zero,
+                                         style: .grouped)
         .then {
             $0.isScrollEnabled = false
             $0.separatorStyle = .none
+            $0.backgroundColor = .systemBackground
         }
     
+    let viewModel = HomeVM()
     private let bag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // TODO: - 더미데이터
+        viewModel.output.classes = [
+            ClassSection(className: "중1단어&독해", time: "15 : 00 - 17 : 00", homeworks: ["ASDF", "ASDF", "ASDF", "ASDF"], isOpened: true),
+            ClassSection(className: "중2단어&독해", time: "15 : 00 - 17 : 00", homeworks: ["ASDF", "ASDF", "ASDF"], isOpened: false),
+            ClassSection(className: "중3단어&독해", time: "15 : 00 - 17 : 00", homeworks: ["ASDF", "ASDF", "ASDF", "ASDF"], isOpened: false)
+        ]
     }
     
     override func configureView() {
@@ -68,6 +80,7 @@ class HomeVC: BaseViewController {
     
     override func bindInput() {
         super.bindInput()
+        bindHomeworkTV()
     }
     
     override func bindOutput() {
@@ -104,6 +117,7 @@ extension HomeVC {
     }
     
     private func configureHomeworkTV() {
+        homeworkTV.register(ClassTVC.self, forCellReuseIdentifier: ClassTVC.className)
         homeworkTV.register(HomeworkTVC.self, forCellReuseIdentifier: HomeworkTVC.className)
         homeworkTV.register(StudentTVC.self, forCellReuseIdentifier: StudentTVC.className)
         homeworkTV.dataSource = self
@@ -146,9 +160,9 @@ extension HomeVC {
         }
         
         homeworkTV.snp.makeConstraints {
-            $0.top.equalTo(classProgressCV.snp.bottom).offset(32)
+            $0.top.equalTo(classProgressCV.snp.bottom)
             $0.leading.trailing.equalToSuperview()
-            $0.bottom.equalToSuperview().offset(-70)
+            $0.bottom.equalToSuperview().offset(-30)
             $0.height.equalTo(0)
         }
     }
@@ -157,7 +171,17 @@ extension HomeVC {
 // MARK: - Input
 
 extension HomeVC {
-    
+    func bindHomeworkTV() {
+        homeworkTV.rx.itemSelected
+            .asDriver()
+            .drive(onNext: {[weak self] indexPath in
+                guard let self = self else { return }
+                self.viewModel.output.classes[indexPath.section].isOpened.toggle()
+                self.homeworkTV.reloadSections([indexPath.section], with: .none)
+                self.setHomeworkTVHeight()
+            })
+            .disposed(by: bag)
+    }
 }
 
 // MARK: - Output
@@ -188,46 +212,5 @@ extension HomeVC: UICollectionViewDataSource {
 extension HomeVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 94, height: 118)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        10
-    }
-}
-
-// MARK: - UITableViewDataSource
-
-extension HomeVC: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        3
-    }
-
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        <#code#>
-//    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        3
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let homeworkTVC = tableView.dequeueReusableCell(withIdentifier: HomeworkTVC.className) as? HomeworkTVC,
-              let studentListTVC = tableView.dequeueReusableCell(withIdentifier: StudentTVC.className) as? StudentTVC
-        else { fatalError() }
-        let totalRows = tableView.numberOfRows(inSection: indexPath.section)
-
-        if indexPath.row == totalRows - 1 {
-            return studentListTVC
-        } else {
-            homeworkTVC.configureCell()
-            return homeworkTVC
-        }
-    }
-}
-
-extension HomeVC: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let totalRows = tableView.numberOfRows(inSection: indexPath.section)
-        return indexPath.row == totalRows - 1 ? 93 : 52
     }
 }
