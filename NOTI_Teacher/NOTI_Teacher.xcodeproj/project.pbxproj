@@ -42,6 +42,10 @@
 		2359B09028ED95CA00930EF0 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359B08F28ED95CA00930EF0 /* BaseTableViewCell.swift */; };
 		2359B09228F1844300930EF0 /* StudentCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359B09128F1844300930EF0 /* StudentCVC.swift */; };
 		2359B09428F18BDA00930EF0 /* StudentTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359B09328F18BDA00930EF0 /* StudentTVC.swift */; };
+		2359B09728F1B82D00930EF0 /* ClassSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359B09628F1B82C00930EF0 /* ClassSection.swift */; };
+		2359B09928F1BB1C00930EF0 /* ClassTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359B09828F1BB1C00930EF0 /* ClassTVC.swift */; };
+		2359B09F28F1C7B600930EF0 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359B09E28F1C7B600930EF0 /* HomeVM.swift */; };
+		2359B0A128F1C87800930EF0 /* HomeVC+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359B0A028F1C87800930EF0 /* HomeVC+TableView.swift */; };
 		237A2E8528E697C60030FBCE /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237A2E8428E697C60030FBCE /* HomeHeaderView.swift */; };
 		237A2E8728E6999C0030FBCE /* DateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237A2E8628E6999C0030FBCE /* DateType.swift */; };
 		237A2E8928E6A43F0030FBCE /* UserDefaults+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237A2E8828E6A43F0030FBCE /* UserDefaults+.swift */; };
@@ -88,6 +92,10 @@
 		2359B08F28ED95CA00930EF0 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		2359B09128F1844300930EF0 /* StudentCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCVC.swift; sourceTree = "<group>"; };
 		2359B09328F18BDA00930EF0 /* StudentTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentTVC.swift; sourceTree = "<group>"; };
+		2359B09628F1B82C00930EF0 /* ClassSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassSection.swift; sourceTree = "<group>"; };
+		2359B09828F1BB1C00930EF0 /* ClassTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassTVC.swift; sourceTree = "<group>"; };
+		2359B09E28F1C7B600930EF0 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
+		2359B0A028F1C87800930EF0 /* HomeVC+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+TableView.swift"; sourceTree = "<group>"; };
 		237A2E8428E697C60030FBCE /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
 		237A2E8628E6999C0030FBCE /* DateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateType.swift; sourceTree = "<group>"; };
 		237A2E8828E6A43F0030FBCE /* UserDefaults+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+.swift"; sourceTree = "<group>"; };
@@ -251,6 +259,8 @@
 		235281F428E47042002BB290 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				2359B09D28F1C7A900930EF0 /* ViewModel */,
+				2359B09528F1B7AD00930EF0 /* Model */,
 				237A2E8328E697A80030FBCE /* View */,
 				237A2E8028E697730030FBCE /* ViewController */,
 				237A2E9228E9AC210030FBCE /* Cell */,
@@ -277,10 +287,27 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		2359B09528F1B7AD00930EF0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2359B09628F1B82C00930EF0 /* ClassSection.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2359B09D28F1C7A900930EF0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2359B09E28F1C7B600930EF0 /* HomeVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		237A2E8028E697730030FBCE /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				235281F728E47071002BB290 /* HomeVC.swift */,
+				2359B0A028F1C87800930EF0 /* HomeVC+TableView.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -300,6 +327,7 @@
 				2359B08D28ED950700930EF0 /* HomeworkTVC.swift */,
 				2359B09328F18BDA00930EF0 /* StudentTVC.swift */,
 				2359B09128F1844300930EF0 /* StudentCVC.swift */,
+				2359B09828F1BB1C00930EF0 /* ClassTVC.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -431,18 +459,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2359B09728F1B82D00930EF0 /* ClassSection.swift in Sources */,
 				235281E528E46D39002BB290 /* APIService.swift in Sources */,
 				235281E728E46D64002BB290 /* URLResource.swift in Sources */,
 				235281DD28E46CB3002BB290 /* BaseViewController.swift in Sources */,
 				235281CD28E465F2002BB290 /* UILabel+.swift in Sources */,
 				235281C528E46374002BB290 /* Input.swift in Sources */,
+				2359B09F28F1C7B600930EF0 /* HomeVM.swift in Sources */,
 				237A2E9128E9A2B80030FBCE /* BaseCollectionViewCell.swift in Sources */,
 				235281FA28E47760002BB290 /* NavigationBar.swift in Sources */,
 				2359B09428F18BDA00930EF0 /* StudentTVC.swift in Sources */,
 				235281FD28E477BC002BB290 /* NaviType.swift in Sources */,
 				235281E128E46D0F002BB290 /* BaseNAvigationController.swift in Sources */,
 				2359B09228F1844300930EF0 /* StudentCVC.swift in Sources */,
+				2359B09928F1BB1C00930EF0 /* ClassTVC.swift in Sources */,
 				235281DF28E46CEE002BB290 /* BaseViewModel.swift in Sources */,
+				2359B0A128F1C87800930EF0 /* HomeVC+TableView.swift in Sources */,
 				2352820128E5D134002BB290 /* NotiTBC.swift in Sources */,
 				235281E928E46DA1002BB290 /* APISession.swift in Sources */,
 				235281D128E466BF002BB290 /* UIViewController+.swift in Sources */,
