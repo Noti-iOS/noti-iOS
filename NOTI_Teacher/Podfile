@@ -16,4 +16,5 @@ target 'NOTI_Teacher' do
   pod 'Alamofire'
   pod 'SnapKit'
   pod 'Then'
+  pod 'CircleProgressView', '~> 1.0'
 end
