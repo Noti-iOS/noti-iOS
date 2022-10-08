@@ -37,6 +37,11 @@ class HomeworkTVC: BaseTableViewCell {
         super.layoutView()
         configureLayout()
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20))
+    }
 }
 
 // MARK: - Configure
@@ -44,9 +49,11 @@ class HomeworkTVC: BaseTableViewCell {
 extension HomeworkTVC {
     private func configureContentView() {
         selectionStyle = .none
-        addSubviews([homeworkTitle,
-                     progress,
-                     studentCount])
+        contentView.addSubviews([homeworkTitle,
+                                 progress,
+                                 studentCount])
+        studentCount.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
+        homeworkTitle.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
     }
     
     func configureCell() {
@@ -69,7 +76,7 @@ extension HomeworkTVC {
         homeworkTitle.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.leading.equalToSuperview().offset(10)
-            $0.trailing.greaterThanOrEqualTo(studentCount.snp.leading).offset(-10)
+            $0.trailing.equalTo(studentCount.snp.leading).offset(-10)
         }
         
         studentCount.snp.makeConstraints {
