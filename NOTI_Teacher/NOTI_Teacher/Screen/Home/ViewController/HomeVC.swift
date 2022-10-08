@@ -44,6 +44,7 @@ class HomeVC: BaseViewController {
     private let homeworkTV = UITableView()
         .then {
             $0.isScrollEnabled = false
+            $0.separatorStyle = .none
         }
     
     private let bag = DisposeBag()
@@ -104,6 +105,7 @@ extension HomeVC {
     
     private func configureHomeworkTV() {
         homeworkTV.register(HomeworkTVC.self, forCellReuseIdentifier: HomeworkTVC.className)
+        homeworkTV.register(StudentTVC.self, forCellReuseIdentifier: StudentTVC.className)
         homeworkTV.dataSource = self
         homeworkTV.delegate = self
     }
@@ -210,15 +212,23 @@ extension HomeVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeworkTVC.className, for: indexPath) as? HomeworkTVC else { fatalError() }
-        cell.configureCell()
-        
-        return cell
+        guard let homeworkTVC = tableView.dequeueReusableCell(withIdentifier: HomeworkTVC.className) as? HomeworkTVC,
+              let studentListTVC = tableView.dequeueReusableCell(withIdentifier: StudentTVC.className) as? StudentTVC
+        else { fatalError() }
+        let totalRows = tableView.numberOfRows(inSection: indexPath.section)
+
+        if indexPath.row == totalRows - 1 {
+            return studentListTVC
+        } else {
+            homeworkTVC.configureCell()
+            return homeworkTVC
+        }
     }
 }
 
 extension HomeVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        52
+        let totalRows = tableView.numberOfRows(inSection: indexPath.section)
+        return indexPath.row == totalRows - 1 ? 93 : 52
     }
 }
