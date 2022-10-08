@@ -147,8 +147,7 @@ extension HomeVC {
         
         homeworkTV.snp.makeConstraints {
             $0.top.equalTo(classProgressCV.snp.bottom).offset(32)
-            $0.leading.equalToSuperview().offset(20)
-            $0.trailing.equalToSuperview().offset(-20)
+            $0.leading.trailing.equalToSuperview()
             $0.bottom.equalToSuperview().offset(-70)
             $0.height.equalTo(0)
         }
