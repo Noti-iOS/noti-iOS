@@ -19,6 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         KakaoSDK.initSDK(appKey: "2e6f596fd79dad3a8e9fec57c3f7fe9c")
         
+        window?.rootViewController = LoginVC()
+        window?.makeKeyAndVisible()
+        
         return true
     }
     
