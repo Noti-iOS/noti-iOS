@@ -42,6 +42,9 @@ class LoginVC: BaseViewController {
                                          backgroundColor: .black,
                                          textColor: .white)
     
+    private let viewModel = LoginVM()
+    private let bag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -58,6 +61,7 @@ class LoginVC: BaseViewController {
     
     override func bindInput() {
         super.bindInput()
+        bindLoginBtn()
     }
     
     override func bindOutput() {
@@ -111,7 +115,23 @@ extension LoginVC {
 // MARK: - Input
 
 extension LoginVC {
-    
+    private func bindLoginBtn() {
+        appleLoginBtn.rx.tap
+            .asDriver()
+            .drive(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                // TODO: - apple 로그인 연결
+            })
+            .disposed(by: bag)
+        
+        kakaoLoginBtn.rx.tap
+            .asDriver()
+            .drive(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                self.viewModel.kakaoLogin()
+            })
+            .disposed(by: bag)
+    }
 }
 
 // MARK: - Output
