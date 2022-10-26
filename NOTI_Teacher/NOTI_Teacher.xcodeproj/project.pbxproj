@@ -46,6 +46,9 @@
 		2359B09928F1BB1C00930EF0 /* ClassTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359B09828F1BB1C00930EF0 /* ClassTVC.swift */; };
 		2359B09F28F1C7B600930EF0 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359B09E28F1C7B600930EF0 /* HomeVM.swift */; };
 		2359B0A128F1C87800930EF0 /* HomeVC+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359B0A028F1C87800930EF0 /* HomeVC+TableView.swift */; };
+		237573E028F6E03B006026ED /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237573DF28F6E03B006026ED /* LoginVC.swift */; };
+		237573E328F6E18D006026ED /* LoginBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237573E228F6E18D006026ED /* LoginBtn.swift */; };
+		237573E528F6E8D4006026ED /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237573E428F6E8D4006026ED /* LoginVM.swift */; };
 		237A2E8528E697C60030FBCE /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237A2E8428E697C60030FBCE /* HomeHeaderView.swift */; };
 		237A2E8728E6999C0030FBCE /* DateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237A2E8628E6999C0030FBCE /* DateType.swift */; };
 		237A2E8928E6A43F0030FBCE /* UserDefaults+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237A2E8828E6A43F0030FBCE /* UserDefaults+.swift */; };
@@ -96,6 +99,9 @@
 		2359B09828F1BB1C00930EF0 /* ClassTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassTVC.swift; sourceTree = "<group>"; };
 		2359B09E28F1C7B600930EF0 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		2359B0A028F1C87800930EF0 /* HomeVC+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+TableView.swift"; sourceTree = "<group>"; };
+		237573DF28F6E03B006026ED /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		237573E228F6E18D006026ED /* LoginBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBtn.swift; sourceTree = "<group>"; };
+		237573E428F6E8D4006026ED /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
 		237A2E8428E697C60030FBCE /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
 		237A2E8628E6999C0030FBCE /* DateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateType.swift; sourceTree = "<group>"; };
 		237A2E8828E6A43F0030FBCE /* UserDefaults+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+.swift"; sourceTree = "<group>"; };
@@ -169,6 +175,7 @@
 			children = (
 				235281B428E45B5D002BB290 /* LaunchScreen.storyboard */,
 				235281D728E46C70002BB290 /* Share */,
+				237573DC28F6E003006026ED /* Login */,
 				235281FF28E5D07A002BB290 /* TabBar */,
 				235281F428E47042002BB290 /* Home */,
 			);
@@ -301,6 +308,40 @@
 				2359B09E28F1C7B600930EF0 /* HomeVM.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		237573DC28F6E003006026ED /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				237573E128F6E184006026ED /* View */,
+				237573DE28F6E017006026ED /* ViewController */,
+				237573DD28F6E00F006026ED /* ViewModel */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		237573DD28F6E00F006026ED /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				237573E428F6E8D4006026ED /* LoginVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		237573DE28F6E017006026ED /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				237573DF28F6E03B006026ED /* LoginVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		237573E128F6E184006026ED /* View */ = {
+			isa = PBXGroup;
+			children = (
+				237573E228F6E18D006026ED /* LoginBtn.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		237A2E8028E697730030FBCE /* ViewController */ = {
@@ -473,6 +514,7 @@
 				235281E128E46D0F002BB290 /* BaseNAvigationController.swift in Sources */,
 				2359B09228F1844300930EF0 /* StudentCVC.swift in Sources */,
 				2359B09928F1BB1C00930EF0 /* ClassTVC.swift in Sources */,
+				237573E328F6E18D006026ED /* LoginBtn.swift in Sources */,
 				235281DF28E46CEE002BB290 /* BaseViewModel.swift in Sources */,
 				2359B0A128F1C87800930EF0 /* HomeVC+TableView.swift in Sources */,
 				2352820128E5D134002BB290 /* NotiTBC.swift in Sources */,
@@ -493,7 +535,9 @@
 				235281D628E46BE8002BB290 /* Date+.swift in Sources */,
 				237A2E8728E6999C0030FBCE /* DateType.swift in Sources */,
 				235281E328E46D21002BB290 /* APIError.swift in Sources */,
+				237573E528F6E8D4006026ED /* LoginVM.swift in Sources */,
 				237A2E8D28E6AAB00030FBCE /* ClassProgressCVC.swift in Sources */,
+				237573E028F6E03B006026ED /* LoginVC.swift in Sources */,
 				235281AA28E45B5B002BB290 /* AppDelegate.swift in Sources */,
 				235281D328E4671C002BB290 /* UIColor+.swift in Sources */,
 				237A2E8528E697C60030FBCE /* HomeHeaderView.swift in Sources */,
@@ -641,7 +685,7 @@
 				INFOPLIST_FILE = NOTI_Teacher/Support/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = NotiTBC;
+				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -670,7 +714,7 @@
 				INFOPLIST_FILE = NOTI_Teacher/Support/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = NotiTBC;
+				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
