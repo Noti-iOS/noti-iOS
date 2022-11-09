@@ -11,6 +11,7 @@ enum DateType {
     case hyphen
     case dot
     case dayOnly
+    case yearMonth
 }
 
 extension DateType {
@@ -22,6 +23,8 @@ extension DateType {
             return "yyyy. MM. dd"
         case .dayOnly:
             return "EEEE"
+        case .yearMonth:
+            return "yyyy년 MM월"
         }
     }
 }
