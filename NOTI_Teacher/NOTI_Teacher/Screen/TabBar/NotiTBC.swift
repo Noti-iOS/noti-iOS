@@ -19,9 +19,8 @@ class NotiTBC: UITabBarController {
 extension NotiTBC {
     private func configureTabBar() {
         tabBar.backgroundColor = .white
+        tabBar.tintColor = .main
         tabBar.isTranslucent = false
-        
-        delegate = self
         
         // 탭 구성
         // TODO: - 화면 구현 후 연결 & 탭 아이콘 추가
@@ -30,33 +29,23 @@ extension NotiTBC {
                                 tabBarImage: nil,
                                 tabBarSelectedImage: nil)
         
-        let calendarTab = makeTabVC(vc: HomeVC(),
+        let calendarTab = makeTabVC(vc: CalendarVC(),
                                 tabBarTitle: "캘린더",
                                 tabBarImage: nil,
                                 tabBarSelectedImage: nil)
         
         let addTab = makeTabVC(vc: HomeVC(),
-                                tabBarTitle: nil,
-                                tabBarImage: nil,
-                                tabBarSelectedImage: nil)
-        
-        let questionTab = makeTabVC(vc: HomeVC(),
-                                tabBarTitle: "질문",
+                                tabBarTitle: "숙제추가",
                                 tabBarImage: nil,
                                 tabBarSelectedImage: nil)
         
         let mypageTab = makeTabVC(vc: HomeVC(),
-                                tabBarTitle: "My",
+                                tabBarTitle: "마이페이지",
                                 tabBarImage: nil,
                                 tabBarSelectedImage: nil)
         
-        let tabs =  [homeTab, calendarTab, addTab, questionTab, mypageTab]
+        let tabs =  [homeTab, calendarTab, addTab, mypageTab]
         self.setViewControllers(tabs, animated: false)
-        
-        guard let tabBar = self.tabBar as? NotiTabBar else { return }
-        tabBar.didTapButton = { [unowned self] in
-            self.presentAddTab()
-        }
     }
     
     private func makeTabVC(vc: UIViewController,
@@ -69,22 +58,5 @@ extension NotiTBC {
                                       selectedImage: tabBarSelectedImage)
         
         return tab
-    }
-    
-    private func presentAddTab() {
-        // TODO: - 숙제 추가 화면 구현 후 연결
-        let addNC = HomeVC()
-//        addVC.modalPresentationStyle = .fullScreen
-        present(addNC, animated: true, completion: nil)
-    }
-}
-
-// MARK: - UITabBarController Delegate
-extension NotiTBC: UITabBarControllerDelegate {
-    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        guard let selectedIndex = tabBarController.viewControllers?.firstIndex(of: viewController) else {
-            return true
-        }
-        return selectedIndex != 2
     }
 }
