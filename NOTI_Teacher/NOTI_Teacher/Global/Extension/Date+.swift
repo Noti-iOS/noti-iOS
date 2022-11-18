@@ -26,4 +26,16 @@ extension Date {
         let seconds = TimeInterval(timezone.secondsFromGMT(for: self))
         return Date(timeInterval: seconds, since: self)
     }
+    
+    /// 월요일부터 시작하는 Noti weekDay
+    func getWeekDay() -> Int {
+        let weekDay = self.get(.weekday)
+        
+        switch weekDay {
+        case 1:
+            return 6
+        default:
+            return weekDay - 2
+        }
+    }
 }
