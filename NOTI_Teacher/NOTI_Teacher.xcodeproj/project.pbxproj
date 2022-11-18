@@ -62,6 +62,7 @@
 		23EFB82D29279400009A2D01 /* NotificationListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EFB82C29279400009A2D01 /* NotificationListVC.swift */; };
 		23EFB82F292794D2009A2D01 /* HomeNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EFB82E292794D1009A2D01 /* HomeNC.swift */; };
 		23EFB831292799D2009A2D01 /* NoneNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EFB830292799D2009A2D01 /* NoneNotificationView.swift */; };
+		23EFB83329279CE4009A2D01 /* NotificationTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EFB83229279CE4009A2D01 /* NotificationTVC.swift */; };
 		F3B0BB4615B77D5BCC39C145 /* Pods_NOTI_Teacher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ACA048264682F6568D35C61 /* Pods_NOTI_Teacher.framework */; };
 /* End PBXBuildFile section */
 
@@ -123,6 +124,7 @@
 		23EFB82C29279400009A2D01 /* NotificationListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationListVC.swift; sourceTree = "<group>"; };
 		23EFB82E292794D1009A2D01 /* HomeNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNC.swift; sourceTree = "<group>"; };
 		23EFB830292799D2009A2D01 /* NoneNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoneNotificationView.swift; sourceTree = "<group>"; };
+		23EFB83229279CE4009A2D01 /* NotificationTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTVC.swift; sourceTree = "<group>"; };
 		338C765C1AB61DC5483BE708 /* Pods-NOTI_Teacher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NOTI_Teacher.release.xcconfig"; path = "Target Support Files/Pods-NOTI_Teacher/Pods-NOTI_Teacher.release.xcconfig"; sourceTree = "<group>"; };
 		6ACA048264682F6568D35C61 /* Pods_NOTI_Teacher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NOTI_Teacher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7088932F122A8D9A7DFCCE4F /* Pods-NOTI_Teacher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NOTI_Teacher.debug.xcconfig"; path = "Target Support Files/Pods-NOTI_Teacher/Pods-NOTI_Teacher.debug.xcconfig"; sourceTree = "<group>"; };
@@ -432,6 +434,7 @@
 				2359B09328F18BDA00930EF0 /* StudentTVC.swift */,
 				2359B09128F1844300930EF0 /* StudentCVC.swift */,
 				2359B09828F1BB1C00930EF0 /* ClassTVC.swift */,
+				23EFB83229279CE4009A2D01 /* NotificationTVC.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -588,6 +591,7 @@
 				23EFB82D29279400009A2D01 /* NotificationListVC.swift in Sources */,
 				2359B09228F1844300930EF0 /* StudentCVC.swift in Sources */,
 				2359B09928F1BB1C00930EF0 /* ClassTVC.swift in Sources */,
+				23EFB83329279CE4009A2D01 /* NotificationTVC.swift in Sources */,
 				237573E328F6E18D006026ED /* LoginBtn.swift in Sources */,
 				23EFB82F292794D2009A2D01 /* HomeNC.swift in Sources */,
 				23EFB831292799D2009A2D01 /* NoneNotificationView.swift in Sources */,

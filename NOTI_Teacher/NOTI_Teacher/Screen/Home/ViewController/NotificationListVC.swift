@@ -17,6 +17,12 @@ class NotificationListVC: BaseViewController {
     
     private let noneNotificationView = NoneNotificationView()
     
+    private var notificationTV = UITableView(frame: .zero)
+        .then {
+            $0.separatorStyle = .none
+            $0.backgroundColor = .systemBackground
+        }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -54,7 +60,12 @@ extension NotificationListVC {
     }
     
     private func configureContentView() {
-        view.addSubviews([noneNotificationView])
+        view.addSubviews([noneNotificationView,
+                          notificationTV])
+        
+        notificationTV.register(NotificationTVC.self,
+                                forCellReuseIdentifier: NotificationTVC.className)
+        notificationTV.dataSource = self
     }
 }
 
@@ -65,6 +76,11 @@ extension NotificationListVC {
         noneNotificationView.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.centerY.equalToSuperview().offset(-30)
+        }
+        
+        notificationTV.snp.makeConstraints {
+            $0.top.equalTo(naviBar.snp.bottom)
+            $0.leading.trailing.bottom.equalToSuperview()
         }
     }
 }
@@ -79,4 +95,18 @@ extension NotificationListVC {
 
 extension NotificationListVC {
     
+}
+
+extension NotificationListVC: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        13
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: NotificationTVC.className,
+                                                       for: indexPath) as? NotificationTVC
+        else { fatalError() }
+        
+        return cell
+    }
 }
