@@ -15,6 +15,8 @@ import RxSwift
 class NotificationListVC: BaseViewController {
     private let naviBar = NavigationBar()
     
+    private let noneNotificationView = NoneNotificationView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -22,10 +24,12 @@ class NotificationListVC: BaseViewController {
     override func configureView() {
         super.configureView()
         configureNaviBar()
+        configureContentView()
     }
     
     override func layoutView() {
         super.layoutView()
+        configureLayout()
     }
     
     override func bindInput() {
@@ -48,12 +52,21 @@ extension NotificationListVC {
         naviBar.configureBackBtn()
         naviBar.configureRightBarBtn(image: UIImage(named: "setting")!)
     }
+    
+    private func configureContentView() {
+        view.addSubviews([noneNotificationView])
+    }
 }
 
 // MARK: - Layout
 
 extension NotificationListVC {
-    
+    private func configureLayout() {
+        noneNotificationView.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.centerY.equalToSuperview().offset(-30)
+        }
+    }
 }
 
 // MARK: - Input
