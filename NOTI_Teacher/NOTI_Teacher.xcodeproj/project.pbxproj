@@ -59,6 +59,8 @@
 		23EFB82129124E36009A2D01 /* WeekCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EFB82029124E36009A2D01 /* WeekCVC.swift */; };
 		23EFB82329124EA1009A2D01 /* DayCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EFB82229124EA1009A2D01 /* DayCVC.swift */; };
 		23EFB82B291B9B48009A2D01 /* CalendarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EFB82A291B9B48009A2D01 /* CalendarVM.swift */; };
+		23EFB82D29279400009A2D01 /* NotificationListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EFB82C29279400009A2D01 /* NotificationListVC.swift */; };
+		23EFB82F292794D2009A2D01 /* HomeNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EFB82E292794D1009A2D01 /* HomeNC.swift */; };
 		F3B0BB4615B77D5BCC39C145 /* Pods_NOTI_Teacher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ACA048264682F6568D35C61 /* Pods_NOTI_Teacher.framework */; };
 /* End PBXBuildFile section */
 
@@ -117,6 +119,8 @@
 		23EFB82029124E36009A2D01 /* WeekCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekCVC.swift; sourceTree = "<group>"; };
 		23EFB82229124EA1009A2D01 /* DayCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCVC.swift; sourceTree = "<group>"; };
 		23EFB82A291B9B48009A2D01 /* CalendarVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVM.swift; sourceTree = "<group>"; };
+		23EFB82C29279400009A2D01 /* NotificationListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationListVC.swift; sourceTree = "<group>"; };
+		23EFB82E292794D1009A2D01 /* HomeNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNC.swift; sourceTree = "<group>"; };
 		338C765C1AB61DC5483BE708 /* Pods-NOTI_Teacher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NOTI_Teacher.release.xcconfig"; path = "Target Support Files/Pods-NOTI_Teacher/Pods-NOTI_Teacher.release.xcconfig"; sourceTree = "<group>"; };
 		6ACA048264682F6568D35C61 /* Pods_NOTI_Teacher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NOTI_Teacher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7088932F122A8D9A7DFCCE4F /* Pods-NOTI_Teacher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NOTI_Teacher.debug.xcconfig"; path = "Target Support Files/Pods-NOTI_Teacher/Pods-NOTI_Teacher.debug.xcconfig"; sourceTree = "<group>"; };
@@ -401,8 +405,10 @@
 		237A2E8028E697730030FBCE /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				23EFB82E292794D1009A2D01 /* HomeNC.swift */,
 				235281F728E47071002BB290 /* HomeVC.swift */,
 				2359B0A028F1C87800930EF0 /* HomeVC+TableView.swift */,
+				23EFB82C29279400009A2D01 /* NotificationListVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -576,9 +582,11 @@
 				23EFB82B291B9B48009A2D01 /* CalendarVM.swift in Sources */,
 				235281FD28E477BC002BB290 /* NaviType.swift in Sources */,
 				235281E128E46D0F002BB290 /* BaseNAvigationController.swift in Sources */,
+				23EFB82D29279400009A2D01 /* NotificationListVC.swift in Sources */,
 				2359B09228F1844300930EF0 /* StudentCVC.swift in Sources */,
 				2359B09928F1BB1C00930EF0 /* ClassTVC.swift in Sources */,
 				237573E328F6E18D006026ED /* LoginBtn.swift in Sources */,
+				23EFB82F292794D2009A2D01 /* HomeNC.swift in Sources */,
 				235281DF28E46CEE002BB290 /* BaseViewModel.swift in Sources */,
 				23EFB82129124E36009A2D01 /* WeekCVC.swift in Sources */,
 				2359B0A128F1C87800930EF0 /* HomeVC+TableView.swift in Sources */,

@@ -30,7 +30,7 @@ extension NotiTBC {
         
         // 탭 구성
         // TODO: - 화면 구현 후 연결 & 탭 아이콘 추가
-        let homeTab = makeTabVC(vc: HomeVC(),
+        let homeTab = makeTabVC(vc: HomeNC(),
                                 tabBarTitle: "홈",
                                 tabBarImage: UIImage(named: "tab_home"))
         
