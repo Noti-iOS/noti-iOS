@@ -23,6 +23,8 @@ class NotificationListVC: BaseViewController {
             $0.backgroundColor = .systemBackground
         }
     
+    private let bag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -40,6 +42,7 @@ class NotificationListVC: BaseViewController {
     
     override func bindInput() {
         super.bindInput()
+        bindNaviBarRightBtn()
     }
     
     override func bindOutput() {
@@ -88,7 +91,16 @@ extension NotificationListVC {
 // MARK: - Input
 
 extension NotificationListVC {
-    
+    private func bindNaviBarRightBtn() {
+        naviBar.rightBtn.rx.tap
+            .asDriver()
+            .drive(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                self.navigationController?.pushViewController(NotificationSettingVC(),
+                                                              animated: true)
+            })
+            .disposed(by: bag)
+    }
 }
 
 // MARK: - Output
