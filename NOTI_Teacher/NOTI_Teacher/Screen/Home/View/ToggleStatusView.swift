@@ -61,8 +61,14 @@ extension ToggleStatusView {
         }
     }
     
-    func configureTitle(_ title: String) {
+    func configureTitle(_ title: String,
+                        _ font: UIFont = .notoSansKR_Bold(size: 14)) {
         statusTitle.text = title
+        statusTitle.font = font
+    }
+    
+    func configureStatusMessage(_ text: String?) {
+        statusLabel.text = text
     }
 }
 
@@ -84,6 +90,7 @@ extension ToggleStatusView {
 
 extension ToggleStatusView {
     private func bindToggle() {
+        if statusLabel.text == nil { return }
         toggleBtn.rx.isOn
             .asDriver()
             .drive(onNext: {[weak self] status in
