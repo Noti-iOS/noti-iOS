@@ -26,6 +26,8 @@ class NotificationSettingVC: BaseViewController {
     
     private var disturbTimeView = ArrowStackComponentView()
     
+    private let bag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -43,6 +45,7 @@ class NotificationSettingVC: BaseViewController {
     
     override func bindInput() {
         super.bindInput()
+        bindDisturbVC()
     }
     
     override func bindOutput() {
@@ -97,7 +100,17 @@ extension NotificationSettingVC {
 // MARK: - Input
 
 extension NotificationSettingVC {
-    
+    private func bindDisturbVC() {
+        disturbTimeView.rx.tapGesture()
+            .when(.ended)
+            .asDriver(onErrorJustReturn: .init())
+            .drive(onNext: {[weak self] _ in
+                guard let self = self else { return }
+                self.navigationController?.pushViewController(DisturbTimeVC(),
+                                                              animated: true)
+            })
+            .disposed(by: bag)
+    }
 }
 
 // MARK: - Output
