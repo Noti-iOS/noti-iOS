@@ -34,7 +34,7 @@ extension UIStackView {
     func addHorizontalSeparators(color : UIColor = .line_gray,
                                  height: CGFloat = 1,
                                  multiplier: CGFloat = 1) {
-        var i = self.arrangedSubviews.count - 1
+        var i = self.arrangedSubviews.count
         while i > 0 {
             let separator = createHorizontalSeparator(color: color, height: height)
             insertArrangedSubview(separator, at: i)
