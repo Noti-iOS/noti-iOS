@@ -15,6 +15,7 @@ class NavigationBar: BaseView {
     private var targetVC: UIViewController!
 
     private let barHeight = 48
+    private let buttonSize: Float = 38
 
     private var title = UILabel()
         .then {
@@ -84,8 +85,9 @@ extension NavigationBar {
     
     /// naviBar의 우측 버튼(이미지)을 추가하는 함수입니다.
     func configureRightBarBtn(image: UIImage) {
-        rightBtnLayout()
         rightBtn.setImage(image, for: .normal)
+        rightBtnLayout()
+        rightBtnWidth(buttonSize)
     }
     
     /// naviBar의 우측 버튼(글자)을 추가하는 함수입니다.
@@ -116,8 +118,14 @@ extension NavigationBar {
         self.addSubview(rightBtn)
         rightBtn.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.trailing.equalToSuperview().offset(-20)
-            $0.height.equalTo(26)
+            $0.trailing.equalToSuperview().offset(-10)
+            $0.height.equalTo(buttonSize)
+        }
+    }
+    
+    private func rightBtnWidth(_ width: Float) {
+        rightBtn.snp.makeConstraints {
+            $0.width.equalTo(width)
         }
     }
     
@@ -125,8 +133,7 @@ extension NavigationBar {
         self.addSubview(backBtn)
         backBtn.snp.makeConstraints {
             $0.centerY.leading.equalToSuperview()
-            $0.width.equalTo(66)
-            $0.height.equalTo(barHeight)
+            $0.width.height.equalTo(barHeight)
         }
     }
 }
