@@ -88,7 +88,7 @@ extension ToggleStatusView {
             .asDriver()
             .drive(onNext: {[weak self] status in
                 guard let self = self else { return }
-                self.statusLabel.text = status ? "ON" : "OFF"
+                self.statusLabel.text = status ? "앱 푸시" : "OFF"
             })
             .disposed(by: bag)
     }
