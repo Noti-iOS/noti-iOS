@@ -29,7 +29,7 @@ class ToggleStatusView: BaseView {
             $0.textColor = .gray02
         }
     
-    private var toggleBtn = UISwitch()
+    var toggleBtn = UISwitch()
         .then {
             $0.onTintColor = .main
             $0.tintColor = .red

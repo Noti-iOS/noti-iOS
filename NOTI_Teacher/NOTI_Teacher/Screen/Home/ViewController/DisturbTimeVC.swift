@@ -22,6 +22,35 @@ class DisturbTimeVC: BaseViewController {
             $0.configureStatusMessage(nil)
         }
     
+    private let baseStackView = UIStackView()
+        .then {
+            $0.axis = .vertical
+            $0.layer.cornerRadius = 5
+            $0.layer.borderWidth = 1
+            $0.layer.borderColor = UIColor.line_gray.cgColor
+        }
+    
+    private var startTimeView = TimePickerView()
+        .then {
+            $0.configureTitle("시작 시간")
+            $0.configureButton(time: "-:--",
+                               active: false)
+        }
+    
+    private var endTimeView = TimePickerView()
+        .then {
+            $0.configureTitle("종료 시간")
+            $0.configureButton(time: "-:--",
+                               active: false)
+        }
+    
+    private let separatorView = UIView()
+        .then {
+            $0.backgroundColor = .line_gray
+        }
+    
+    private let bag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -39,6 +68,7 @@ class DisturbTimeVC: BaseViewController {
     
     override func bindInput() {
         super.bindInput()
+        bindViewActivation()
     }
     
     override func bindOutput() {
@@ -60,7 +90,11 @@ extension DisturbTimeVC {
     }
     
     private func configureContentView() {
-        view.addSubviews([alarmToggleView])
+        view.addSubviews([alarmToggleView,
+                          baseStackView])
+        [startTimeView, separatorView, endTimeView].forEach {
+            baseStackView.addArrangedSubview($0)
+        }
     }
 }
 
@@ -74,13 +108,44 @@ extension DisturbTimeVC {
             $0.trailing.equalToSuperview().offset(-20)
             $0.height.equalTo(64)
         }
+        
+        baseStackView.snp.makeConstraints {
+            $0.top.equalTo(alarmToggleView.snp.bottom).offset(4)
+            $0.leading.equalToSuperview().offset(20)
+            $0.trailing.equalToSuperview().offset(-20)
+        }
+        
+        [startTimeView, endTimeView].forEach {
+            $0.snp.makeConstraints {
+                $0.height.equalTo(62)
+            }
+        }
+        
+        separatorView.snp.makeConstraints {
+            $0.height.equalTo(1)
+        }
+        
+        baseStackView.isLayoutMarginsRelativeArrangement = true
+        baseStackView.layoutMargins = UIEdgeInsets(top: .zero,
+                                                   left: 20,
+                                                   bottom: .zero,
+                                                   right: 20)
     }
 }
 
 // MARK: - Input
 
 extension DisturbTimeVC {
-    
+    private func bindViewActivation() {
+        alarmToggleView.toggleBtn.rx.isOn
+            .asDriver()
+            .drive(onNext: {[weak self] isOn in
+                guard let self = self else { return }
+                // TODO: - 비활성화, 활성화 디자인 적용
+                print(isOn)
+            })
+            .disposed(by: bag)
+    }
 }
 
 // MARK: - Output
