@@ -59,6 +59,7 @@
 		23BAC582292B915F002DC53F /* ArrowStackComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BAC581292B915F002DC53F /* ArrowStackComponentView.swift */; };
 		23BAC584292B9A5C002DC53F /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BAC583292B9A5C002DC53F /* UIStackView+.swift */; };
 		23BAC5922930CDF5002DC53F /* DisturbTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BAC5912930CDF5002DC53F /* DisturbTimeVC.swift */; };
+		23BAC5962930DCB0002DC53F /* TimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BAC5952930DCB0002DC53F /* TimePickerView.swift */; };
 		23EFB82129124E36009A2D01 /* WeekCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EFB82029124E36009A2D01 /* WeekCVC.swift */; };
 		23EFB82329124EA1009A2D01 /* DayCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EFB82229124EA1009A2D01 /* DayCVC.swift */; };
 		23EFB82B291B9B48009A2D01 /* CalendarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EFB82A291B9B48009A2D01 /* CalendarVM.swift */; };
@@ -126,6 +127,7 @@
 		23BAC581292B915F002DC53F /* ArrowStackComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowStackComponentView.swift; sourceTree = "<group>"; };
 		23BAC583292B9A5C002DC53F /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		23BAC5912930CDF5002DC53F /* DisturbTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisturbTimeVC.swift; sourceTree = "<group>"; };
+		23BAC5952930DCB0002DC53F /* TimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerView.swift; sourceTree = "<group>"; };
 		23EFB82029124E36009A2D01 /* WeekCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekCVC.swift; sourceTree = "<group>"; };
 		23EFB82229124EA1009A2D01 /* DayCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCVC.swift; sourceTree = "<group>"; };
 		23EFB82A291B9B48009A2D01 /* CalendarVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVM.swift; sourceTree = "<group>"; };
@@ -437,6 +439,7 @@
 				237A2E8428E697C60030FBCE /* HomeHeaderView.swift */,
 				23EFB830292799D2009A2D01 /* NoneNotificationView.swift */,
 				23EFB83629290440009A2D01 /* ToggleStatusView.swift */,
+				23BAC5952930DCB0002DC53F /* TimePickerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -621,6 +624,7 @@
 				235281DB28E46C96002BB290 /* BaseView.swift in Sources */,
 				2359B08E28ED950700930EF0 /* HomeworkTVC.swift in Sources */,
 				235281D928E46C7C002BB290 /* LoadingView.swift in Sources */,
+				23BAC5962930DCB0002DC53F /* TimePickerView.swift in Sources */,
 				2359B09028ED95CA00930EF0 /* BaseTableViewCell.swift in Sources */,
 				23EFB83529290282009A2D01 /* NotificationSettingVC.swift in Sources */,
 				235281CF28E46658002BB290 /* UIView+.swift in Sources */,
