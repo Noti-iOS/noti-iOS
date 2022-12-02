@@ -9,7 +9,7 @@ import UIKit
 
 extension UIStackView {
     /// stackView에 세로 구분선을 추가하는 함수
-    func addVerticalSeparators(color : UIColor = .line_gray,
+    func addVerticalSeparators(color : UIColor = .lineGray,
                                width: CGFloat = 1,
                                multiplier: CGFloat = 1) {
         var i = self.arrangedSubviews.count - 1
@@ -31,7 +31,7 @@ extension UIStackView {
     }
     
     /// stackView에 가로 구분선을 추가하는 함수
-    func addHorizontalSeparators(color : UIColor = .line_gray,
+    func addHorizontalSeparators(color : UIColor = .lineGray,
                                  height: CGFloat = 1,
                                  multiplier: CGFloat = 1) {
         var i = self.arrangedSubviews.count

@@ -48,7 +48,7 @@ extension ClassTVC {
         contentView.layer.cornerRadius = 6
         contentView.layer.borderWidth = 1
         contentView.layer.borderColor = UIColor.main.cgColor
-        contentView.backgroundColor = .main20
+        contentView.backgroundColor = .main21
         contentView.addSubviews([classTitle,
                                  time,
                                  openStatusImageView])

@@ -14,7 +14,7 @@ class ClassProgressCVC: BaseCollectionViewCell {
     private let circleProgressView = CircleProgressView()
         .then {
             $0.trackFillColor = .main
-            $0.trackBackgroundColor = .line_gray
+            $0.trackBackgroundColor = .lineGray
             $0.trackWidth = 4
             $0.clockwise = true
             $0.backgroundColor = .clear

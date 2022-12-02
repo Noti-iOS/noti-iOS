@@ -20,7 +20,7 @@ extension NotiTBC {
     private func configureTabBar() {
         tabBar.backgroundColor = .white
         tabBar.tintColor = .main
-        tabBar.unselectedItemTintColor = .tag_gray
+        tabBar.unselectedItemTintColor = .tagGray
         tabBar.isTranslucent = false
         
         tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
