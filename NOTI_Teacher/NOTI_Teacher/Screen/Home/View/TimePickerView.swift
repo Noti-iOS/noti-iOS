@@ -55,7 +55,7 @@ extension TimePickerView {
     
     func configureButton(time: String, active: Bool) {
         // TODO: - 컬러셋 추가 후 수정
-        config.baseBackgroundColor = active ? .gray : .line_gray
+        config.baseBackgroundColor = active ? .gray : .lineGray
         config.baseForegroundColor = active ? .main : .systemGreen
         
         var titleAttributedString = AttributedString.init(time)

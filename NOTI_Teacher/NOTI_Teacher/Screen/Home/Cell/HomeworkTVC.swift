@@ -18,7 +18,7 @@ class HomeworkTVC: BaseTableViewCell {
     private var progress = UIProgressView()
         .then {
             $0.progressTintColor = .main
-            $0.trackTintColor = .line_gray
+            $0.trackTintColor = .lineGray
         }
     
     private var studentCount = UILabel()

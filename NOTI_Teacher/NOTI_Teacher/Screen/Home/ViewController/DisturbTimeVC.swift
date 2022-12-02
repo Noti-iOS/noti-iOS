@@ -27,7 +27,7 @@ class DisturbTimeVC: BaseViewController {
             $0.axis = .vertical
             $0.layer.cornerRadius = 5
             $0.layer.borderWidth = 1
-            $0.layer.borderColor = UIColor.line_gray.cgColor
+            $0.layer.borderColor = UIColor.lineGray.cgColor
         }
     
     private var startTimeView = TimePickerView()
@@ -46,7 +46,7 @@ class DisturbTimeVC: BaseViewController {
     
     private let separatorView = UIView()
         .then {
-            $0.backgroundColor = .line_gray
+            $0.backgroundColor = .lineGray
         }
     
     private let bag = DisposeBag()
