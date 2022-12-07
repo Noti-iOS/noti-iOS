@@ -80,6 +80,7 @@ class HomeVC: BaseViewController {
     
     override func bindInput() {
         super.bindInput()
+        bindNaviBarRightBtn()
         bindHomeworkTV()
     }
     
@@ -171,6 +172,20 @@ extension HomeVC {
 // MARK: - Input
 
 extension HomeVC {
+    func bindNaviBarRightBtn() {
+        naviBar.rightBtn.rx.tap
+            .asDriver()
+            .drive(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                let notificationListVC = NotificationListVC()
+                notificationListVC.hidesBottomBarWhenPushed = true
+                self.navigationController?.pushViewController(notificationListVC,
+                                                              animated: true)
+                
+            })
+            .disposed(by: bag)
+    }
+    
     func bindHomeworkTV() {
         homeworkTV.rx.itemSelected
             .asDriver()
