@@ -20,7 +20,7 @@ extension NotiTBC {
     private func configureTabBar() {
         tabBar.backgroundColor = .white
         tabBar.tintColor = .main
-        tabBar.unselectedItemTintColor = .tag_gray
+        tabBar.unselectedItemTintColor = .tagGray
         tabBar.isTranslucent = false
         
         tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
@@ -30,7 +30,7 @@ extension NotiTBC {
         
         // 탭 구성
         // TODO: - 화면 구현 후 연결 & 탭 아이콘 추가
-        let homeTab = makeTabVC(vc: HomeVC(),
+        let homeTab = makeTabVC(vc: HomeNC(),
                                 tabBarTitle: "홈",
                                 tabBarImage: UIImage(named: "tab_home"))
         

@@ -23,7 +23,7 @@ class StudentCVC: BaseCollectionViewCell {
             $0.layer.cornerRadius = 24
             $0.layer.borderWidth = 1
             $0.layer.borderColor = UIColor.main.cgColor
-            $0.backgroundColor = UIColor.main20
+            $0.backgroundColor = UIColor.main21
             $0.isHidden = true
         }
     
