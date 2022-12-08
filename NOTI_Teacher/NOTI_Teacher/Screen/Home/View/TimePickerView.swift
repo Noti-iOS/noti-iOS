@@ -18,12 +18,7 @@ class TimePickerView: BaseView {
             $0.font = .notoSansKR_Medium(size: 14)
         }
     
-    var pickerButton = UIButton()
-        .then {
-            $0.layer.cornerRadius = 5
-        }
-    
-    var config = UIButton.Configuration.filled()
+    var pickerButton = FilledButton()
     
     private let bag = DisposeBag()
     
@@ -54,16 +49,8 @@ extension TimePickerView {
     }
     
     func configureButton(time: String, active: Bool) {
-        // TODO: - 컬러셋 추가 후 수정
-        config.baseBackgroundColor = active ? .gray : .lineGray
-        config.baseForegroundColor = active ? .main : .systemGreen
-        
-        var titleAttributedString = AttributedString.init(time)
-        titleAttributedString.font = .notoSansKR_Medium(size: 14)
-        
-        config.attributedTitle = titleAttributedString
-        
-        pickerButton.configuration = config
+        pickerButton.setTitle(time, for: .normal)
+        pickerButton.isSelected = active
     }
 }
 
@@ -88,8 +75,8 @@ extension TimePickerView {
             .asDriver()
             .drive(onNext: {[weak self] _ in
                 guard let self = self else { return }
+                self.pickerButton.isSelected.toggle()
                 // TODO: - TimePicker 연결
-                print("picker Open")
             })
             .disposed(by: bag)
     }
