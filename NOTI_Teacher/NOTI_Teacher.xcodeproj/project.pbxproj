@@ -59,8 +59,9 @@
 		23BAC582292B915F002DC53F /* ArrowStackComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BAC581292B915F002DC53F /* ArrowStackComponentView.swift */; };
 		23BAC584292B9A5C002DC53F /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BAC583292B9A5C002DC53F /* UIStackView+.swift */; };
 		23BAC5922930CDF5002DC53F /* DisturbTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BAC5912930CDF5002DC53F /* DisturbTimeVC.swift */; };
-		23BAC5962930DCB0002DC53F /* TimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BAC5952930DCB0002DC53F /* TimePickerView.swift */; };
+		23BAC5962930DCB0002DC53F /* TimePickerContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BAC5952930DCB0002DC53F /* TimePickerContentView.swift */; };
 		23C15A952941C54400E0BF5C /* FilledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C15A942941C54400E0BF5C /* FilledButton.swift */; };
+		23C15A97294329AE00E0BF5C /* TimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C15A96294329AE00E0BF5C /* TimePickerView.swift */; };
 		23EFB82129124E36009A2D01 /* WeekCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EFB82029124E36009A2D01 /* WeekCVC.swift */; };
 		23EFB82329124EA1009A2D01 /* DayCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EFB82229124EA1009A2D01 /* DayCVC.swift */; };
 		23EFB82B291B9B48009A2D01 /* CalendarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EFB82A291B9B48009A2D01 /* CalendarVM.swift */; };
@@ -128,8 +129,9 @@
 		23BAC581292B915F002DC53F /* ArrowStackComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowStackComponentView.swift; sourceTree = "<group>"; };
 		23BAC583292B9A5C002DC53F /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		23BAC5912930CDF5002DC53F /* DisturbTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisturbTimeVC.swift; sourceTree = "<group>"; };
-		23BAC5952930DCB0002DC53F /* TimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerView.swift; sourceTree = "<group>"; };
+		23BAC5952930DCB0002DC53F /* TimePickerContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerContentView.swift; sourceTree = "<group>"; };
 		23C15A942941C54400E0BF5C /* FilledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilledButton.swift; sourceTree = "<group>"; };
+		23C15A96294329AE00E0BF5C /* TimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerView.swift; sourceTree = "<group>"; };
 		23EFB82029124E36009A2D01 /* WeekCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekCVC.swift; sourceTree = "<group>"; };
 		23EFB82229124EA1009A2D01 /* DayCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCVC.swift; sourceTree = "<group>"; };
 		23EFB82A291B9B48009A2D01 /* CalendarVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVM.swift; sourceTree = "<group>"; };
@@ -471,7 +473,8 @@
 				235281D828E46C7C002BB290 /* LoadingView.swift */,
 				235281F928E47760002BB290 /* NavigationBar.swift */,
 				23BAC581292B915F002DC53F /* ArrowStackComponentView.swift */,
-				23BAC5952930DCB0002DC53F /* TimePickerView.swift */,
+				23C15A96294329AE00E0BF5C /* TimePickerView.swift */,
+				23BAC5952930DCB0002DC53F /* TimePickerContentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -644,7 +647,7 @@
 				235281DB28E46C96002BB290 /* BaseView.swift in Sources */,
 				2359B08E28ED950700930EF0 /* HomeworkTVC.swift in Sources */,
 				235281D928E46C7C002BB290 /* LoadingView.swift in Sources */,
-				23BAC5962930DCB0002DC53F /* TimePickerView.swift in Sources */,
+				23BAC5962930DCB0002DC53F /* TimePickerContentView.swift in Sources */,
 				2359B09028ED95CA00930EF0 /* BaseTableViewCell.swift in Sources */,
 				23EFB83529290282009A2D01 /* NotificationSettingVC.swift in Sources */,
 				235281CF28E46658002BB290 /* UIView+.swift in Sources */,
@@ -655,6 +658,7 @@
 				235281F828E47071002BB290 /* HomeVC.swift in Sources */,
 				2352820528E60875002BB290 /* NotiTabBar.swift in Sources */,
 				23BAC5922930CDF5002DC53F /* DisturbTimeVC.swift in Sources */,
+				23C15A97294329AE00E0BF5C /* TimePickerView.swift in Sources */,
 				235281C728E4638B002BB290 /* Output.swift in Sources */,
 				2378A49E2909546A00FB7031 /* CalendarVC.swift in Sources */,
 				235281D628E46BE8002BB290 /* Date+.swift in Sources */,

@@ -2,29 +2,42 @@
 //  TimePickerView.swift
 //  NOTI_Teacher
 //
-//  Created by 황윤경 on 2022/11/25.
+//  Created by 황윤경 on 2022/12/09.
 //
 
 import UIKit
 import SnapKit
 import Then
-import RxSwift
-import RxCocoa
 
 class TimePickerView: BaseView {
-    private var timeTitle = UILabel()
+    private let baseStackView = UIStackView()
         .then {
-            $0.textColor = .gray01
-            $0.font = .notoSansKR_Medium(size: 14)
+            $0.axis = .vertical
+            $0.layer.cornerRadius = 5
+            $0.layer.borderWidth = 1
+            $0.layer.borderColor = UIColor.lineGray.cgColor
         }
     
-    private var pickerButton = UIDatePicker()
+    private var startTimeView = TimePickerContentView()
+    
+    private var endTimeView = TimePickerContentView()
+    
+    private let separatorView = UIView()
         .then {
-            $0.locale = Locale(identifier: "ko_KR")
-            $0.tintColor = .main
+            $0.backgroundColor = .lineGray
         }
     
-    private let bag = DisposeBag()
+    init(startTitle: String, endTitle: String, startPickerMode: UIDatePicker.Mode, endPickerMode: UIDatePicker.Mode) {
+        super.init(frame: .zero)
+        startTimeView.configureTitle(startTitle)
+        startTimeView.configurePicker(mode: startPickerMode)
+        endTimeView.configureTitle(endTitle)
+        endTimeView.configurePicker(mode: endPickerMode)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func configureView() {
         super.configureView()
@@ -42,23 +55,10 @@ class TimePickerView: BaseView {
 
 extension TimePickerView {
     private func configureContentView() {
-        addSubviews([timeTitle,
-                     pickerButton])
-        
-    }
-    
-    func configureTitle(_ title: String) {
-        timeTitle.text = title
-    }
-    
-    func configurePicker(mode: UIDatePicker.Mode) {
-        pickerButton.datePickerMode = mode
-        configurePickerWidth(mode: mode)
-    }
-    
-    /// picker의 isUserInteractionEnabled 상태를 지정하는 메서드
-    func setPickerActiveStatus(_ active: Bool) {
-        pickerButton.isUserInteractionEnabled = active
+        addSubview(baseStackView)
+        [startTimeView, separatorView, endTimeView].forEach {
+            baseStackView.addArrangedSubview($0)
+        }
     }
 }
 
@@ -66,19 +66,24 @@ extension TimePickerView {
 
 extension TimePickerView {
     private func configureLayout() {
-        timeTitle.snp.makeConstraints {
-            $0.centerY.leading.equalToSuperview()
+        baseStackView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
         
-        pickerButton.snp.makeConstraints {
-            $0.centerY.trailing.equalToSuperview()
-            $0.height.equalTo(30)
+        [startTimeView, endTimeView].forEach {
+            $0.snp.makeConstraints {
+                $0.height.equalTo(62)
+            }
         }
-    }
-    
-    private func configurePickerWidth(mode: UIDatePicker.Mode) {
-        pickerButton.snp.makeConstraints {
-            $0.width.equalTo(mode == .time ? 81 : 230)
+        
+        separatorView.snp.makeConstraints {
+            $0.height.equalTo(1)
         }
+        
+        baseStackView.isLayoutMarginsRelativeArrangement = true
+        baseStackView.layoutMargins = UIEdgeInsets(top: .zero,
+                                                   left: 20,
+                                                   bottom: .zero,
+                                                   right: 20)
     }
 }
