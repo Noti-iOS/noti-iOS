@@ -440,7 +440,6 @@
 				237A2E8428E697C60030FBCE /* HomeHeaderView.swift */,
 				23EFB830292799D2009A2D01 /* NoneNotificationView.swift */,
 				23EFB83629290440009A2D01 /* ToggleStatusView.swift */,
-				23BAC5952930DCB0002DC53F /* TimePickerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -472,6 +471,7 @@
 				235281D828E46C7C002BB290 /* LoadingView.swift */,
 				235281F928E47760002BB290 /* NavigationBar.swift */,
 				23BAC581292B915F002DC53F /* ArrowStackComponentView.swift */,
+				23BAC5952930DCB0002DC53F /* TimePickerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

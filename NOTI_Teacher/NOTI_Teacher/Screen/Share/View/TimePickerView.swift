@@ -12,20 +12,23 @@ import RxSwift
 import RxCocoa
 
 class TimePickerView: BaseView {
-    var timeTitle = UILabel()
+    private var timeTitle = UILabel()
         .then {
             $0.textColor = .gray01
             $0.font = .notoSansKR_Medium(size: 14)
         }
     
-    var pickerButton = FilledButton()
+    private var pickerButton = UIDatePicker()
+        .then {
+            $0.locale = Locale(identifier: "ko_KR")
+            $0.tintColor = .main
+        }
     
     private let bag = DisposeBag()
     
     override func configureView() {
         super.configureView()
         configureContentView()
-        bindPicker()
     }
     
     override func layoutView() {
@@ -48,9 +51,14 @@ extension TimePickerView {
         timeTitle.text = title
     }
     
-    func configureButton(time: String, active: Bool) {
-        pickerButton.setTitle(time, for: .normal)
-        pickerButton.isSelected = active
+    func configurePicker(mode: UIDatePicker.Mode) {
+        pickerButton.datePickerMode = mode
+        configurePickerWidth(mode: mode)
+    }
+    
+    /// picker의 isUserInteractionEnabled 상태를 지정하는 메서드
+    func setPickerActiveStatus(_ active: Bool) {
+        pickerButton.isUserInteractionEnabled = active
     }
 }
 
@@ -67,17 +75,10 @@ extension TimePickerView {
             $0.height.equalTo(30)
         }
     }
-}
-
-extension TimePickerView {
-    private func bindPicker() {
-        pickerButton.rx.tap
-            .asDriver()
-            .drive(onNext: {[weak self] _ in
-                guard let self = self else { return }
-                self.pickerButton.isSelected.toggle()
-                // TODO: - TimePicker 연결
-            })
-            .disposed(by: bag)
+    
+    private func configurePickerWidth(mode: UIDatePicker.Mode) {
+        pickerButton.snp.makeConstraints {
+            $0.width.equalTo(mode == .time ? 81 : 230)
+        }
     }
 }
