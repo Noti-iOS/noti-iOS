@@ -33,15 +33,13 @@ class DisturbTimeVC: BaseViewController {
     private var startTimeView = TimePickerView()
         .then {
             $0.configureTitle("시작 시간")
-            $0.configureButton(time: "-:--",
-                               active: false)
+            $0.configurePicker(mode: .dateAndTime)
         }
     
     private var endTimeView = TimePickerView()
         .then {
             $0.configureTitle("종료 시간")
-            $0.configureButton(time: "-:--",
-                               active: false)
+            $0.configurePicker(mode: .dateAndTime)
         }
     
     private let separatorView = UIView()
