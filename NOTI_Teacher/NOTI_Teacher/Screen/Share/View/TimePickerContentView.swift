@@ -48,7 +48,6 @@ extension TimePickerContentView {
     
     func configurePicker(mode: UIDatePicker.Mode) {
         pickerButton.datePickerMode = mode
-        configurePickerWidth(mode: mode)
     }
 }
 
@@ -61,14 +60,8 @@ extension TimePickerContentView {
         }
         
         pickerButton.snp.makeConstraints {
+            $0.leading.greaterThanOrEqualTo(timeTitle.snp.trailing).offset(4)
             $0.centerY.trailing.equalToSuperview()
-            $0.height.equalTo(30)
-        }
-    }
-    
-    private func configurePickerWidth(mode: UIDatePicker.Mode) {
-        pickerButton.snp.makeConstraints {
-            $0.width.equalTo(mode == .time ? 81 : 230)
         }
     }
 }
