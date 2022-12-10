@@ -1,5 +1,5 @@
 //
-//  TimePickerView.swift
+//  TimePickerContentView.swift
 //  NOTI_Teacher
 //
 //  Created by 황윤경 on 2022/11/25.
@@ -8,24 +8,23 @@
 import UIKit
 import SnapKit
 import Then
-import RxSwift
-import RxCocoa
 
-class TimePickerView: BaseView {
-    var timeTitle = UILabel()
+class TimePickerContentView: BaseView {
+    private var timeTitle = UILabel()
         .then {
             $0.textColor = .gray01
             $0.font = .notoSansKR_Medium(size: 14)
         }
     
-    var pickerButton = FilledButton()
-    
-    private let bag = DisposeBag()
+    var pickerButton = UIDatePicker()
+        .then {
+            $0.locale = Locale(identifier: "ko_KR")
+            $0.tintColor = .main
+        }
     
     override func configureView() {
         super.configureView()
         configureContentView()
-        bindPicker()
     }
     
     override func layoutView() {
@@ -37,47 +36,32 @@ class TimePickerView: BaseView {
 
 // MARK: - Configure
 
-extension TimePickerView {
+extension TimePickerContentView {
     private func configureContentView() {
         addSubviews([timeTitle,
                      pickerButton])
-        
     }
     
     func configureTitle(_ title: String) {
         timeTitle.text = title
     }
     
-    func configureButton(time: String, active: Bool) {
-        pickerButton.setTitle(time, for: .normal)
-        pickerButton.isSelected = active
+    func configurePicker(mode: UIDatePicker.Mode) {
+        pickerButton.datePickerMode = mode
     }
 }
 
 // MARK: - Layout
 
-extension TimePickerView {
+extension TimePickerContentView {
     private func configureLayout() {
         timeTitle.snp.makeConstraints {
             $0.centerY.leading.equalToSuperview()
         }
         
         pickerButton.snp.makeConstraints {
+            $0.leading.greaterThanOrEqualTo(timeTitle.snp.trailing).offset(4)
             $0.centerY.trailing.equalToSuperview()
-            $0.height.equalTo(30)
         }
-    }
-}
-
-extension TimePickerView {
-    private func bindPicker() {
-        pickerButton.rx.tap
-            .asDriver()
-            .drive(onNext: {[weak self] _ in
-                guard let self = self else { return }
-                self.pickerButton.isSelected.toggle()
-                // TODO: - TimePicker 연결
-            })
-            .disposed(by: bag)
     }
 }
