@@ -24,8 +24,7 @@ class DisturbTimeVC: BaseViewController {
     
     private let timePickerView = TimePickerView(startTitle: "시작 시간",
                                                 endTitle: "종료 시간",
-                                                startPickerMode: .time,
-                                                endPickerMode: .time)
+                                                pickerMode: .time)
     
     private let bag = DisposeBag()
     

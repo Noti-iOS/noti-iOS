@@ -8,6 +8,8 @@
 import UIKit
 import SnapKit
 import Then
+import RxSwift
+import RxCocoa
 
 class TimePickerView: BaseView {
     private let baseStackView = UIStackView()
@@ -27,12 +29,18 @@ class TimePickerView: BaseView {
             $0.backgroundColor = .lineGray
         }
     
-    init(startTitle: String, endTitle: String, startPickerMode: UIDatePicker.Mode, endPickerMode: UIDatePicker.Mode) {
+    private let bag = DisposeBag()
+    
+    init(startTitle: String, endTitle: String, pickerMode: UIDatePicker.Mode) {
         super.init(frame: .zero)
         startTimeView.configureTitle(startTitle)
-        startTimeView.configurePicker(mode: startPickerMode)
+        startTimeView.configurePicker(mode: pickerMode)
         endTimeView.configureTitle(endTitle)
-        endTimeView.configurePicker(mode: endPickerMode)
+        endTimeView.configurePicker(mode: pickerMode)
+        
+        if pickerMode == .dateAndTime || pickerMode == .date {
+            bindStartEndTime()
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -59,6 +67,29 @@ extension TimePickerView {
         [startTimeView, separatorView, endTimeView].forEach {
             baseStackView.addArrangedSubview($0)
         }
+    }
+    
+    /// 항상 종료 시간이 시작 시간보다 크거나 같도록 연결하는 메서드
+    private func bindStartEndTime() {
+        startTimeView.pickerButton.rx.date.changed
+            .asDriver()
+            .drive(onNext: {[weak self] time in
+                guard let self = self else { return }
+                if self.endTimeView.pickerButton.date < time {
+                    self.endTimeView.pickerButton.date = time
+                }
+            })
+            .disposed(by: bag)
+        
+        endTimeView.pickerButton.rx.date.changed
+            .asDriver()
+            .drive(onNext: {[weak self] time in
+                guard let self = self else { return }
+                if self.startTimeView.pickerButton.date > time {
+                    self.startTimeView.pickerButton.date = time
+                }
+            })
+            .disposed(by: bag)
     }
 }
 

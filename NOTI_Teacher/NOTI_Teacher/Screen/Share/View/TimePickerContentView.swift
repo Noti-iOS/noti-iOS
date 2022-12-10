@@ -16,7 +16,7 @@ class TimePickerContentView: BaseView {
             $0.font = .notoSansKR_Medium(size: 14)
         }
     
-    private var pickerButton = UIDatePicker()
+    var pickerButton = UIDatePicker()
         .then {
             $0.locale = Locale(identifier: "ko_KR")
             $0.tintColor = .main
