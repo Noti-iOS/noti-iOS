@@ -56,6 +56,8 @@
 		237A2E8928E6A43F0030FBCE /* UserDefaults+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237A2E8828E6A43F0030FBCE /* UserDefaults+.swift */; };
 		237A2E8D28E6AAB00030FBCE /* ClassProgressCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237A2E8C28E6AAB00030FBCE /* ClassProgressCVC.swift */; };
 		237A2E9128E9A2B80030FBCE /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237A2E9028E9A2B80030FBCE /* BaseCollectionViewCell.swift */; };
+		237CECF4296D6B9400A8F23C /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237CECF3296D6B9400A8F23C /* ErrorResponse.swift */; };
+		237CECF6296D825100A8F23C /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237CECF5296D825100A8F23C /* NetworkResult.swift */; };
 		23BAC582292B915F002DC53F /* ArrowStackComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BAC581292B915F002DC53F /* ArrowStackComponentView.swift */; };
 		23BAC584292B9A5C002DC53F /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BAC583292B9A5C002DC53F /* UIStackView+.swift */; };
 		23BAC5922930CDF5002DC53F /* DisturbTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BAC5912930CDF5002DC53F /* DisturbTimeVC.swift */; };
@@ -126,6 +128,8 @@
 		237A2E8828E6A43F0030FBCE /* UserDefaults+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+.swift"; sourceTree = "<group>"; };
 		237A2E8C28E6AAB00030FBCE /* ClassProgressCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassProgressCVC.swift; sourceTree = "<group>"; };
 		237A2E9028E9A2B80030FBCE /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		237CECF3296D6B9400A8F23C /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		237CECF5296D825100A8F23C /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		23BAC581292B915F002DC53F /* ArrowStackComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowStackComponentView.swift; sourceTree = "<group>"; };
 		23BAC583292B9A5C002DC53F /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		23BAC5912930CDF5002DC53F /* DisturbTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisturbTimeVC.swift; sourceTree = "<group>"; };
@@ -250,6 +254,8 @@
 				235281E428E46D39002BB290 /* APIService.swift */,
 				235281E828E46DA1002BB290 /* APISession.swift */,
 				235281E628E46D64002BB290 /* URLResource.swift */,
+				237CECF3296D6B9400A8F23C /* ErrorResponse.swift */,
+				237CECF5296D825100A8F23C /* NetworkResult.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -619,6 +625,7 @@
 				235281E528E46D39002BB290 /* APIService.swift in Sources */,
 				235281E728E46D64002BB290 /* URLResource.swift in Sources */,
 				235281DD28E46CB3002BB290 /* BaseViewController.swift in Sources */,
+				237CECF4296D6B9400A8F23C /* ErrorResponse.swift in Sources */,
 				235281CD28E465F2002BB290 /* UILabel+.swift in Sources */,
 				23C15A952941C54400E0BF5C /* FilledButton.swift in Sources */,
 				235281C528E46374002BB290 /* Input.swift in Sources */,
@@ -665,6 +672,7 @@
 				23EFB82329124EA1009A2D01 /* DayCVC.swift in Sources */,
 				237A2E8728E6999C0030FBCE /* DateType.swift in Sources */,
 				235281E328E46D21002BB290 /* APIError.swift in Sources */,
+				237CECF6296D825100A8F23C /* NetworkResult.swift in Sources */,
 				237573E528F6E8D4006026ED /* LoginVM.swift in Sources */,
 				237A2E8D28E6AAB00030FBCE /* ClassProgressCVC.swift in Sources */,
 				237573E028F6E03B006026ED /* LoginVC.swift in Sources */,

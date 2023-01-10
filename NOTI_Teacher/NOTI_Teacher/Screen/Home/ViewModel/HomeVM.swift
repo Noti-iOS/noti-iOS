@@ -38,10 +38,6 @@ final class HomeVM: BaseViewModel {
     }
 }
 
-// MARK: - Helpers
-
-extension HomeVM {}
-
 // MARK: - Input
 
 extension HomeVM: Input {
@@ -52,4 +48,27 @@ extension HomeVM: Input {
 
 extension HomeVM: Output {
     func bindOutput() {}
+}
+
+// MARK: - Network
+
+extension HomeVM {
+    func getHomeData() {
+        let path = "api/teacher/home"
+        let resource = URLResource<ErrorResponse>(path: path)
+        
+        apiSession.getRequest(with: resource)
+            .withUnretained(self)
+            .subscribe(onNext: {owner, result in
+                switch result {
+                case .success(let data):
+                    dump(data)
+                case .error(let data):
+                    dump(data)
+                case .pathError:
+                    print("pathError!!")
+                }
+            })
+            .disposed(by: bag)
+    }
 }
