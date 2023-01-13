@@ -54,4 +54,17 @@ class BaseViewController: UIViewController {
         guard let ad = UIApplication.shared.delegate as? AppDelegate else { return }
         ad.window?.rootViewController = LoginVC()
     }
+    
+    /// [System] 에러 Alert 메서드
+    func showErrorAlert(_ message: String?) {
+        let alertController = UIAlertController(title: "Error",
+                                                message: message,
+                                                preferredStyle: .alert)
+        let action = UIAlertAction(title: "확인",
+                                   style: .default)
+        
+        alertController.addAction(action)
+        
+        present(alertController, animated: true)
+    }
 }

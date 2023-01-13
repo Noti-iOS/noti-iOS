@@ -86,6 +86,7 @@ class HomeVC: BaseViewController {
     
     override func bindOutput() {
         super.bindOutput()
+        bindErrorAlert()
     }
     
     override func viewDidLayoutSubviews() {
@@ -202,7 +203,14 @@ extension HomeVC {
 // MARK: - Output
 
 extension HomeVC {
-    
+    private func bindErrorAlert() {
+        viewModel.apiError
+            .subscribe(onNext: {[weak self] error in
+                guard let self = self else { return }
+                self.showErrorAlert(error.message)
+            })
+            .disposed(by: bag)
+    }
 }
 
 // MARK: - UICollectionViewDataSource
