@@ -66,6 +66,7 @@ class LoginVC: BaseViewController {
     
     override func bindOutput() {
         super.bindOutput()
+        bindLoginResponse()
     }
     
 }
@@ -137,5 +138,13 @@ extension LoginVC {
 // MARK: - Output
 
 extension LoginVC {
-    
+    private func bindLoginResponse() {
+        viewModel.output.loginResponse
+            .asDriver(onErrorJustReturn: false)
+            .drive(onNext: { [weak self] status in
+                guard let self = self else { return }
+                if status { self.setTBCtoRootVC() }
+            })
+            .disposed(by: bag)
+    }
 }

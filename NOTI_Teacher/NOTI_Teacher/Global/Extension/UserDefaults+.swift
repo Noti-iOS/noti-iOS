@@ -10,5 +10,6 @@ import Foundation
 extension UserDefaults {
     enum Keys {
         static var nickname = "nickname"
+        static var kakaoAccessToken = "kakaoAccessToken"
     }
 }
