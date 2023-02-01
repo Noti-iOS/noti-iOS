@@ -86,22 +86,28 @@ extension LoginVM {
     
     func loginRequest(type: LoginType) {
         let path = "api/teacher/login/\(type.rawValue)"
-        let resource = URLResource<LoginResponseModel>(path: path)
+        let resource = URLResource<TokensResponseModel>(path: path)
         AuthAPI.shared.loginRequest(with: resource, type: type)
             .withUnretained(self)
             .subscribe(onNext: { owner, result in
                 switch result {
                 case .success(let data):
-                    guard let data = data as? LoginResponseModel else { return }
-                    owner.output.loginResponse.accept(data.bool)
+                    guard let data = data as? TokensResponseModel else { return }
+                    owner.setUserDefaultsToken(data)
+                    owner.output.loginResponse.accept(true)
                 case .error(let error):
                     guard let error = error as? ErrorResponse else { return }
-                    owner.output.loginResponse.accept(false)
                     owner.apiError.onNext(error)
                 case .pathError:
                     print("pathError!!")
                 }
             })
             .disposed(by: bag)
+    }
+    
+    /// 토큰 갱신 시 자체 accessToken과 refreshToken을 저장하는 메서드
+    func setUserDefaultsToken(_ tokens: TokensResponseModel) {
+        UserDefaults.standard.set(tokens.accessToken, forKey: UserDefaults.Keys.accessToken)
+        UserDefaults.standard.set(tokens.refreshToken, forKey: UserDefaults.Keys.refreshToken)
     }
 }
