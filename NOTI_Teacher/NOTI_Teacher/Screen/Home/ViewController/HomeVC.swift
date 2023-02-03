@@ -57,12 +57,7 @@ class HomeVC: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // TODO: - 더미데이터
-        viewModel.output.classes = [
-            ClassSection(className: "중1단어&독해", time: "15 : 00 - 17 : 00", homeworks: ["ASDF", "ASDF", "ASDF", "ASDF"], isOpened: true),
-            ClassSection(className: "중2단어&독해", time: "15 : 00 - 17 : 00", homeworks: ["ASDF", "ASDF", "ASDF"], isOpened: false),
-            ClassSection(className: "중3단어&독해", time: "15 : 00 - 17 : 00", homeworks: ["ASDF", "ASDF", "ASDF", "ASDF"], isOpened: false)
-        ]
+        viewModel.getHomeData()
     }
     
     override func configureView() {
@@ -86,6 +81,7 @@ class HomeVC: BaseViewController {
     
     override func bindOutput() {
         super.bindOutput()
+        bindErrorAlert()
     }
     
     override func viewDidLayoutSubviews() {
@@ -202,7 +198,14 @@ extension HomeVC {
 // MARK: - Output
 
 extension HomeVC {
-    
+    private func bindErrorAlert() {
+        viewModel.apiError
+            .subscribe(onNext: {[weak self] error in
+                guard let self = self else { return }
+                self.showErrorAlert(error.message)
+            })
+            .disposed(by: bag)
+    }
 }
 
 // MARK: - UICollectionViewDataSource

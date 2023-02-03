@@ -11,7 +11,7 @@ import RxSwift
 
 final class HomeVM: BaseViewModel {
     var apiSession: APIService = APISession()
-    let apiError = PublishSubject<APIError>()
+    let apiError = PublishSubject<ErrorResponse>()
     var bag = DisposeBag()
     var input = Input()
     var output = Output()
@@ -38,10 +38,6 @@ final class HomeVM: BaseViewModel {
     }
 }
 
-// MARK: - Helpers
-
-extension HomeVM {}
-
 // MARK: - Input
 
 extension HomeVM: Input {
@@ -52,4 +48,31 @@ extension HomeVM: Input {
 
 extension HomeVM: Output {
     func bindOutput() {}
+}
+
+// MARK: - Network
+
+extension HomeVM {
+    func getHomeData() {
+        let path = "api/teacher/home"
+        let resource = URLResource<HomeResponseModel>(path: path)
+        
+        apiSession.getRequest(with: resource)
+            .withUnretained(self)
+            .subscribe(onNext: {owner, result in
+                switch result {
+                case .success(let data):
+                    dump(data)
+                    guard let data = data as? HomeResponseModel else { return }
+                    // TODO: - Home data 연결
+                case .error(let error):
+                    dump(error)
+                    guard let error = error as? ErrorResponse else { return }
+                    owner.apiError.onNext(error)
+                case .pathError:
+                    print("pathError!!")
+                }
+            })
+            .disposed(by: bag)
+    }
 }

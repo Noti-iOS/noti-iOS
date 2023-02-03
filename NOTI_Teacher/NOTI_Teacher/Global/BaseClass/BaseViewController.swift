@@ -42,4 +42,29 @@ class BaseViewController: UIViewController {
     func bindInput() {}
     
     func bindOutput() {}
+    
+    /// rootViewController를 메인화면(NotiTBC)으로 변경하는 메서드
+    func setTBCtoRootVC() {
+        guard let ad = UIApplication.shared.delegate as? AppDelegate else { return }
+        ad.window?.rootViewController = NotiTBC()
+    }
+    
+    /// fatalError시 로그인 화면으로 이동하는 메서드
+    func setLogintoRootVC() {
+        guard let ad = UIApplication.shared.delegate as? AppDelegate else { return }
+        ad.window?.rootViewController = LoginVC()
+    }
+    
+    /// [System] 에러 Alert 메서드
+    func showErrorAlert(_ message: String?) {
+        let alertController = UIAlertController(title: "Error",
+                                                message: message,
+                                                preferredStyle: .alert)
+        let action = UIAlertAction(title: "확인",
+                                   style: .default)
+        
+        alertController.addAction(action)
+        
+        present(alertController, animated: true)
+    }
 }

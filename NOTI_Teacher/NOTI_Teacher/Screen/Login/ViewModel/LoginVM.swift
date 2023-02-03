@@ -14,7 +14,7 @@ import KakaoSDKUser
 
 final class LoginVM: BaseViewModel {
     var apiSession: APIService = APISession()
-    let apiError = PublishSubject<APIError>()
+    let apiError = PublishSubject<ErrorResponse>()
     var bag = DisposeBag()
     var input = Input()
     var output = Output()
@@ -25,7 +25,9 @@ final class LoginVM: BaseViewModel {
     
     // MARK: - Output
     
-    struct Output {}
+    struct Output {
+        var loginResponse = PublishRelay<Bool>()
+    }
     
     // MARK: - Init
     
@@ -65,18 +67,47 @@ extension LoginVM {
                 if let error = error {
                     print(error)
                 } else {
-                    // TODO: - 서버 연결
+                    UserDefaults.standard.set(oauthToken?.accessToken, forKey: UserDefaults.Keys.kakaoAccessToken)
+                    self.loginRequest(type: .kakao)
                 }
             }
         } else {
-            // TODO: - 시뮬레이터용 Account 로그인(임시)
+            // 시뮬레이터용 Account 로그인
             UserApi.shared.loginWithKakaoAccount { (oauthToken, error) in
                 if let error = error {
                     print(error)
                 } else {
-                    // TODO: - 서버 연결
+                    UserDefaults.standard.set(oauthToken?.accessToken, forKey: UserDefaults.Keys.kakaoAccessToken)
+                    self.loginRequest(type: .kakao)
                 }
             }
         }
+    }
+    
+    func loginRequest(type: LoginType) {
+        let path = "api/teacher/login/\(type.rawValue)"
+        let resource = URLResource<TokensResponseModel>(path: path)
+        AuthAPI.shared.loginRequest(with: resource, type: type)
+            .withUnretained(self)
+            .subscribe(onNext: { owner, result in
+                switch result {
+                case .success(let data):
+                    guard let data = data as? TokensResponseModel else { return }
+                    owner.setUserDefaultsToken(data)
+                    owner.output.loginResponse.accept(true)
+                case .error(let error):
+                    guard let error = error as? ErrorResponse else { return }
+                    owner.apiError.onNext(error)
+                case .pathError:
+                    print("pathError!!")
+                }
+            })
+            .disposed(by: bag)
+    }
+    
+    /// 토큰 갱신 시 자체 accessToken과 refreshToken을 저장하는 메서드
+    func setUserDefaultsToken(_ tokens: TokensResponseModel) {
+        UserDefaults.standard.set(tokens.accessToken, forKey: UserDefaults.Keys.accessToken)
+        UserDefaults.standard.set(tokens.refreshToken, forKey: UserDefaults.Keys.refreshToken)
     }
 }
