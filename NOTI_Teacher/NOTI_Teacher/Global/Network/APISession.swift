@@ -21,7 +21,8 @@ struct APISession: APIService {
             
             let task = AF.request(urlResource.resultURL,
                                   encoding: URLEncoding.default,
-                                  headers: headers)
+                                  headers: headers,
+                                  interceptor: AuthInterceptor())
                 .validate(statusCode: 200...399)
                 .responseDecodable(of: T.self) { response in
                     switch response.result {
@@ -52,7 +53,8 @@ struct APISession: APIService {
                                   method: .post,
                                   parameters: param,
                                   encoding: JSONEncoding.default,
-                                  headers: headers)
+                                  headers: headers,
+                                  interceptor: AuthInterceptor())
                 .validate(statusCode: 200...399)
                 .responseDecodable(of: T.self) { response in
                     switch response.result {
@@ -87,7 +89,10 @@ struct APISession: APIService {
                 if let imageData = image.jpegData(compressionQuality: 1) {
                     multipart.append(imageData, withName: "files", fileName: "image.png", mimeType: "image/png")
                 }
-            }, to: urlResource.resultURL, method: method, headers: headers)
+            }, to: urlResource.resultURL,
+                                 method: method,
+                                 headers: headers,
+                                 interceptor: AuthInterceptor())
                 .validate(statusCode: 200...399)
                 .responseDecodable(of: T.self) { response in
                     switch response.result {

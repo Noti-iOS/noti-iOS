@@ -55,15 +55,16 @@ extension HomeVM: Output {
 extension HomeVM {
     func getHomeData() {
         let path = "api/teacher/home"
-        let resource = URLResource<ErrorResponse>(path: path)
+        let resource = URLResource<HomeResponseModel>(path: path)
         
         apiSession.getRequest(with: resource)
             .withUnretained(self)
             .subscribe(onNext: {owner, result in
                 switch result {
                 case .success(let data):
-                    // TODO: - Home data 연결
                     dump(data)
+                    guard let data = data as? HomeResponseModel else { return }
+                    // TODO: - Home data 연결
                 case .error(let error):
                     dump(error)
                     guard let error = error as? ErrorResponse else { return }

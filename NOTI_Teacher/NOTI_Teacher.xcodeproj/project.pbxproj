@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2301CA5D2976B0C300E7AF45 /* TokensResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2301CA5C2976B0C300E7AF45 /* TokensResponseModel.swift */; };
 		235281AA28E45B5B002BB290 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235281A928E45B5B002BB290 /* AppDelegate.swift */; };
 		235281B328E45B5D002BB290 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 235281B228E45B5D002BB290 /* Assets.xcassets */; };
 		235281B628E45B5D002BB290 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 235281B428E45B5D002BB290 /* LaunchScreen.storyboard */; };
@@ -60,6 +61,8 @@
 		237CECF8296D90CC00A8F23C /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237CECF7296D90CC00A8F23C /* AuthAPI.swift */; };
 		237CECFA296E4E0A00A8F23C /* LoginType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237CECF9296E4E0A00A8F23C /* LoginType.swift */; };
 		237CED03296FF1A800A8F23C /* LoginResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237CED02296FF1A800A8F23C /* LoginResponseModel.swift */; };
+		237CED0B29717BDC00A8F23C /* HomeResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237CED0A29717BDC00A8F23C /* HomeResponseModel.swift */; };
+		237CED0D29717C5500A8F23C /* AuthInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237CED0C29717C5500A8F23C /* AuthInterceptor.swift */; };
 		23BAC582292B915F002DC53F /* ArrowStackComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BAC581292B915F002DC53F /* ArrowStackComponentView.swift */; };
 		23BAC584292B9A5C002DC53F /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BAC583292B9A5C002DC53F /* UIStackView+.swift */; };
 		23BAC5922930CDF5002DC53F /* DisturbTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BAC5912930CDF5002DC53F /* DisturbTimeVC.swift */; };
@@ -79,6 +82,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2301CA5C2976B0C300E7AF45 /* TokensResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensResponseModel.swift; sourceTree = "<group>"; };
 		235281A628E45B5B002BB290 /* NOTI_Teacher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NOTI_Teacher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		235281A928E45B5B002BB290 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		235281B228E45B5D002BB290 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -134,6 +138,8 @@
 		237CECF7296D90CC00A8F23C /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
 		237CECF9296E4E0A00A8F23C /* LoginType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginType.swift; sourceTree = "<group>"; };
 		237CED02296FF1A800A8F23C /* LoginResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseModel.swift; sourceTree = "<group>"; };
+		237CED0A29717BDC00A8F23C /* HomeResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeResponseModel.swift; sourceTree = "<group>"; };
+		237CED0C29717C5500A8F23C /* AuthInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInterceptor.swift; sourceTree = "<group>"; };
 		23BAC581292B915F002DC53F /* ArrowStackComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowStackComponentView.swift; sourceTree = "<group>"; };
 		23BAC583292B9A5C002DC53F /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		23BAC5912930CDF5002DC53F /* DisturbTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisturbTimeVC.swift; sourceTree = "<group>"; };
@@ -260,6 +266,8 @@
 				237CECF3296D6B9400A8F23C /* ErrorResponse.swift */,
 				237CECF5296D825100A8F23C /* NetworkResult.swift */,
 				237CECF7296D90CC00A8F23C /* AuthAPI.swift */,
+				237CED0C29717C5500A8F23C /* AuthInterceptor.swift */,
+				2301CA5C2976B0C300E7AF45 /* TokensResponseModel.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -345,6 +353,7 @@
 			isa = PBXGroup;
 			children = (
 				2359B09628F1B82C00930EF0 /* ClassSection.swift */,
+				237CED0A29717BDC00A8F23C /* HomeResponseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -652,9 +661,11 @@
 				23EFB82B291B9B48009A2D01 /* CalendarVM.swift in Sources */,
 				237CED03296FF1A800A8F23C /* LoginResponseModel.swift in Sources */,
 				235281FD28E477BC002BB290 /* NaviType.swift in Sources */,
+				237CED0D29717C5500A8F23C /* AuthInterceptor.swift in Sources */,
 				235281E128E46D0F002BB290 /* BaseNAvigationController.swift in Sources */,
 				23EFB82D29279400009A2D01 /* NotificationListVC.swift in Sources */,
 				2359B09228F1844300930EF0 /* StudentCVC.swift in Sources */,
+				237CED0B29717BDC00A8F23C /* HomeResponseModel.swift in Sources */,
 				2359B09928F1BB1C00930EF0 /* ClassTVC.swift in Sources */,
 				23EFB83329279CE4009A2D01 /* NotificationTVC.swift in Sources */,
 				237573E328F6E18D006026ED /* LoginBtn.swift in Sources */,
@@ -675,6 +686,7 @@
 				23EFB83529290282009A2D01 /* NotificationSettingVC.swift in Sources */,
 				235281CF28E46658002BB290 /* UIView+.swift in Sources */,
 				235281F328E46F57002BB290 /* UIFont+.swift in Sources */,
+				2301CA5D2976B0C300E7AF45 /* TokensResponseModel.swift in Sources */,
 				237A2E8928E6A43F0030FBCE /* UserDefaults+.swift in Sources */,
 				235281C928E463A1002BB290 /* Loadable.swift in Sources */,
 				235281CB28E46410002BB290 /* String+.swift in Sources */,
