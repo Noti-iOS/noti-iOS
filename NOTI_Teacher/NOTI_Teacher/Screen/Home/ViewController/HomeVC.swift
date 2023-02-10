@@ -82,6 +82,7 @@ class HomeVC: BaseViewController {
     override func bindOutput() {
         super.bindOutput()
         bindErrorAlert()
+        bindHomeData()
     }
     
     override func viewDidLayoutSubviews() {
@@ -203,6 +204,15 @@ extension HomeVC {
             .subscribe(onNext: {[weak self] error in
                 guard let self = self else { return }
                 self.showErrorAlert(error.message)
+            })
+            .disposed(by: bag)
+    }
+    
+    func bindHomeData() {
+        viewModel.output.isLessonCreated
+            .asDriver(onErrorJustReturn: false)
+            .drive(onNext: { [weak self] isNone in
+                guard let self = self else { return }
             })
             .disposed(by: bag)
     }

@@ -23,6 +23,7 @@ final class HomeVM: BaseViewModel {
     // MARK: - Output
     
     struct Output {
+        var isLessonCreated = PublishRelay<Bool>()
         var classes = [ClassSection]()
     }
     
@@ -64,7 +65,7 @@ extension HomeVM {
                 case .success(let data):
                     dump(data)
                     guard let data = data as? HomeResponseModel else { return }
-                    // TODO: - Home data 연결
+                    owner.output.isLessonCreated.accept(data.isLessonCreated)
                 case .error(let error):
                     dump(error)
                     guard let error = error as? ErrorResponseModel else { return }
