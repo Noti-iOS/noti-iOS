@@ -11,7 +11,7 @@ import RxSwift
 
 final class HomeVM: BaseViewModel {
     var apiSession: APIService = APISession()
-    let apiError = PublishSubject<ErrorResponse>()
+    let apiError = PublishSubject<ErrorResponseModel>()
     var bag = DisposeBag()
     var input = Input()
     var output = Output()
@@ -67,7 +67,7 @@ extension HomeVM {
                     // TODO: - Home data 연결
                 case .error(let error):
                     dump(error)
-                    guard let error = error as? ErrorResponse else { return }
+                    guard let error = error as? ErrorResponseModel else { return }
                     owner.apiError.onNext(error)
                 case .pathError:
                     print("pathError!!")

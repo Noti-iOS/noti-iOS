@@ -14,7 +14,7 @@ import KakaoSDKUser
 
 final class LoginVM: BaseViewModel {
     var apiSession: APIService = APISession()
-    let apiError = PublishSubject<ErrorResponse>()
+    let apiError = PublishSubject<ErrorResponseModel>()
     var bag = DisposeBag()
     var input = Input()
     var output = Output()
@@ -96,7 +96,7 @@ extension LoginVM {
                     owner.setUserDefaultsToken(data)
                     owner.output.loginResponse.accept(true)
                 case .error(let error):
-                    guard let error = error as? ErrorResponse else { return }
+                    guard let error = error as? ErrorResponseModel else { return }
                     owner.apiError.onNext(error)
                 case .pathError:
                     print("pathError!!")
