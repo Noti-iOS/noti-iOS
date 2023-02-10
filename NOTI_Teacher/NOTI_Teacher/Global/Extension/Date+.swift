@@ -11,6 +11,7 @@ extension Date {
     func toString(separator: DateType) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = separator.dateFormatter
+        dateFormatter.locale = Locale(identifier: "ko_KR")
         dateFormatter.timeZone = TimeZone(identifier: "KST")
         return dateFormatter.string(from: self)
     }
