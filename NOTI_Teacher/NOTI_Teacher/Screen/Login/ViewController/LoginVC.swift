@@ -123,7 +123,7 @@ extension LoginVC {
             .asDriver()
             .drive(onNext: { [weak self] _ in
                 guard let self = self else { return }
-                // TODO: - apple 로그인 연결
+                self.appleLogin()
             })
             .disposed(by: bag)
         
@@ -134,6 +134,17 @@ extension LoginVC {
                 self.viewModel.kakaoLogin()
             })
             .disposed(by: bag)
+    }
+    
+    func appleLogin() {
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        let request = appleIDProvider.createRequest()
+        request.requestedScopes = [.fullName, .email]
+        
+        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+        authorizationController.delegate = self
+        authorizationController.presentationContextProvider = self
+        authorizationController.performRequests()
     }
 }
 
