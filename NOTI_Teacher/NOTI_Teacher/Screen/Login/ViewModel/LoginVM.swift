@@ -87,7 +87,8 @@ extension LoginVM {
     func loginRequest(type: LoginType) {
         let path = "api/teacher/login/\(type.rawValue)"
         let resource = URLResource<TokensResponseModel>(path: path)
-        AuthAPI.shared.loginRequest(with: resource, type: type)
+        
+        AuthAPI.shared.loginRequest(with: resource, token: type.token)
             .withUnretained(self)
             .subscribe(onNext: { owner, result in
                 switch result {

@@ -181,6 +181,8 @@ extension LoginVC: ASAuthorizationControllerDelegate {
             guard let appleToken = String(data: appleIDCredential.identityToken!, encoding: .utf8) else { return }
             UserDefaults.standard.set(appleToken, forKey: UserDefaults.Keys.appleToken)
             
+            viewModel.loginRequest(type: .apple)
+            
         case let passwordCredential as ASPasswordCredential:
             // TODO: -
             let username = passwordCredential.user
