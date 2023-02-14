@@ -58,6 +58,7 @@ class HomeVC: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.getHomeData()
+        viewModel.makeTimeTable()
     }
     
     override func configureView() {
@@ -209,10 +210,38 @@ extension HomeVC {
     }
     
     func bindHomeData() {
+        // header message
+        viewModel.output.headerMessage
+            .asDriver(onErrorJustReturn: nil)
+            .drive(onNext: {[weak self] message in
+                guard let self = self else { return }
+                self.headerView.setHeaderValue(firstClassTime: message)
+            })
+            .disposed(by: bag)
+        
+        // 숙제 목록 열려있는 부분 바인딩
+        viewModel.output.presentClassIndex
+            .asDriver(onErrorJustReturn: -1)
+            .drive(onNext: {[weak self] index in
+                guard let self = self else { return }
+                if index >= self.viewModel.output.classes.count || index < 0 { return }
+                for i in 0..<self.viewModel.output.classes.count {
+                    self.viewModel.output.classes[i].isOpened = false
+                }
+                self.viewModel.output.classes[index].isOpened = true
+                
+                self.homeworkTV.reloadData()
+            })
+            .disposed(by: bag)
+        
+        // 분반 존재 여부에 따른 화면 구성
         viewModel.output.isLessonCreated
             .asDriver(onErrorJustReturn: false)
-            .drive(onNext: { [weak self] isNone in
+            .drive(onNext: { [weak self] isLessonCreated in
                 guard let self = self else { return }
+//                isLessonCreated
+//                ? self.headerView.setHeaderValue()
+//                :
             })
             .disposed(by: bag)
     }

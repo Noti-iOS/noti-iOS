@@ -9,13 +9,15 @@ import UIKit
 
 struct ClassSection {
     let className: String
-    let time: String
+    let startTime: String
+    let endTime: String
     let homeworks: [String]
     var isOpened: Bool
     
-    init(className: String, time: String, homeworks: [String], isOpened: Bool) {
+    init(className: String, startTime: String, endTime: String, homeworks: [String], isOpened: Bool) {
         self.className = className
-        self.time = time
+        self.startTime = startTime
+        self.endTime = endTime
         self.homeworks = homeworks
         self.isOpened = isOpened
     }

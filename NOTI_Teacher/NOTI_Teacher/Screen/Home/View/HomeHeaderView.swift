@@ -24,16 +24,9 @@ class HomeHeaderView: BaseView {
             $0.textColor = .white
         }
     
-    private let nameLabel = UILabel()
-        .then {
-            $0.text = "T,"
-            $0.font = .notoSansKR_Medium(size: 16)
-            $0.textColor = .white
-        }
-    
     private let messageLabel = UILabel()
         .then {
-            $0.text = "노티에서 수업 관리를 해보세요!"
+            $0.text = "Noti에서 수업 관리를 해보세요"
             $0.font = .notoSansKR_Medium(size: 14)
             $0.textColor = .white
         }
@@ -55,19 +48,14 @@ extension HomeHeaderView {
     private func configureHeader() {
         addSubviews([dateLabel,
                      dayLabel,
-                     nameLabel,
                      messageLabel])
     }
     
-    func setHeaderValue(firstClassTime: String? = nil) {
-        // TODO: - 닉네임 연결 후 수정
-//        guard let nickname = UserDefaults.standard.string(forKey: UserDefaults.Keys.nickname) else { return }
-//        nameLabel.text = nickname + "T,"
-        
+    func setHeaderValue(firstClassTime: String?) {
         messageLabel.text
         = firstClassTime != nil
-        ? "오늘의 첫 수업은 \(firstClassTime!)입니다."
-        : "오늘은 수업이 없습니다!"
+        ? firstClassTime
+        : "오늘은 수업이 없습니다"
     }
 }
 
@@ -77,7 +65,7 @@ extension HomeHeaderView {
     private func configureLayout() {
         dateLabel.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(20)
-            $0.bottom.equalTo(nameLabel.snp.top).offset(-4)
+            $0.bottom.equalTo(messageLabel.snp.top).offset(-4)
         }
         
         dayLabel.snp.makeConstraints {
@@ -85,14 +73,9 @@ extension HomeHeaderView {
             $0.bottom.equalTo(dateLabel.snp.bottom).offset(-4)
         }
         
-        nameLabel.snp.makeConstraints {
+        messageLabel.snp.makeConstraints {
             $0.leading.equalTo(dateLabel.snp.leading)
             $0.bottom.equalToSuperview().offset(-20)
-        }
-        
-        messageLabel.snp.makeConstraints {
-            $0.leading.equalTo(nameLabel.snp.trailing).offset(4)
-            $0.bottom.equalTo(nameLabel.snp.bottom)
         }
     }
 }

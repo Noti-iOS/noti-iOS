@@ -57,7 +57,7 @@ extension ClassTVC {
     
     func configureCell(_ classSection: ClassSection) {
         classTitle.text = classSection.className
-        time.text = classSection.time
+        time.text = classSection.startTime
         openStatusImageView.image = classSection.isOpened
         ? UIImage(named: "arrow_down")
         : UIImage(named: "arrow_up")
