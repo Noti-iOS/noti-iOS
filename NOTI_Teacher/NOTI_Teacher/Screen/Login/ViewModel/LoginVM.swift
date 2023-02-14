@@ -14,7 +14,7 @@ import KakaoSDKUser
 
 final class LoginVM: BaseViewModel {
     var apiSession: APIService = APISession()
-    let apiError = PublishSubject<ErrorResponse>()
+    let apiError = PublishSubject<ErrorResponseModel>()
     var bag = DisposeBag()
     var input = Input()
     var output = Output()
@@ -87,7 +87,8 @@ extension LoginVM {
     func loginRequest(type: LoginType) {
         let path = "api/teacher/login/\(type.rawValue)"
         let resource = URLResource<TokensResponseModel>(path: path)
-        AuthAPI.shared.loginRequest(with: resource, type: type)
+        
+        AuthAPI.shared.loginRequest(with: resource, token: type.token)
             .withUnretained(self)
             .subscribe(onNext: { owner, result in
                 switch result {
@@ -96,7 +97,7 @@ extension LoginVM {
                     owner.setUserDefaultsToken(data)
                     owner.output.loginResponse.accept(true)
                 case .error(let error):
-                    guard let error = error as? ErrorResponse else { return }
+                    guard let error = error as? ErrorResponseModel else { return }
                     owner.apiError.onNext(error)
                 case .pathError:
                     print("pathError!!")

@@ -11,7 +11,7 @@ import RxCocoa
 
 final class CalendarVM: BaseViewModel{
     var apiSession: APIService = APISession()
-    let apiError = PublishSubject<ErrorResponse>()
+    let apiError = PublishSubject<ErrorResponseModel>()
     var bag = DisposeBag()
     var input = Input()
     var output = Output()

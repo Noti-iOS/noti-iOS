@@ -56,7 +56,7 @@
 		237A2E8928E6A43F0030FBCE /* UserDefaults+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237A2E8828E6A43F0030FBCE /* UserDefaults+.swift */; };
 		237A2E8D28E6AAB00030FBCE /* ClassProgressCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237A2E8C28E6AAB00030FBCE /* ClassProgressCVC.swift */; };
 		237A2E9128E9A2B80030FBCE /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237A2E9028E9A2B80030FBCE /* BaseCollectionViewCell.swift */; };
-		237CECF4296D6B9400A8F23C /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237CECF3296D6B9400A8F23C /* ErrorResponse.swift */; };
+		237CECF4296D6B9400A8F23C /* ErrorResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237CECF3296D6B9400A8F23C /* ErrorResponseModel.swift */; };
 		237CECF6296D825100A8F23C /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237CECF5296D825100A8F23C /* NetworkResult.swift */; };
 		237CECF8296D90CC00A8F23C /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237CECF7296D90CC00A8F23C /* AuthAPI.swift */; };
 		237CECFA296E4E0A00A8F23C /* LoginType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237CECF9296E4E0A00A8F23C /* LoginType.swift */; };
@@ -133,7 +133,7 @@
 		237A2E8828E6A43F0030FBCE /* UserDefaults+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+.swift"; sourceTree = "<group>"; };
 		237A2E8C28E6AAB00030FBCE /* ClassProgressCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassProgressCVC.swift; sourceTree = "<group>"; };
 		237A2E9028E9A2B80030FBCE /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
-		237CECF3296D6B9400A8F23C /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		237CECF3296D6B9400A8F23C /* ErrorResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponseModel.swift; sourceTree = "<group>"; };
 		237CECF5296D825100A8F23C /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		237CECF7296D90CC00A8F23C /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
 		237CECF9296E4E0A00A8F23C /* LoginType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginType.swift; sourceTree = "<group>"; };
@@ -146,6 +146,7 @@
 		23BAC5952930DCB0002DC53F /* TimePickerContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerContentView.swift; sourceTree = "<group>"; };
 		23C15A942941C54400E0BF5C /* FilledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilledButton.swift; sourceTree = "<group>"; };
 		23C15A96294329AE00E0BF5C /* TimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerView.swift; sourceTree = "<group>"; };
+		23D38E0D299B765500A41DC2 /* NOTI_Teacher.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NOTI_Teacher.entitlements; sourceTree = "<group>"; };
 		23EFB82029124E36009A2D01 /* WeekCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekCVC.swift; sourceTree = "<group>"; };
 		23EFB82229124EA1009A2D01 /* DayCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCVC.swift; sourceTree = "<group>"; };
 		23EFB82A291B9B48009A2D01 /* CalendarVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVM.swift; sourceTree = "<group>"; };
@@ -201,6 +202,7 @@
 		235281A828E45B5B002BB290 /* NOTI_Teacher */ = {
 			isa = PBXGroup;
 			children = (
+				23D38E0D299B765500A41DC2 /* NOTI_Teacher.entitlements */,
 				235281BF28E46292002BB290 /* Global */,
 				235281BE28E4628C002BB290 /* Screen */,
 				235281BD28E46286002BB290 /* Support */,
@@ -260,14 +262,13 @@
 		235281C128E4633E002BB290 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				23D38E0A29961CA200A41DC2 /* Model */,
 				235281E428E46D39002BB290 /* APIService.swift */,
 				235281E828E46DA1002BB290 /* APISession.swift */,
 				235281E628E46D64002BB290 /* URLResource.swift */,
-				237CECF3296D6B9400A8F23C /* ErrorResponse.swift */,
 				237CECF5296D825100A8F23C /* NetworkResult.swift */,
 				237CECF7296D90CC00A8F23C /* AuthAPI.swift */,
 				237CED0C29717C5500A8F23C /* AuthInterceptor.swift */,
-				2301CA5C2976B0C300E7AF45 /* TokensResponseModel.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -508,6 +509,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		23D38E0A29961CA200A41DC2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2301CA5C2976B0C300E7AF45 /* TokensResponseModel.swift */,
+				237CECF3296D6B9400A8F23C /* ErrorResponseModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		23EFB81F29124E25009A2D01 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -648,7 +658,7 @@
 				235281E528E46D39002BB290 /* APIService.swift in Sources */,
 				235281E728E46D64002BB290 /* URLResource.swift in Sources */,
 				235281DD28E46CB3002BB290 /* BaseViewController.swift in Sources */,
-				237CECF4296D6B9400A8F23C /* ErrorResponse.swift in Sources */,
+				237CECF4296D6B9400A8F23C /* ErrorResponseModel.swift in Sources */,
 				235281CD28E465F2002BB290 /* UILabel+.swift in Sources */,
 				23C15A952941C54400E0BF5C /* FilledButton.swift in Sources */,
 				235281C528E46374002BB290 /* Input.swift in Sources */,
@@ -846,6 +856,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NOTI_Teacher/NOTI_Teacher.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U2Z5Z44P4R;
@@ -875,6 +886,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NOTI_Teacher/NOTI_Teacher.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U2Z5Z44P4R;

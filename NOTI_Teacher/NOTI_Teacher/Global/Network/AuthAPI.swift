@@ -23,11 +23,8 @@ extension AuthAPI {
     }
     
     /// [GET] 헤더에 kakaoAccessToken을 붙여 로그인을 요청하는 메서드
-    func loginRequest<T: Decodable>(with urlResource: URLResource<T>, type: LoginType) -> Observable<NetworkResult<Any>> {
+    func loginRequest<T: Decodable>(with urlResource: URLResource<T>, token: String) -> Observable<NetworkResult<Any>> {
         Observable<NetworkResult<Any>>.create { observer in
-            // TODO: - FatalError 대신 로그인 화면으로 이동 메서드 구현
-            guard let token = UserDefaults.standard.string(forKey: UserDefaults.Keys.kakaoAccessToken) else { fatalError() }
-            
             let headers: HTTPHeaders = [
                 "Content-Type": "application/json",
                 "access-token": token

@@ -1,5 +1,5 @@
 //
-//  ErrorResponse.swift
+//  ErrorResponseModel.swift
 //  NOTI_Teacher
 //
 //  Created by 황윤경 on 2023/01/10.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ErrorResponse: Codable {
+struct ErrorResponseModel: Codable {
     let message: String
     let status: Int
     let errors: [FieldError]
@@ -16,5 +16,7 @@ struct ErrorResponse: Codable {
 
 // MARK: - FieldError
 struct FieldError: Codable {
-    let field, value, reason: String
+    let field: String
+    let value: String
+    let reason: String
 }

@@ -18,7 +18,7 @@ struct URLResource<T: Decodable> {
     
     func judgeError(data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
-        guard let decodeData = try? decoder.decode(ErrorResponse.self, from: data) else {
+        guard let decodeData = try? decoder.decode(ErrorResponseModel.self, from: data) else {
             return .pathError
         }
         return .error(decodeData)

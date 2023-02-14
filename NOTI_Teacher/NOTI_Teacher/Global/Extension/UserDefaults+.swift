@@ -11,6 +11,7 @@ extension UserDefaults {
     enum Keys {
         static var nickname = "nickname"
         static var kakaoAccessToken = "kakaoAccessToken"
+        static var appleToken = "appleToken"
         
         // NOTI 토큰
         static var accessToken = "accessToken"
