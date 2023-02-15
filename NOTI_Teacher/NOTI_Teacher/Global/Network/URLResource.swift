@@ -16,11 +16,11 @@ struct URLResource<T: Decodable> {
         : baseURL.flatMap { URL(string: $0.absoluteString + path.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!) }!
     }
     
-    func judgeError(data: Data) -> NetworkResult<Any> {
+    func judgeError(data: Data) -> Result<T, ErrorResponseModel> {
         let decoder = JSONDecoder()
         guard let decodeData = try? decoder.decode(ErrorResponseModel.self, from: data) else {
-            return .pathError
+            fatalError("Decode Error!!!")
         }
-        return .error(decodeData)
+        return .failure(decodeData)
     }
 }

@@ -93,14 +93,10 @@ extension LoginVM {
             .subscribe(onNext: { owner, result in
                 switch result {
                 case .success(let data):
-                    guard let data = data as? TokensResponseModel else { return }
                     owner.setUserDefaultsToken(data)
                     owner.output.loginResponse.accept(true)
-                case .error(let error):
-                    guard let error = error as? ErrorResponseModel else { return }
+                case .failure(let error):
                     owner.apiError.onNext(error)
-                case .pathError:
-                    print("pathError!!")
                 }
             })
             .disposed(by: bag)

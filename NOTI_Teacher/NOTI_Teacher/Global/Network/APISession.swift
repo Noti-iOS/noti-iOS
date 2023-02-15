@@ -12,9 +12,9 @@ import Alamofire
 struct APISession: APIService {
     
     /// [GET]
-    func getRequest<T>(with urlResource: URLResource<T>) -> Observable<NetworkResult<Any>> where T : Decodable {
+    func getRequest<T>(with urlResource: URLResource<T>) -> Observable<Result<T, ErrorResponseModel>> where T : Decodable {
         
-        Observable<NetworkResult<Any>>.create { observer in
+        Observable<Result<T, ErrorResponseModel>>.create { observer in
             let headers: HTTPHeaders = [
                 "Content-Type": "application/json"
             ]
@@ -42,9 +42,9 @@ struct APISession: APIService {
     }
     
     /// [POST]
-    func postRequest<T: Decodable>(with urlResource: URLResource<T>, param: Parameters?) -> Observable<NetworkResult<Any>> {
+    func postRequest<T: Decodable>(with urlResource: URLResource<T>, param: Parameters?) -> Observable<Result<T, ErrorResponseModel>> {
         
-        Observable<NetworkResult<Any>>.create { observer in
+        Observable<Result<T, ErrorResponseModel>>.create { observer in
             let headers: HTTPHeaders = [
                 "Content-Type": "application/json"
             ]
@@ -75,9 +75,9 @@ struct APISession: APIService {
     }
     
     /// [POST] - multipartForm
-    func postRequestWithImage<T: Decodable>(with urlResource: URLResource<T>, param: Parameters, image: UIImage, method: HTTPMethod) -> Observable<NetworkResult<Any>> {
+    func postRequestWithImage<T: Decodable>(with urlResource: URLResource<T>, param: Parameters, image: UIImage, method: HTTPMethod) -> Observable<Result<T, ErrorResponseModel>> {
         
-        Observable<NetworkResult<Any>>.create { observer in
+        Observable<Result<T, ErrorResponseModel>>.create { observer in
             let headers: HTTPHeaders = [
                 "Content-Type": "application/json"
             ]
