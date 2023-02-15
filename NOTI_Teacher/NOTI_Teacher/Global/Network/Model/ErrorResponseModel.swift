@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ErrorResponseModel: Codable, Error {
+struct ErrorResponseModel: Codable {
     let message: String
     let status: Int
     let errors: [FieldError]
