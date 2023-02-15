@@ -38,6 +38,8 @@ extension AuthAPI {
                 .responseDecodable(of: T.self) { response in
                     switch response.result {
                     case .success(let data):
+                        guard let token = data as? TokensResponseModel else { return }
+                        setUserDefaultsToken(token)
                         observer.onNext(.success(data))
                         
                     case .failure:

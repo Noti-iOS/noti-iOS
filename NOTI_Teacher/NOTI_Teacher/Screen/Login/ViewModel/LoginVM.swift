@@ -92,19 +92,12 @@ extension LoginVM {
             .withUnretained(self)
             .subscribe(onNext: { owner, result in
                 switch result {
-                case .success(let data):
-                    owner.setUserDefaultsToken(data)
+                case .success:
                     owner.output.loginResponse.accept(true)
                 case .failure(let error):
                     owner.apiError.onNext(error)
                 }
             })
             .disposed(by: bag)
-    }
-    
-    /// 토큰 갱신 시 자체 accessToken과 refreshToken을 저장하는 메서드
-    func setUserDefaultsToken(_ tokens: TokensResponseModel) {
-        UserDefaults.standard.set(tokens.accessToken, forKey: UserDefaults.Keys.accessToken)
-        UserDefaults.standard.set(tokens.refreshToken, forKey: UserDefaults.Keys.refreshToken)
     }
 }
