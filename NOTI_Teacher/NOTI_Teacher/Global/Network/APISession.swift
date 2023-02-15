@@ -24,14 +24,16 @@ struct APISession: APIService {
                                   headers: headers,
                                   interceptor: AuthInterceptor())
                 .validate(statusCode: 200...399)
-                .responseDecodable(of: T.self) { response in
+                .responseDecodable(of: SuccessResponseModel<T>.self) { response in
                     switch response.result {
+                    case .success(let data):
+                        guard let data = data.data else { return }
+                        observer.onNext(.success(data))
+                        
                     case .failure(let error):
                         dump(error)
                         guard let error = response.data else { return }
                         observer.onNext(urlResource.judgeError(data: error))
-                    case .success(let data):
-                        observer.onNext(.success(data))
                     }
                 }
             
@@ -56,15 +58,16 @@ struct APISession: APIService {
                                   headers: headers,
                                   interceptor: AuthInterceptor())
                 .validate(statusCode: 200...399)
-                .responseDecodable(of: T.self) { response in
+                .responseDecodable(of: SuccessResponseModel<T>.self) { response in
                     switch response.result {
+                    case .success(let data):
+                        guard let data = data.data else { return }
+                        observer.onNext(.success(data))
+                        
                     case .failure(let error):
                         dump(error)
                         guard let error = response.data else { return }
                         observer.onNext(urlResource.judgeError(data: error))
-                        
-                    case .success(let data):
-                        observer.onNext(.success(data))
                     }
                 }
             
@@ -94,15 +97,16 @@ struct APISession: APIService {
                                  headers: headers,
                                  interceptor: AuthInterceptor())
                 .validate(statusCode: 200...399)
-                .responseDecodable(of: T.self) { response in
+                .responseDecodable(of: SuccessResponseModel<T>.self) { response in
                     switch response.result {
+                    case .success(let data):
+                        guard let data = data.data else { return }
+                        observer.onNext(.success(data))
+                        
                     case .failure(let error):
                         dump(error)
                         guard let error = response.data else { return }
                         observer.onNext(urlResource.judgeError(data: error))
-                        
-                    case .success(let data):
-                        observer.onNext(.success(data))
                     }
                 }
             
