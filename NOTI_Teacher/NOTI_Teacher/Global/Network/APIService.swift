@@ -9,9 +9,9 @@ import Alamofire
 import RxSwift
 
 protocol APIService {
-    func getRequest<T: Decodable>(with urlResource: URLResource<T>) -> Observable<Result<T, ErrorResponseModel>>
+    func getRequest<T: Decodable>(with urlResource: URLResource<T>) -> Observable<Result<T, APIError>>
     
-    func postRequest<T: Decodable>(with urlResource: URLResource<T>, param: Parameters?) -> Observable<Result<T, ErrorResponseModel>>
+    func postRequest<T: Decodable>(with urlResource: URLResource<T>, param: Parameters?) -> Observable<Result<T, APIError>>
     
-    func postRequestWithImage<T: Decodable>(with urlResource: URLResource<T>, param: Parameters, image: UIImage, method: HTTPMethod) -> Observable<Result<T, ErrorResponseModel>>
+    func postRequestWithImage<T: Decodable>(with urlResource: URLResource<T>, param: Parameters, image: UIImage, method: HTTPMethod) -> Observable<Result<T, APIError>>
 }

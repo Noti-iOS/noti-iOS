@@ -11,7 +11,7 @@ import RxSwift
 
 final class HomeVM: BaseViewModel {
     var apiSession: APIService = APISession()
-    let apiError = PublishSubject<ErrorResponseModel>()
+    let apiError = PublishSubject<APIError>()
     var bag = DisposeBag()
     var input = Input()
     var output = Output()

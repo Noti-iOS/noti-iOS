@@ -267,12 +267,12 @@
 			isa = PBXGroup;
 			children = (
 				23D38E0A29961CA200A41DC2 /* Model */,
+				235281E628E46D64002BB290 /* URLResource.swift */,
+				235885E0299D409F0069FE1A /* APIError.swift */,
 				235281E428E46D39002BB290 /* APIService.swift */,
 				235281E828E46DA1002BB290 /* APISession.swift */,
-				235885E0299D409F0069FE1A /* APIError.swift */,
-				235281E628E46D64002BB290 /* URLResource.swift */,
-				237CECF5296D825100A8F23C /* NetworkResult.swift */,
 				237CECF7296D90CC00A8F23C /* AuthAPI.swift */,
+				237CECF5296D825100A8F23C /* NetworkResult.swift */,
 				237CED0C29717C5500A8F23C /* AuthInterceptor.swift */,
 			);
 			path = Network;
