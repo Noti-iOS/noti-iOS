@@ -38,6 +38,7 @@
 		2352820128E5D134002BB290 /* NotiTBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2352820028E5D134002BB290 /* NotiTBC.swift */; };
 		2352820528E60875002BB290 /* NotiTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2352820428E60875002BB290 /* NotiTabBar.swift */; };
 		2352820728E61164002BB290 /* NotiTBC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2352820628E61164002BB290 /* NotiTBC.storyboard */; };
+		235885DF299D3F260069FE1A /* SuccessResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235885DE299D3F260069FE1A /* SuccessResponseModel.swift */; };
 		2359B08E28ED950700930EF0 /* HomeworkTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359B08D28ED950700930EF0 /* HomeworkTVC.swift */; };
 		2359B09028ED95CA00930EF0 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359B08F28ED95CA00930EF0 /* BaseTableViewCell.swift */; };
 		2359B09228F1844300930EF0 /* StudentCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359B09128F1844300930EF0 /* StudentCVC.swift */; };
@@ -115,6 +116,7 @@
 		2352820028E5D134002BB290 /* NotiTBC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotiTBC.swift; sourceTree = "<group>"; };
 		2352820428E60875002BB290 /* NotiTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotiTabBar.swift; sourceTree = "<group>"; };
 		2352820628E61164002BB290 /* NotiTBC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NotiTBC.storyboard; sourceTree = "<group>"; };
+		235885DE299D3F260069FE1A /* SuccessResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessResponseModel.swift; sourceTree = "<group>"; };
 		2359B08D28ED950700930EF0 /* HomeworkTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeworkTVC.swift; sourceTree = "<group>"; };
 		2359B08F28ED95CA00930EF0 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		2359B09128F1844300930EF0 /* StudentCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCVC.swift; sourceTree = "<group>"; };
@@ -514,6 +516,7 @@
 			children = (
 				2301CA5C2976B0C300E7AF45 /* TokensResponseModel.swift */,
 				237CECF3296D6B9400A8F23C /* ErrorResponseModel.swift */,
+				235885DE299D3F260069FE1A /* SuccessResponseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -686,6 +689,7 @@
 				2359B0A128F1C87800930EF0 /* HomeVC+TableView.swift in Sources */,
 				2352820128E5D134002BB290 /* NotiTBC.swift in Sources */,
 				23BAC584292B9A5C002DC53F /* UIStackView+.swift in Sources */,
+				235885DF299D3F260069FE1A /* SuccessResponseModel.swift in Sources */,
 				235281E928E46DA1002BB290 /* APISession.swift in Sources */,
 				235281D128E466BF002BB290 /* UIViewController+.swift in Sources */,
 				235281DB28E46C96002BB290 /* BaseView.swift in Sources */,
