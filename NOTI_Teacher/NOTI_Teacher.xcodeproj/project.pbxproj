@@ -59,7 +59,6 @@
 		237A2E8D28E6AAB00030FBCE /* ClassProgressCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237A2E8C28E6AAB00030FBCE /* ClassProgressCVC.swift */; };
 		237A2E9128E9A2B80030FBCE /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237A2E9028E9A2B80030FBCE /* BaseCollectionViewCell.swift */; };
 		237CECF4296D6B9400A8F23C /* ErrorResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237CECF3296D6B9400A8F23C /* ErrorResponseModel.swift */; };
-		237CECF6296D825100A8F23C /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237CECF5296D825100A8F23C /* NetworkResult.swift */; };
 		237CECF8296D90CC00A8F23C /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237CECF7296D90CC00A8F23C /* AuthAPI.swift */; };
 		237CECFA296E4E0A00A8F23C /* LoginType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237CECF9296E4E0A00A8F23C /* LoginType.swift */; };
 		237CED03296FF1A800A8F23C /* LoginResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237CED02296FF1A800A8F23C /* LoginResponseModel.swift */; };
@@ -138,7 +137,6 @@
 		237A2E8C28E6AAB00030FBCE /* ClassProgressCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassProgressCVC.swift; sourceTree = "<group>"; };
 		237A2E9028E9A2B80030FBCE /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		237CECF3296D6B9400A8F23C /* ErrorResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponseModel.swift; sourceTree = "<group>"; };
-		237CECF5296D825100A8F23C /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		237CECF7296D90CC00A8F23C /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
 		237CECF9296E4E0A00A8F23C /* LoginType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginType.swift; sourceTree = "<group>"; };
 		237CED02296FF1A800A8F23C /* LoginResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseModel.swift; sourceTree = "<group>"; };
@@ -272,7 +270,6 @@
 				235281E428E46D39002BB290 /* APIService.swift */,
 				235281E828E46DA1002BB290 /* APISession.swift */,
 				237CECF7296D90CC00A8F23C /* AuthAPI.swift */,
-				237CECF5296D825100A8F23C /* NetworkResult.swift */,
 				237CED0C29717C5500A8F23C /* AuthInterceptor.swift */,
 			);
 			path = Network;
@@ -718,7 +715,6 @@
 				235281D628E46BE8002BB290 /* Date+.swift in Sources */,
 				23EFB82329124EA1009A2D01 /* DayCVC.swift in Sources */,
 				237A2E8728E6999C0030FBCE /* DateType.swift in Sources */,
-				237CECF6296D825100A8F23C /* NetworkResult.swift in Sources */,
 				237573E528F6E8D4006026ED /* LoginVM.swift in Sources */,
 				237A2E8D28E6AAB00030FBCE /* ClassProgressCVC.swift in Sources */,
 				237573E028F6E03B006026ED /* LoginVC.swift in Sources */,
