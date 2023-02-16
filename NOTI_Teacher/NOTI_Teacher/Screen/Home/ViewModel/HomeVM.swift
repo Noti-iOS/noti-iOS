@@ -11,7 +11,7 @@ import RxSwift
 
 final class HomeVM: BaseViewModel {
     var apiSession: APIService = APISession()
-    let apiError = PublishSubject<ErrorResponseModel>()
+    let apiError = PublishSubject<APIError>()
     var bag = DisposeBag()
     var input = Input()
     var output = Output()
@@ -95,15 +95,9 @@ extension HomeVM {
                 switch result {
                 case .success(let data):
                     dump(data)
-                    guard let data = data as? HomeResponseModel else { return }
-                    UserDefaults.standard.set(data.teacherNickName, forKey: UserDefaults.Keys.nickname)
-                    owner.output.isLessonCreated.accept(data.isLessonCreated)
-                case .error(let error):
-                    dump(error)
-                    guard let error = error as? ErrorResponseModel else { return }
+                    
+                case .failure(let error):
                     owner.apiError.onNext(error)
-                case .pathError:
-                    print("pathError!!")
                 }
             })
             .disposed(by: bag)
