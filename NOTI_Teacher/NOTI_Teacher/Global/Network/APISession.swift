@@ -12,9 +12,9 @@ import Alamofire
 struct APISession: APIService {
     
     /// [GET]
-    func getRequest<T>(with urlResource: URLResource<T>) -> Observable<NetworkResult<Any>> where T : Decodable {
+    func getRequest<T>(with urlResource: URLResource<T>) -> Observable<Result<T, APIError>> where T : Decodable {
         
-        Observable<NetworkResult<Any>>.create { observer in
+        Observable<Result<T, APIError>>.create { observer in
             let headers: HTTPHeaders = [
                 "Content-Type": "application/json"
             ]
@@ -24,14 +24,16 @@ struct APISession: APIService {
                                   headers: headers,
                                   interceptor: AuthInterceptor())
                 .validate(statusCode: 200...399)
-                .responseDecodable(of: T.self) { response in
+                .responseDecodable(of: SuccessResponseModel<T>.self) { response in
                     switch response.result {
+                    case .success(let data):
+                        guard let data = data.data else { return }
+                        observer.onNext(.success(data))
+                        
                     case .failure(let error):
                         dump(error)
                         guard let error = response.data else { return }
                         observer.onNext(urlResource.judgeError(data: error))
-                    case .success(let data):
-                        observer.onNext(.success(data))
                     }
                 }
             
@@ -42,9 +44,9 @@ struct APISession: APIService {
     }
     
     /// [POST]
-    func postRequest<T: Decodable>(with urlResource: URLResource<T>, param: Parameters?) -> Observable<NetworkResult<Any>> {
+    func postRequest<T: Decodable>(with urlResource: URLResource<T>, param: Parameters?) -> Observable<Result<T, APIError>> {
         
-        Observable<NetworkResult<Any>>.create { observer in
+        Observable<Result<T, APIError>>.create { observer in
             let headers: HTTPHeaders = [
                 "Content-Type": "application/json"
             ]
@@ -56,15 +58,16 @@ struct APISession: APIService {
                                   headers: headers,
                                   interceptor: AuthInterceptor())
                 .validate(statusCode: 200...399)
-                .responseDecodable(of: T.self) { response in
+                .responseDecodable(of: SuccessResponseModel<T>.self) { response in
                     switch response.result {
+                    case .success(let data):
+                        guard let data = data.data else { return }
+                        observer.onNext(.success(data))
+                        
                     case .failure(let error):
                         dump(error)
                         guard let error = response.data else { return }
                         observer.onNext(urlResource.judgeError(data: error))
-                        
-                    case .success(let data):
-                        observer.onNext(.success(data))
                     }
                 }
             
@@ -75,9 +78,9 @@ struct APISession: APIService {
     }
     
     /// [POST] - multipartForm
-    func postRequestWithImage<T: Decodable>(with urlResource: URLResource<T>, param: Parameters, image: UIImage, method: HTTPMethod) -> Observable<NetworkResult<Any>> {
+    func postRequestWithImage<T: Decodable>(with urlResource: URLResource<T>, param: Parameters, image: UIImage, method: HTTPMethod) -> Observable<Result<T, APIError>> {
         
-        Observable<NetworkResult<Any>>.create { observer in
+        Observable<Result<T, APIError>>.create { observer in
             let headers: HTTPHeaders = [
                 "Content-Type": "application/json"
             ]
@@ -94,15 +97,16 @@ struct APISession: APIService {
                                  headers: headers,
                                  interceptor: AuthInterceptor())
                 .validate(statusCode: 200...399)
-                .responseDecodable(of: T.self) { response in
+                .responseDecodable(of: SuccessResponseModel<T>.self) { response in
                     switch response.result {
+                    case .success(let data):
+                        guard let data = data.data else { return }
+                        observer.onNext(.success(data))
+                        
                     case .failure(let error):
                         dump(error)
                         guard let error = response.data else { return }
                         observer.onNext(urlResource.judgeError(data: error))
-                        
-                    case .success(let data):
-                        observer.onNext(.success(data))
                     }
                 }
             

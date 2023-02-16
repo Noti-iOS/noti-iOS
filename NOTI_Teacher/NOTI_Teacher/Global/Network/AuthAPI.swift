@@ -23,8 +23,8 @@ extension AuthAPI {
     }
     
     /// [GET] 헤더에 kakaoAccessToken을 붙여 로그인을 요청하는 메서드
-    func loginRequest<T: Decodable>(with urlResource: URLResource<T>, token: String) -> Observable<NetworkResult<Any>> {
-        Observable<NetworkResult<Any>>.create { observer in
+    func loginRequest<T: Decodable>(with urlResource: URLResource<T>, token: String) -> Observable<Result<T, APIError>> {
+        Observable<Result<T, APIError>>.create { observer in
             let headers: HTTPHeaders = [
                 "Content-Type": "application/json",
                 "access-token": token
@@ -37,14 +37,14 @@ extension AuthAPI {
                 .validate(statusCode: 200...399)
                 .responseDecodable(of: T.self) { response in
                     switch response.result {
-                    case .failure(let error):
-                        dump(error)
+                    case .success(let data):
+                        guard let token = data as? TokensResponseModel else { return }
+                        setUserDefaultsToken(token)
+                        observer.onNext(.success(data))
+                        
+                    case .failure:
                         guard let error = response.data else { return }
                         observer.onNext(urlResource.judgeError(data: error))
-                    case .success(let data):
-                        guard let data = data as? TokensResponseModel else { return }
-                        setUserDefaultsToken(data)
-                        observer.onNext(.success(data))
                     }
                 }
             
@@ -55,9 +55,9 @@ extension AuthAPI {
     }
     
     /// [GET] refreshToken으로 accessToken, refreshToken 재발급
-    func renewalToken() -> Observable<Result<TokensResponseModel, Error>> {
+    func renewalToken() -> Observable<Result<TokensResponseModel, APIError>> {
         
-        Observable<Result<TokensResponseModel, Error>>.create { observer in
+        Observable<Result<TokensResponseModel, APIError>>.create { observer in
             guard let refreshToken = UserDefaults.standard.string(forKey: UserDefaults.Keys.refreshToken) else { fatalError() }
             
             let headers: HTTPHeaders = [
@@ -75,12 +75,13 @@ extension AuthAPI {
                 .validate(statusCode: 200...399)
                 .responseDecodable(of: TokensResponseModel.self) { response in
                     switch response.result {
-                    case .failure(let error):
-                        dump(error)
-                        // TODO: - onNext Error
                     case .success(let data):
                         setUserDefaultsToken(data)
                         observer.onNext(.success(data))
+                        
+                    case .failure:
+                        guard let error = response.data else { return }
+                        observer.onNext(urlResource.judgeError(data: error))
                     }
                 }
             

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct URLResource<T: Decodable> {
+struct URLResource<T: Codable> {
     let baseURL = URL(string: "http://43.200.35.14/")
     let path: String
     var resultURL: URL {
@@ -16,11 +16,12 @@ struct URLResource<T: Decodable> {
         : baseURL.flatMap { URL(string: $0.absoluteString + path.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!) }!
     }
     
-    func judgeError(data: Data) -> NetworkResult<Any> {
+    func judgeError(data: Data) -> Result<T, APIError> {
         let decoder = JSONDecoder()
         guard let decodeData = try? decoder.decode(ErrorResponseModel.self, from: data) else {
-            return .pathError
+            return .failure(.badGateway)
         }
-        return .error(decodeData)
+        
+        return .failure(.error(decodeData))
     }
 }
