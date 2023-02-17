@@ -180,8 +180,8 @@ extension LoginVC: ASAuthorizationControllerDelegate {
         case let appleIDCredential as ASAuthorizationAppleIDCredential:
             guard let appleToken = String(data: appleIDCredential.identityToken!, encoding: .utf8) else { return }
             UserDefaults.standard.set(appleToken, forKey: UserDefaults.Keys.appleToken)
-            
-            viewModel.loginRequest(type: .apple)
+            viewModel.loginRequest(type: .apple,
+                                   nickname: appleIDCredential.fullName?.givenName)
             
         case let passwordCredential as ASPasswordCredential:
             // TODO: -
