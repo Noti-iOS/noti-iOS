@@ -47,8 +47,8 @@
 		2359B09028ED95CA00930EF0 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359B08F28ED95CA00930EF0 /* BaseTableViewCell.swift */; };
 		2359B09228F1844300930EF0 /* StudentCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359B09128F1844300930EF0 /* StudentCVC.swift */; };
 		2359B09428F18BDA00930EF0 /* StudentTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359B09328F18BDA00930EF0 /* StudentTVC.swift */; };
-		2359B09728F1B82D00930EF0 /* ClassSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359B09628F1B82C00930EF0 /* ClassSection.swift */; };
-		2359B09928F1BB1C00930EF0 /* ClassTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359B09828F1BB1C00930EF0 /* ClassTVC.swift */; };
+		2359B09728F1B82D00930EF0 /* LessonSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359B09628F1B82C00930EF0 /* LessonSection.swift */; };
+		2359B09928F1BB1C00930EF0 /* LessonTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359B09828F1BB1C00930EF0 /* LessonTVC.swift */; };
 		2359B09F28F1C7B600930EF0 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359B09E28F1C7B600930EF0 /* HomeVM.swift */; };
 		2359B0A128F1C87800930EF0 /* HomeVC+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359B0A028F1C87800930EF0 /* HomeVC+TableView.swift */; };
 		237573E028F6E03B006026ED /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237573DF28F6E03B006026ED /* LoginVC.swift */; };
@@ -59,7 +59,7 @@
 		237A2E8528E697C60030FBCE /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237A2E8428E697C60030FBCE /* HomeHeaderView.swift */; };
 		237A2E8728E6999C0030FBCE /* DateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237A2E8628E6999C0030FBCE /* DateType.swift */; };
 		237A2E8928E6A43F0030FBCE /* UserDefaults+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237A2E8828E6A43F0030FBCE /* UserDefaults+.swift */; };
-		237A2E8D28E6AAB00030FBCE /* ClassProgressCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237A2E8C28E6AAB00030FBCE /* ClassProgressCVC.swift */; };
+		237A2E8D28E6AAB00030FBCE /* HomeworkProgressCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237A2E8C28E6AAB00030FBCE /* HomeworkProgressCVC.swift */; };
 		237A2E9128E9A2B80030FBCE /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237A2E9028E9A2B80030FBCE /* BaseCollectionViewCell.swift */; };
 		237CECF4296D6B9400A8F23C /* ErrorResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237CECF3296D6B9400A8F23C /* ErrorResponseModel.swift */; };
 		237CECF8296D90CC00A8F23C /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237CECF7296D90CC00A8F23C /* AuthAPI.swift */; };
@@ -128,8 +128,8 @@
 		2359B08F28ED95CA00930EF0 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		2359B09128F1844300930EF0 /* StudentCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCVC.swift; sourceTree = "<group>"; };
 		2359B09328F18BDA00930EF0 /* StudentTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentTVC.swift; sourceTree = "<group>"; };
-		2359B09628F1B82C00930EF0 /* ClassSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassSection.swift; sourceTree = "<group>"; };
-		2359B09828F1BB1C00930EF0 /* ClassTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassTVC.swift; sourceTree = "<group>"; };
+		2359B09628F1B82C00930EF0 /* LessonSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonSection.swift; sourceTree = "<group>"; };
+		2359B09828F1BB1C00930EF0 /* LessonTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonTVC.swift; sourceTree = "<group>"; };
 		2359B09E28F1C7B600930EF0 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		2359B0A028F1C87800930EF0 /* HomeVC+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+TableView.swift"; sourceTree = "<group>"; };
 		237573DF28F6E03B006026ED /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -140,7 +140,7 @@
 		237A2E8428E697C60030FBCE /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
 		237A2E8628E6999C0030FBCE /* DateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateType.swift; sourceTree = "<group>"; };
 		237A2E8828E6A43F0030FBCE /* UserDefaults+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+.swift"; sourceTree = "<group>"; };
-		237A2E8C28E6AAB00030FBCE /* ClassProgressCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassProgressCVC.swift; sourceTree = "<group>"; };
+		237A2E8C28E6AAB00030FBCE /* HomeworkProgressCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeworkProgressCVC.swift; sourceTree = "<group>"; };
 		237A2E9028E9A2B80030FBCE /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		237CECF3296D6B9400A8F23C /* ErrorResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponseModel.swift; sourceTree = "<group>"; };
 		237CECF7296D90CC00A8F23C /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
@@ -361,7 +361,7 @@
 		2359B09528F1B7AD00930EF0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2359B09628F1B82C00930EF0 /* ClassSection.swift */,
+				2359B09628F1B82C00930EF0 /* LessonSection.swift */,
 				237CED0A29717BDC00A8F23C /* HomeResponseModel.swift */,
 			);
 			path = Model;
@@ -481,11 +481,11 @@
 		237A2E9228E9AC210030FBCE /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				237A2E8C28E6AAB00030FBCE /* ClassProgressCVC.swift */,
+				237A2E8C28E6AAB00030FBCE /* HomeworkProgressCVC.swift */,
 				2359B08D28ED950700930EF0 /* HomeworkTVC.swift */,
 				2359B09328F18BDA00930EF0 /* StudentTVC.swift */,
 				2359B09128F1844300930EF0 /* StudentCVC.swift */,
-				2359B09828F1BB1C00930EF0 /* ClassTVC.swift */,
+				2359B09828F1BB1C00930EF0 /* LessonTVC.swift */,
 				23EFB83229279CE4009A2D01 /* NotificationTVC.swift */,
 			);
 			path = Cell;
@@ -666,7 +666,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2359B09728F1B82D00930EF0 /* ClassSection.swift in Sources */,
+				2359B09728F1B82D00930EF0 /* LessonSection.swift in Sources */,
 				235281E528E46D39002BB290 /* APIService.swift in Sources */,
 				235281E728E46D64002BB290 /* URLResource.swift in Sources */,
 				235281DD28E46CB3002BB290 /* BaseViewController.swift in Sources */,
@@ -690,7 +690,7 @@
 				23EFB82D29279400009A2D01 /* NotificationListVC.swift in Sources */,
 				2359B09228F1844300930EF0 /* StudentCVC.swift in Sources */,
 				237CED0B29717BDC00A8F23C /* HomeResponseModel.swift in Sources */,
-				2359B09928F1BB1C00930EF0 /* ClassTVC.swift in Sources */,
+				2359B09928F1BB1C00930EF0 /* LessonTVC.swift in Sources */,
 				23EFB83329279CE4009A2D01 /* NotificationTVC.swift in Sources */,
 				237573E328F6E18D006026ED /* LoginBtn.swift in Sources */,
 				23EFB82F292794D2009A2D01 /* HomeNC.swift in Sources */,
@@ -726,7 +726,7 @@
 				23EFB82329124EA1009A2D01 /* DayCVC.swift in Sources */,
 				237A2E8728E6999C0030FBCE /* DateType.swift in Sources */,
 				237573E528F6E8D4006026ED /* LoginVM.swift in Sources */,
-				237A2E8D28E6AAB00030FBCE /* ClassProgressCVC.swift in Sources */,
+				237A2E8D28E6AAB00030FBCE /* HomeworkProgressCVC.swift in Sources */,
 				237573E028F6E03B006026ED /* LoginVC.swift in Sources */,
 				23BAC582292B915F002DC53F /* ArrowStackComponentView.swift in Sources */,
 				235885E5299FCF0E0069FE1A /* AddButton.swift in Sources */,

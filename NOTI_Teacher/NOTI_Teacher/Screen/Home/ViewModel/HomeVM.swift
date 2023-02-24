@@ -26,7 +26,7 @@ final class HomeVM: BaseViewModel {
         var isLessonCreated = PublishRelay<Bool>()
         var presentClassIndex = PublishRelay<Int>()
         var headerMessage = PublishRelay<String?>()
-        var classes = [ClassSection]()
+        var lessons = [LessonSection]()
     }
     
     // MARK: - Init
@@ -49,13 +49,13 @@ extension HomeVM {
         guard let nickname = UserDefaults.standard.string(forKey: UserDefaults.Keys.nickname) else { return }
         
         var idx = 0
-        while idx < output.classes.count {
-            if now > output.classes[idx].endTime
-                && idx + 1 >= output.classes.count {  // 수업 끝
+        while idx < output.lessons.count {
+            if now > output.lessons[idx].endTime
+                && idx + 1 >= output.lessons.count {  // 수업 끝
                 result = "\(nickname)T, 오늘 수고많았습니다."
-                idx = output.classes.count + 1
+                idx = output.lessons.count + 1
             } else { // 현재 인덱스의 수업 시간
-                let time = output.classes[idx].startTime.split(separator: ":")
+                let time = output.lessons[idx].startTime.split(separator: ":")
                 let hour = "\(time[0])시"
                 let minute = time[1] == "00" ? "" : " \(time[1])분"
 

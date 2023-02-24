@@ -15,8 +15,8 @@ extension HomeVC: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ClassProgressCVC.className,
-                                                            for: indexPath) as? ClassProgressCVC
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeworkProgressCVC.className,
+                                                            for: indexPath) as? HomeworkProgressCVC
         else { fatalError() }
         cell.setClassProgress()
         cell.addShadow()

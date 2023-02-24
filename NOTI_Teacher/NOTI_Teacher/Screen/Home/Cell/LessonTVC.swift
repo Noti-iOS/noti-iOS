@@ -1,5 +1,5 @@
 //
-//  ClassTVC.swift
+//  LessonTVC.swift
 //  NOTI_Teacher
 //
 //  Created by 황윤경 on 2022/10/08.
@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
-class ClassTVC: BaseTableViewCell {
+class LessonTVC: BaseTableViewCell {
     private let classTitle = UILabel()
         .then {
             $0.font = .notoSansKR_Bold(size: 14)
@@ -42,7 +42,7 @@ class ClassTVC: BaseTableViewCell {
 
 // MARK: - Configure
 
-extension ClassTVC {
+extension LessonTVC {
     private func configureContentView() {
         selectionStyle = .none
         contentView.layer.cornerRadius = 6
@@ -55,7 +55,7 @@ extension ClassTVC {
         classTitle.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
     }
     
-    func configureCell(_ classSection: ClassSection) {
+    func configureCell(_ classSection: LessonSection) {
         classTitle.text = classSection.className
         time.text = classSection.startTime
         openStatusImageView.image = classSection.isOpened
@@ -66,7 +66,7 @@ extension ClassTVC {
 
 // MARK: - Layout
 
-extension ClassTVC {
+extension LessonTVC {
     private func configureLayout() {
         classTitle.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(12)

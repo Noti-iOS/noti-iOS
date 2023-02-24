@@ -1,5 +1,5 @@
 //
-//  ClassProgressCVC.swift
+//  HomeworkProgressCVC.swift
 //  NOTI_Teacher
 //
 //  Created by 황윤경 on 2022/09/30.
@@ -10,7 +10,7 @@ import SnapKit
 import Then
 import CircleProgressView
 
-class ClassProgressCVC: BaseCollectionViewCell {
+class HomeworkProgressCVC: BaseCollectionViewCell {
     private let circleProgressView = CircleProgressView()
         .then {
             $0.trackFillColor = .main
@@ -67,7 +67,7 @@ class ClassProgressCVC: BaseCollectionViewCell {
 
 // MARK: - Configure
 
-extension ClassProgressCVC {
+extension HomeworkProgressCVC {
     private func configureContentView() {
         addSubviews([circleProgressView,
                      percentStackView,
@@ -96,7 +96,7 @@ extension ClassProgressCVC {
 
 // MARK: - Layout
 
-extension ClassProgressCVC {
+extension HomeworkProgressCVC {
     private func configureLayout() {
         circleProgressView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(10)

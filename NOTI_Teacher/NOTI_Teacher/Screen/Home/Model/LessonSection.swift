@@ -1,5 +1,5 @@
 //
-//  ClassSection.swift
+//  LessonSection.swift
 //  NOTI_Teacher
 //
 //  Created by 황윤경 on 2022/10/08.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct ClassSection {
+struct LessonSection {
     let className: String
     let startTime: String
     let endTime: String

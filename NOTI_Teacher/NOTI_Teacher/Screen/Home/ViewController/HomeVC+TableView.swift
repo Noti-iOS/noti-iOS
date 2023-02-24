@@ -11,18 +11,18 @@ import UIKit
 
 extension HomeVC: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        viewModel.output.classes.count
+        viewModel.output.lessons.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let section = viewModel.output.classes[section]
+        let section = viewModel.output.lessons[section]
         
         return section.isOpened
         ? section.homeworks.count + 1 : 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let sectionCell = tableView.dequeueReusableCell(withIdentifier: ClassTVC.className) as? ClassTVC,
+        guard let sectionCell = tableView.dequeueReusableCell(withIdentifier: LessonTVC.className) as? LessonTVC,
               let homeworkTVC = tableView.dequeueReusableCell(withIdentifier: HomeworkTVC.className) as? HomeworkTVC,
               let studentListTVC = tableView.dequeueReusableCell(withIdentifier: StudentTVC.className) as? StudentTVC
         else { fatalError() }
@@ -30,7 +30,7 @@ extension HomeVC: UITableViewDataSource {
         
         switch indexPath.row {
         case 0:
-            sectionCell.configureCell(viewModel.output.classes[indexPath.section])
+            sectionCell.configureCell(viewModel.output.lessons[indexPath.section])
             return sectionCell
         case totalRows - 1:
             return studentListTVC

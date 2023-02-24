@@ -127,13 +127,13 @@ extension HomeVC {
     }
     
     private func configureClassProgressCV() {
-        classProgressCV.register(ClassProgressCVC.self, forCellWithReuseIdentifier: ClassProgressCVC.className)
+        classProgressCV.register(HomeworkProgressCVC.self, forCellWithReuseIdentifier: HomeworkProgressCVC.className)
         classProgressCV.dataSource = self
         classProgressCV.delegate = self
     }
     
     private func configureHomeworkTV() {
-        homeworkTV.register(ClassTVC.self, forCellReuseIdentifier: ClassTVC.className)
+        homeworkTV.register(LessonTVC.self, forCellReuseIdentifier: LessonTVC.className)
         homeworkTV.register(HomeworkTVC.self, forCellReuseIdentifier: HomeworkTVC.className)
         homeworkTV.register(StudentTVC.self, forCellReuseIdentifier: StudentTVC.className)
         homeworkTV.dataSource = self
@@ -214,7 +214,7 @@ extension HomeVC {
             .asDriver()
             .drive(onNext: {[weak self] indexPath in
                 guard let self = self else { return }
-                self.viewModel.output.classes[indexPath.section].isOpened.toggle()
+                self.viewModel.output.lessons[indexPath.section].isOpened.toggle()
                 self.homeworkTV.reloadSections([indexPath.section], with: .none)
                 self.setHomeworkTVHeight()
             })
@@ -249,11 +249,11 @@ extension HomeVC {
             .asDriver(onErrorJustReturn: -1)
             .drive(onNext: {[weak self] index in
                 guard let self = self else { return }
-                if index >= self.viewModel.output.classes.count || index < 0 { return }
-                for i in 0..<self.viewModel.output.classes.count {
-                    self.viewModel.output.classes[i].isOpened = false
+                if index >= self.viewModel.output.lessons.count || index < 0 { return }
+                for i in 0..<self.viewModel.output.lessons.count {
+                    self.viewModel.output.lessons[i].isOpened = false
                 }
-                self.viewModel.output.classes[index].isOpened = true
+                self.viewModel.output.lessons[index].isOpened = true
                 
                 self.homeworkTV.reloadData()
             })
@@ -267,5 +267,6 @@ extension HomeVC {
                 if !isLessonCreated { self.configureNoLessonView(isLessonCreated) }
             })
             .disposed(by: bag)
+        
     }
 }
