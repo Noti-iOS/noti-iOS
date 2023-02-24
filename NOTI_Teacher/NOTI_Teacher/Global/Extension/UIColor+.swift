@@ -43,7 +43,7 @@ extension UIColor {
     
     // gray
     @nonobjc class var gray00: UIColor {
-        return UIColor(red: 34.0/255.0, green: 340/255.0, blue: 34.0/255.0, alpha: 1.0)
+        return UIColor(red: 34.0/255.0, green: 34/255.0, blue: 34.0/255.0, alpha: 1.0)
     }
     
     @nonobjc class var gray01: UIColor {
