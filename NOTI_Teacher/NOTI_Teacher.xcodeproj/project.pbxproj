@@ -24,7 +24,7 @@
 		235281DB28E46C96002BB290 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235281DA28E46C96002BB290 /* BaseView.swift */; };
 		235281DD28E46CB3002BB290 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235281DC28E46CB3002BB290 /* BaseViewController.swift */; };
 		235281DF28E46CEE002BB290 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235281DE28E46CEE002BB290 /* BaseViewModel.swift */; };
-		235281E128E46D0F002BB290 /* BaseNAvigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235281E028E46D0F002BB290 /* BaseNAvigationController.swift */; };
+		235281E128E46D0F002BB290 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235281E028E46D0F002BB290 /* BaseNavigationController.swift */; };
 		235281E528E46D39002BB290 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235281E428E46D39002BB290 /* APIService.swift */; };
 		235281E728E46D64002BB290 /* URLResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235281E628E46D64002BB290 /* URLResource.swift */; };
 		235281E928E46DA1002BB290 /* APISession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235281E828E46DA1002BB290 /* APISession.swift */; };
@@ -105,7 +105,7 @@
 		235281DA28E46C96002BB290 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		235281DC28E46CB3002BB290 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		235281DE28E46CEE002BB290 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
-		235281E028E46D0F002BB290 /* BaseNAvigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNAvigationController.swift; sourceTree = "<group>"; };
+		235281E028E46D0F002BB290 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		235281E428E46D39002BB290 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		235281E628E46D64002BB290 /* URLResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLResource.swift; sourceTree = "<group>"; };
 		235281E828E46DA1002BB290 /* APISession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISession.swift; sourceTree = "<group>"; };
@@ -260,7 +260,7 @@
 				235281DA28E46C96002BB290 /* BaseView.swift */,
 				235281DC28E46CB3002BB290 /* BaseViewController.swift */,
 				235281DE28E46CEE002BB290 /* BaseViewModel.swift */,
-				235281E028E46D0F002BB290 /* BaseNAvigationController.swift */,
+				235281E028E46D0F002BB290 /* BaseNavigationController.swift */,
 				237A2E9028E9A2B80030FBCE /* BaseCollectionViewCell.swift */,
 				2359B08F28ED95CA00930EF0 /* BaseTableViewCell.swift */,
 			);
@@ -686,7 +686,7 @@
 				235885E1299D409F0069FE1A /* APIError.swift in Sources */,
 				235281FD28E477BC002BB290 /* NaviType.swift in Sources */,
 				237CED0D29717C5500A8F23C /* AuthInterceptor.swift in Sources */,
-				235281E128E46D0F002BB290 /* BaseNAvigationController.swift in Sources */,
+				235281E128E46D0F002BB290 /* BaseNavigationController.swift in Sources */,
 				23EFB82D29279400009A2D01 /* NotificationListVC.swift in Sources */,
 				2359B09228F1844300930EF0 /* StudentCVC.swift in Sources */,
 				237CED0B29717BDC00A8F23C /* HomeResponseModel.swift in Sources */,
