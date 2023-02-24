@@ -42,6 +42,7 @@
 		235885E1299D409F0069FE1A /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235885E0299D409F0069FE1A /* APIError.swift */; };
 		235885E5299FCF0E0069FE1A /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235885E4299FCF0E0069FE1A /* AddButton.swift */; };
 		235885E729A8C0910069FE1A /* HomeNoLessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235885E629A8C0910069FE1A /* HomeNoLessonView.swift */; };
+		235885E929A8CC1E0069FE1A /* HomeVC+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235885E829A8CC1E0069FE1A /* HomeVC+CollectionView.swift */; };
 		2359B08E28ED950700930EF0 /* HomeworkTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359B08D28ED950700930EF0 /* HomeworkTVC.swift */; };
 		2359B09028ED95CA00930EF0 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359B08F28ED95CA00930EF0 /* BaseTableViewCell.swift */; };
 		2359B09228F1844300930EF0 /* StudentCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359B09128F1844300930EF0 /* StudentCVC.swift */; };
@@ -122,6 +123,7 @@
 		235885E0299D409F0069FE1A /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		235885E4299FCF0E0069FE1A /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
 		235885E629A8C0910069FE1A /* HomeNoLessonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNoLessonView.swift; sourceTree = "<group>"; };
+		235885E829A8CC1E0069FE1A /* HomeVC+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+CollectionView.swift"; sourceTree = "<group>"; };
 		2359B08D28ED950700930EF0 /* HomeworkTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeworkTVC.swift; sourceTree = "<group>"; };
 		2359B08F28ED95CA00930EF0 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		2359B09128F1844300930EF0 /* StudentCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCVC.swift; sourceTree = "<group>"; };
@@ -457,6 +459,7 @@
 				23EFB82E292794D1009A2D01 /* HomeNC.swift */,
 				235281F728E47071002BB290 /* HomeVC.swift */,
 				2359B0A028F1C87800930EF0 /* HomeVC+TableView.swift */,
+				235885E829A8CC1E0069FE1A /* HomeVC+CollectionView.swift */,
 				23EFB82C29279400009A2D01 /* NotificationListVC.swift */,
 				23EFB83429290282009A2D01 /* NotificationSettingVC.swift */,
 				23BAC5912930CDF5002DC53F /* DisturbTimeVC.swift */,
@@ -728,6 +731,7 @@
 				23BAC582292B915F002DC53F /* ArrowStackComponentView.swift in Sources */,
 				235885E5299FCF0E0069FE1A /* AddButton.swift in Sources */,
 				235281AA28E45B5B002BB290 /* AppDelegate.swift in Sources */,
+				235885E929A8CC1E0069FE1A /* HomeVC+CollectionView.swift in Sources */,
 				235281D328E4671C002BB290 /* UIColor+.swift in Sources */,
 				2378A4A12909573000FB7031 /* CalendarHeaderView.swift in Sources */,
 				237A2E8528E697C60030FBCE /* HomeHeaderView.swift in Sources */,

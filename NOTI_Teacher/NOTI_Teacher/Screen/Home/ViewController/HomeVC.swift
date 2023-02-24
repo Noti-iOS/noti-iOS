@@ -123,6 +123,7 @@ extension HomeVC {
         
         configureClassProgressCV()
         configureHomeworkTV()
+        configureLessonListLayout()
     }
     
     private func configureClassProgressCV() {
@@ -204,7 +205,6 @@ extension HomeVC {
                 notificationListVC.hidesBottomBarWhenPushed = true
                 self.navigationController?.pushViewController(notificationListVC,
                                                               animated: true)
-                
             })
             .disposed(by: bag)
     }
@@ -267,30 +267,5 @@ extension HomeVC {
                 if !isLessonCreated { self.configureNoLessonView(isLessonCreated) }
             })
             .disposed(by: bag)
-    }
-}
-
-// MARK: - UICollectionViewDataSource
-
-extension HomeVC: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ClassProgressCVC.className,
-                                                            for: indexPath) as? ClassProgressCVC
-        else { fatalError() }
-        cell.setClassProgress()
-        cell.addShadow()
-        return cell
-    }
-}
-
-// MARK: - UICollectionViewFlowLayout
-
-extension HomeVC: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 94, height: 118)
     }
 }
