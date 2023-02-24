@@ -40,6 +40,7 @@
 		2352820728E61164002BB290 /* NotiTBC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2352820628E61164002BB290 /* NotiTBC.storyboard */; };
 		235885DF299D3F260069FE1A /* SuccessResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235885DE299D3F260069FE1A /* SuccessResponseModel.swift */; };
 		235885E1299D409F0069FE1A /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235885E0299D409F0069FE1A /* APIError.swift */; };
+		235885E5299FCF0E0069FE1A /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235885E4299FCF0E0069FE1A /* AddButton.swift */; };
 		2359B08E28ED950700930EF0 /* HomeworkTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359B08D28ED950700930EF0 /* HomeworkTVC.swift */; };
 		2359B09028ED95CA00930EF0 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359B08F28ED95CA00930EF0 /* BaseTableViewCell.swift */; };
 		2359B09228F1844300930EF0 /* StudentCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359B09128F1844300930EF0 /* StudentCVC.swift */; };
@@ -118,6 +119,7 @@
 		2352820628E61164002BB290 /* NotiTBC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NotiTBC.storyboard; sourceTree = "<group>"; };
 		235885DE299D3F260069FE1A /* SuccessResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessResponseModel.swift; sourceTree = "<group>"; };
 		235885E0299D409F0069FE1A /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		235885E4299FCF0E0069FE1A /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
 		2359B08D28ED950700930EF0 /* HomeworkTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeworkTVC.swift; sourceTree = "<group>"; };
 		2359B08F28ED95CA00930EF0 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		2359B09128F1844300930EF0 /* StudentCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCVC.swift; sourceTree = "<group>"; };
@@ -495,6 +497,7 @@
 			isa = PBXGroup;
 			children = (
 				23C15A942941C54400E0BF5C /* FilledButton.swift */,
+				235885E4299FCF0E0069FE1A /* AddButton.swift */,
 			);
 			path = Button;
 			sourceTree = "<group>";
@@ -719,6 +722,7 @@
 				237A2E8D28E6AAB00030FBCE /* ClassProgressCVC.swift in Sources */,
 				237573E028F6E03B006026ED /* LoginVC.swift in Sources */,
 				23BAC582292B915F002DC53F /* ArrowStackComponentView.swift in Sources */,
+				235885E5299FCF0E0069FE1A /* AddButton.swift in Sources */,
 				235281AA28E45B5B002BB290 /* AppDelegate.swift in Sources */,
 				235281D328E4671C002BB290 /* UIColor+.swift in Sources */,
 				2378A4A12909573000FB7031 /* CalendarHeaderView.swift in Sources */,
