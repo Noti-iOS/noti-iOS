@@ -94,8 +94,7 @@ extension HomeVM {
             .subscribe(onNext: {owner, result in
                 switch result {
                 case .success(let data):
-                    dump(data)
-                    
+                    owner.output.isLessonCreated.accept(data.isLessonCreated)
                 case .failure(let error):
                     owner.apiError.onNext(error)
                 }

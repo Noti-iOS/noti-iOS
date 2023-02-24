@@ -20,6 +20,8 @@ class HomeVC: BaseViewController {
             $0.backgroundColor = .main
         }
     
+    private let noLessonView = HomeNoLessonView()
+    
     private let baseScrollView = UIScrollView()
         .then {
             $0.showsVerticalScrollIndicator = false
@@ -63,8 +65,8 @@ class HomeVC: BaseViewController {
     
     override func configureView() {
         super.configureView()
-        configureNaviBar()
         addHeaderView()
+        configureNaviBar()
     }
     
     override func layoutView() {
@@ -101,6 +103,15 @@ extension HomeVC {
     
     private func addHeaderView() {
         view.addSubview(headerView)
+    }
+    
+    private func configureNoLessonView(_ isJustToday: Bool) {
+        view.addSubview(noLessonView)
+        noLessonView.configureContentView(title: isJustToday ? "오늘은 수업이 없어요" : "아직 수업이 없어요",
+                                          message: "수업을 등록하고 학생들의 숙제 현황을 파악하세요.",
+                                          addBtnTitle: "수업 등록하기")
+        
+        configureNoLessonViewLayout()
     }
     
     private func configureLessonListView() {
@@ -146,6 +157,13 @@ extension HomeVC {
         headerView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
             $0.height.equalTo(184)
+        }
+    }
+    
+    private func configureNoLessonViewLayout() {
+        noLessonView.snp.makeConstraints {
+            $0.top.equalTo(headerView.snp.bottom).offset(Double(screenHeight - headerView.frame.height) / 3.2)
+            $0.leading.trailing.equalToSuperview()
         }
     }
     
@@ -246,9 +264,7 @@ extension HomeVC {
             .asDriver(onErrorJustReturn: false)
             .drive(onNext: { [weak self] isLessonCreated in
                 guard let self = self else { return }
-//                isLessonCreated
-//                ? self.headerView.setHeaderValue()
-//                :
+                if !isLessonCreated { self.configureNoLessonView(isLessonCreated) }
             })
             .disposed(by: bag)
     }
