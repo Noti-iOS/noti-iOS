@@ -63,15 +63,13 @@ class HomeVC: BaseViewController {
     
     override func configureView() {
         super.configureView()
-        configureContentView()
         configureNaviBar()
-        configureClassProgressCV()
-        configureHomeworkTV()
+        addHeaderView()
     }
     
     override func layoutView() {
         super.layoutView()
-        configureLayout()
+        configureHeaderLayout()
     }
     
     override func bindInput() {
@@ -96,17 +94,24 @@ class HomeVC: BaseViewController {
 // MARK: - Configure
 
 extension HomeVC {
-    private func configureContentView() {
+    private func configureNaviBar() {
+        naviBar.configureNaviBar(targetVC: self)
+        naviBar.configureRightBarBtn(image: UIImage(named: "alarm")!)
+    }
+    
+    private func addHeaderView() {
+        view.addSubview(headerView)
+    }
+    
+    private func configureLessonListView() {
         view.addSubviews([headerView,
                           baseScrollView])
         baseScrollView.addSubview(contentView)
         contentView.addSubviews([classProgressCV,
                                  homeworkTV])
-    }
-    
-    private func configureNaviBar() {
-        naviBar.configureNaviBar(targetVC: self)
-        naviBar.configureRightBarBtn(image: UIImage(named: "alarm")!)
+        
+        configureClassProgressCV()
+        configureHomeworkTV()
     }
     
     private func configureClassProgressCV() {
@@ -137,12 +142,14 @@ extension HomeVC {
 // MARK: - Layout
 
 extension HomeVC {
-    private func configureLayout() {
+    private func configureHeaderLayout() {
         headerView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
             $0.height.equalTo(184)
         }
-        
+    }
+    
+    private func configureLessonListLayout() {
         baseScrollView.snp.makeConstraints {
             $0.top.equalTo(headerView.snp.bottom)
             $0.leading.trailing.bottom.equalToSuperview()
