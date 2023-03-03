@@ -214,7 +214,7 @@ extension HomeVC {
             .asDriver()
             .drive(onNext: {[weak self] indexPath in
                 guard let self = self else { return }
-                self.viewModel.output.lessons[indexPath.section].isOpened.toggle()
+                self.viewModel.output.lessons[indexPath.section].isOpened?.toggle()
                 self.homeworkTV.reloadSections([indexPath.section], with: .none)
                 self.setHomeworkTVHeight()
             })

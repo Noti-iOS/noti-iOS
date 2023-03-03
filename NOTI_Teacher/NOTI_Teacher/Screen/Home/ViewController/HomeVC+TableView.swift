@@ -17,7 +17,7 @@ extension HomeVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let section = viewModel.output.lessons[section]
         
-        return section.isOpened
+        return section.isOpened ?? false
         ? section.homeworks.count + 1 : 1
     }
     

@@ -26,7 +26,7 @@ final class HomeVM: BaseViewModel {
         var isLessonCreated = PublishRelay<Bool>()
         var presentClassIndex = PublishRelay<Int>()
         var headerMessage = PublishRelay<String?>()
-        var lessons = [LessonSection]()
+        var lessons = [Lesson]()
     }
     
     // MARK: - Init

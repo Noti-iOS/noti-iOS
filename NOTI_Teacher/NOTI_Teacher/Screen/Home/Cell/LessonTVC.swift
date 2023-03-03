@@ -55,10 +55,10 @@ extension LessonTVC {
         classTitle.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
     }
     
-    func configureCell(_ classSection: LessonSection) {
-        classTitle.text = classSection.className
-        time.text = classSection.startTime
-        openStatusImageView.image = classSection.isOpened
+    func configureCell(_ lesson: Lesson) {
+        classTitle.text = lesson.lessonName
+        time.text = lesson.startTime
+        openStatusImageView.image = lesson.isOpened ?? false
         ? UIImage(named: "arrow_down")
         : UIImage(named: "arrow_up")
     }

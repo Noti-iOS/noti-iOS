@@ -22,6 +22,7 @@ struct Lesson: Codable {
     let homeworkCompletionRate: Int
     let students: [Student]
     let homeworks: [Homework]
+    var isOpened: Bool?
 }
 
 // MARK: - Homework
@@ -38,6 +39,6 @@ struct Student: Codable {
     let studentId: Int
     let studentNickname: String
     let focusStatus: Bool
-    let profileImage: String
+    let profileImage: String?
     let homeworkProgressStatus: String
 }
