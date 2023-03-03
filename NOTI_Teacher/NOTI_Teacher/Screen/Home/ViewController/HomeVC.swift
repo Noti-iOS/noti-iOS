@@ -53,6 +53,8 @@ class HomeVC: BaseViewController {
     let viewModel = HomeVM()
     private let bag = DisposeBag()
     
+    var homeworkTableViewDataSource: HomeworkTableViewDataSource?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -135,7 +137,10 @@ extension HomeVC {
         homeworkTV.register(LessonTVC.self, forCellReuseIdentifier: LessonTVC.className)
         homeworkTV.register(HomeworkTVC.self, forCellReuseIdentifier: HomeworkTVC.className)
         homeworkTV.register(StudentTVC.self, forCellReuseIdentifier: StudentTVC.className)
-        homeworkTV.dataSource = self
+        
+        homeworkTableViewDataSource = HomeworkTableViewDataSource(lessons: viewModel.output.lessons)
+        homeworkTV.dataSource = homeworkTableViewDataSource
+        
         homeworkTV.delegate = self
     }
     

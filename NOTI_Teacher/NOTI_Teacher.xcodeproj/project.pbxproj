@@ -43,6 +43,7 @@
 		235885E5299FCF0E0069FE1A /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235885E4299FCF0E0069FE1A /* AddButton.swift */; };
 		235885E729A8C0910069FE1A /* HomeNoLessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235885E629A8C0910069FE1A /* HomeNoLessonView.swift */; };
 		235885E929A8CC1E0069FE1A /* HomeVC+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235885E829A8CC1E0069FE1A /* HomeVC+CollectionView.swift */; };
+		235885F229B209820069FE1A /* HomeworkTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235885F129B209820069FE1A /* HomeworkTableViewDataSource.swift */; };
 		2359B08E28ED950700930EF0 /* HomeworkTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359B08D28ED950700930EF0 /* HomeworkTVC.swift */; };
 		2359B09028ED95CA00930EF0 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359B08F28ED95CA00930EF0 /* BaseTableViewCell.swift */; };
 		2359B09228F1844300930EF0 /* StudentCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359B09128F1844300930EF0 /* StudentCVC.swift */; };
@@ -123,6 +124,7 @@
 		235885E4299FCF0E0069FE1A /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
 		235885E629A8C0910069FE1A /* HomeNoLessonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNoLessonView.swift; sourceTree = "<group>"; };
 		235885E829A8CC1E0069FE1A /* HomeVC+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+CollectionView.swift"; sourceTree = "<group>"; };
+		235885F129B209820069FE1A /* HomeworkTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeworkTableViewDataSource.swift; sourceTree = "<group>"; };
 		2359B08D28ED950700930EF0 /* HomeworkTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeworkTVC.swift; sourceTree = "<group>"; };
 		2359B08F28ED95CA00930EF0 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		2359B09128F1844300930EF0 /* StudentCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCVC.swift; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 		235281D728E46C70002BB290 /* Share */ = {
 			isa = PBXGroup;
 			children = (
+				235885EE29B209500069FE1A /* DataSource */,
 				23C15A932941C52F00E0BF5C /* View */,
 				23C15A922941C52300E0BF5C /* Button */,
 			);
@@ -354,6 +357,14 @@
 				2352820428E60875002BB290 /* NotiTabBar.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		235885EE29B209500069FE1A /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				235885F129B209820069FE1A /* HomeworkTableViewDataSource.swift */,
+			);
+			path = DataSource;
 			sourceTree = "<group>";
 		};
 		2359B09528F1B7AD00930EF0 /* Model */ = {
@@ -666,6 +677,7 @@
 				235281E528E46D39002BB290 /* APIService.swift in Sources */,
 				235281E728E46D64002BB290 /* URLResource.swift in Sources */,
 				235281DD28E46CB3002BB290 /* BaseViewController.swift in Sources */,
+				235885F229B209820069FE1A /* HomeworkTableViewDataSource.swift in Sources */,
 				237CECF4296D6B9400A8F23C /* ErrorResponseModel.swift in Sources */,
 				235281CD28E465F2002BB290 /* UILabel+.swift in Sources */,
 				23C15A952941C54400E0BF5C /* FilledButton.swift in Sources */,
