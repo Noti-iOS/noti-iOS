@@ -60,7 +60,6 @@ class HomeVC: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.getHomeData()
-        viewModel.makeTimeTable()
     }
     
     override func configureView() {
@@ -188,7 +187,6 @@ extension HomeVC {
             $0.top.equalTo(classProgressCV.snp.bottom)
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalToSuperview().offset(-30)
-            $0.height.equalTo(0)
         }
     }
 }
@@ -264,7 +262,11 @@ extension HomeVC {
             .asDriver(onErrorJustReturn: false)
             .drive(onNext: { [weak self] isLessonCreated in
                 guard let self = self else { return }
-                if !isLessonCreated { self.configureNoLessonView(isLessonCreated) }
+                if !isLessonCreated || self.viewModel.output.lessons.count == 0 {
+                    self.configureNoLessonView(isLessonCreated)
+                } else {
+                    self.configureLessonListView()
+                }
             })
             .disposed(by: bag)
         
