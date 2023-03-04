@@ -9,12 +9,13 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-final class HomeVM: BaseViewModel {
+final class HomeVM: BaseViewModel, LessonList {
     var apiSession: APIService = APISession()
     let apiError = PublishSubject<APIError>()
     var bag = DisposeBag()
     var input = Input()
     var output = Output()
+    var lessons = [Lesson]()
     
     // MARK: - Input
     
@@ -26,7 +27,6 @@ final class HomeVM: BaseViewModel {
         var isLessonCreated = PublishRelay<Bool>()
         var presentClassIndex = PublishRelay<Int>()
         var headerMessage = PublishRelay<String?>()
-        var lessons = [Lesson]()
     }
     
     // MARK: - Init
@@ -49,13 +49,13 @@ extension HomeVM {
         guard let nickname = UserDefaults.standard.string(forKey: UserDefaults.Keys.nickname) else { return }
         
         var idx = 0
-        while idx < output.lessons.count {
-            if now > output.lessons[idx].endTime
-                && idx + 1 >= output.lessons.count {  // 수업 끝
+        while idx < lessons.count {
+            if now > lessons[idx].endTime
+                && idx + 1 >= lessons.count {  // 수업 끝
                 result = "\(nickname)T, 오늘 수고많았습니다."
-                idx = output.lessons.count + 1
+                idx = lessons.count + 1
             } else { // 현재 인덱스의 수업 시간
-                let time = output.lessons[idx].startTime.split(separator: ":")
+                let time = lessons[idx].startTime.split(separator: ":")
                 let hour = "\(time[0])시"
                 let minute = time[1] == "00" ? "" : " \(time[1])분"
 
@@ -94,7 +94,7 @@ extension HomeVM {
             .subscribe(onNext: {owner, result in
                 switch result {
                 case .success(let data):
-                    owner.output.lessons = data.lessons
+                    owner.lessons = data.lessons
                     owner.makeTimeTable()
                     owner.output.isLessonCreated.accept(data.isLessonCreated)
                 case .failure(let error):

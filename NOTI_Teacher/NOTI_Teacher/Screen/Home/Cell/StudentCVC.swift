@@ -68,11 +68,9 @@ extension StudentCVC {
         profileImageView.addSubview(checkLayerImageView)
     }
     
-    func configureCell() {
-        // TODO: - 데이터 연결 후 수정
-        markerLabel.isHidden = false
-        checkLayerImageView.isHidden = false
-        studentNameLabel.text = "ASDF"
+    func configureCell(_ student: Student) {
+        markerLabel.isHidden = !student.focusStatus
+        studentNameLabel.text = student.studentNickname
     }
 }
 

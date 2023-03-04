@@ -18,7 +18,6 @@ class HomeworkProgressCVC: BaseCollectionViewCell {
             $0.trackWidth = 4
             $0.clockwise = true
             $0.backgroundColor = .clear
-            $0.transform = $0.transform.rotated(by: .pi * 1.5)
         }
     
     private let percentStackView = UIStackView()
@@ -81,16 +80,12 @@ extension HomeworkProgressCVC {
         backgroundColor = .white
     }
     
-    func setClassProgress() {
-        // TODO: response 모델 생성 후 수정
-        let homeworkCnt = 5
-        let students = 2
-        let className = "중2단어&독해"
-        let percent = Double(students) / Double(homeworkCnt)
+    func setClassProgress(_ lesson: Lesson) {
+        let lessonName = lesson.lessonName
         
-        circleProgressView.progress = percent
-        percentLabel.text = "\(Int(percent * 100))"
-        classTitleLabel.text = "\(className)"
+        circleProgressView.progress = Double(lesson.homeworkCompletionRate) / 100
+        percentLabel.text = "\(lesson.homeworkCompletionRate)"
+        classTitleLabel.text = "\(lessonName)"
     }
 }
 

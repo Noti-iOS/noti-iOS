@@ -42,7 +42,6 @@
 		235885E1299D409F0069FE1A /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235885E0299D409F0069FE1A /* APIError.swift */; };
 		235885E5299FCF0E0069FE1A /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235885E4299FCF0E0069FE1A /* AddButton.swift */; };
 		235885E729A8C0910069FE1A /* HomeNoLessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235885E629A8C0910069FE1A /* HomeNoLessonView.swift */; };
-		235885E929A8CC1E0069FE1A /* HomeVC+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235885E829A8CC1E0069FE1A /* HomeVC+CollectionView.swift */; };
 		235885F229B209820069FE1A /* HomeworkTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235885F129B209820069FE1A /* HomeworkTableViewDataSource.swift */; };
 		2359B08E28ED950700930EF0 /* HomeworkTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359B08D28ED950700930EF0 /* HomeworkTVC.swift */; };
 		2359B09028ED95CA00930EF0 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359B08F28ED95CA00930EF0 /* BaseTableViewCell.swift */; };
@@ -50,7 +49,6 @@
 		2359B09428F18BDA00930EF0 /* StudentTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359B09328F18BDA00930EF0 /* StudentTVC.swift */; };
 		2359B09928F1BB1C00930EF0 /* LessonTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359B09828F1BB1C00930EF0 /* LessonTVC.swift */; };
 		2359B09F28F1C7B600930EF0 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359B09E28F1C7B600930EF0 /* HomeVM.swift */; };
-		2359B0A128F1C87800930EF0 /* HomeVC+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359B0A028F1C87800930EF0 /* HomeVC+TableView.swift */; };
 		237573E028F6E03B006026ED /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237573DF28F6E03B006026ED /* LoginVC.swift */; };
 		237573E328F6E18D006026ED /* LoginBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237573E228F6E18D006026ED /* LoginBtn.swift */; };
 		237573E528F6E8D4006026ED /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237573E428F6E8D4006026ED /* LoginVM.swift */; };
@@ -67,6 +65,7 @@
 		237CED03296FF1A800A8F23C /* LoginResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237CED02296FF1A800A8F23C /* LoginResponseModel.swift */; };
 		237CED0B29717BDC00A8F23C /* HomeResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237CED0A29717BDC00A8F23C /* HomeResponseModel.swift */; };
 		237CED0D29717C5500A8F23C /* AuthInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237CED0C29717C5500A8F23C /* AuthInterceptor.swift */; };
+		2394FEFB29B31A5400F3EB2D /* HomeworkTableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2394FEFA29B31A5400F3EB2D /* HomeworkTableViewHeaderView.swift */; };
 		23BAC582292B915F002DC53F /* ArrowStackComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BAC581292B915F002DC53F /* ArrowStackComponentView.swift */; };
 		23BAC584292B9A5C002DC53F /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BAC583292B9A5C002DC53F /* UIStackView+.swift */; };
 		23BAC5922930CDF5002DC53F /* DisturbTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BAC5912930CDF5002DC53F /* DisturbTimeVC.swift */; };
@@ -123,7 +122,6 @@
 		235885E0299D409F0069FE1A /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		235885E4299FCF0E0069FE1A /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
 		235885E629A8C0910069FE1A /* HomeNoLessonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNoLessonView.swift; sourceTree = "<group>"; };
-		235885E829A8CC1E0069FE1A /* HomeVC+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+CollectionView.swift"; sourceTree = "<group>"; };
 		235885F129B209820069FE1A /* HomeworkTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeworkTableViewDataSource.swift; sourceTree = "<group>"; };
 		2359B08D28ED950700930EF0 /* HomeworkTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeworkTVC.swift; sourceTree = "<group>"; };
 		2359B08F28ED95CA00930EF0 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
@@ -131,7 +129,6 @@
 		2359B09328F18BDA00930EF0 /* StudentTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentTVC.swift; sourceTree = "<group>"; };
 		2359B09828F1BB1C00930EF0 /* LessonTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonTVC.swift; sourceTree = "<group>"; };
 		2359B09E28F1C7B600930EF0 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
-		2359B0A028F1C87800930EF0 /* HomeVC+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+TableView.swift"; sourceTree = "<group>"; };
 		237573DF28F6E03B006026ED /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		237573E228F6E18D006026ED /* LoginBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBtn.swift; sourceTree = "<group>"; };
 		237573E428F6E8D4006026ED /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
@@ -148,6 +145,7 @@
 		237CED02296FF1A800A8F23C /* LoginResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseModel.swift; sourceTree = "<group>"; };
 		237CED0A29717BDC00A8F23C /* HomeResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeResponseModel.swift; sourceTree = "<group>"; };
 		237CED0C29717C5500A8F23C /* AuthInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInterceptor.swift; sourceTree = "<group>"; };
+		2394FEFA29B31A5400F3EB2D /* HomeworkTableViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeworkTableViewHeaderView.swift; sourceTree = "<group>"; };
 		23BAC581292B915F002DC53F /* ArrowStackComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowStackComponentView.swift; sourceTree = "<group>"; };
 		23BAC583292B9A5C002DC53F /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		23BAC5912930CDF5002DC53F /* DisturbTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisturbTimeVC.swift; sourceTree = "<group>"; };
@@ -466,8 +464,6 @@
 			children = (
 				23EFB82E292794D1009A2D01 /* HomeNC.swift */,
 				235281F728E47071002BB290 /* HomeVC.swift */,
-				2359B0A028F1C87800930EF0 /* HomeVC+TableView.swift */,
-				235885E829A8CC1E0069FE1A /* HomeVC+CollectionView.swift */,
 				23EFB82C29279400009A2D01 /* NotificationListVC.swift */,
 				23EFB83429290282009A2D01 /* NotificationSettingVC.swift */,
 				23BAC5912930CDF5002DC53F /* DisturbTimeVC.swift */,
@@ -482,6 +478,7 @@
 				23EFB830292799D2009A2D01 /* NoneNotificationView.swift */,
 				23EFB83629290440009A2D01 /* ToggleStatusView.swift */,
 				235885E629A8C0910069FE1A /* HomeNoLessonView.swift */,
+				2394FEFA29B31A5400F3EB2D /* HomeworkTableViewHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -691,6 +688,7 @@
 				237CECFA296E4E0A00A8F23C /* LoginType.swift in Sources */,
 				23EFB82B291B9B48009A2D01 /* CalendarVM.swift in Sources */,
 				237CED03296FF1A800A8F23C /* LoginResponseModel.swift in Sources */,
+				2394FEFB29B31A5400F3EB2D /* HomeworkTableViewHeaderView.swift in Sources */,
 				235885E1299D409F0069FE1A /* APIError.swift in Sources */,
 				235281FD28E477BC002BB290 /* NaviType.swift in Sources */,
 				237CED0D29717C5500A8F23C /* AuthInterceptor.swift in Sources */,
@@ -705,7 +703,6 @@
 				23EFB831292799D2009A2D01 /* NoneNotificationView.swift in Sources */,
 				235281DF28E46CEE002BB290 /* BaseViewModel.swift in Sources */,
 				23EFB82129124E36009A2D01 /* WeekCVC.swift in Sources */,
-				2359B0A128F1C87800930EF0 /* HomeVC+TableView.swift in Sources */,
 				2352820128E5D134002BB290 /* NotiTBC.swift in Sources */,
 				23BAC584292B9A5C002DC53F /* UIStackView+.swift in Sources */,
 				235885DF299D3F260069FE1A /* SuccessResponseModel.swift in Sources */,
@@ -739,7 +736,6 @@
 				23BAC582292B915F002DC53F /* ArrowStackComponentView.swift in Sources */,
 				235885E5299FCF0E0069FE1A /* AddButton.swift in Sources */,
 				235281AA28E45B5B002BB290 /* AppDelegate.swift in Sources */,
-				235885E929A8CC1E0069FE1A /* HomeVC+CollectionView.swift in Sources */,
 				235281D328E4671C002BB290 /* UIColor+.swift in Sources */,
 				2378A4A12909573000FB7031 /* CalendarHeaderView.swift in Sources */,
 				237A2E8528E697C60030FBCE /* HomeHeaderView.swift in Sources */,

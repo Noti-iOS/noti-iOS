@@ -7,20 +7,24 @@
 
 import UIKit
 
+protocol LessonList {
+    var lessons: [Lesson] { get set }
+}
+
 class HomeworkTableViewDataSource: NSObject, UITableViewDataSource {
-    private var lessons: [Lesson]
+    var viewModel: LessonList
     
-    init(lessons: [Lesson]) {
-        self.lessons = lessons
+    init(viewModel: LessonList) {
+        self.viewModel = viewModel
         super.init()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return lessons.count
+        return viewModel.lessons.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let section = lessons[section]
+        let section = viewModel.lessons[section]
         return section.isOpened ?? false
         ? section.homeworks.count + 2 : 1
     }
@@ -34,9 +38,10 @@ class HomeworkTableViewDataSource: NSObject, UITableViewDataSource {
         
         switch indexPath.row {
         case 0:
-            sectionCell.configureCell(lessons[indexPath.section])
+            sectionCell.configureCell(viewModel.lessons[indexPath.section])
             return sectionCell
         case totalRows - 1:
+            studentListTVC.students = viewModel.lessons[indexPath.section].students
             return studentListTVC
         default:
             homeworkTVC.configureCell()
