@@ -57,7 +57,7 @@ extension LessonTVC {
     
     func configureCell(_ lesson: Lesson) {
         classTitle.text = lesson.lessonName
-        time.text = lesson.startTime
+        time.text = lesson.startTime + "-" + lesson.endTime
         openStatusImageView.image = lesson.isOpened ?? false
         ? UIImage(named: "arrow_down")
         : UIImage(named: "arrow_up")
