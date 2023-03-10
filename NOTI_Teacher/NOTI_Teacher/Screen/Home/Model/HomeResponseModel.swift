@@ -23,13 +23,25 @@ struct Lesson: Codable {
     let students: [Student]
     let homeworks: [Homework]
     var isOpened: Bool?
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        isOpened = (try? values.decode(Bool.self, forKey: .isOpened)) ?? false
+        lessonId = try values.decode(Int.self, forKey: .lessonId)
+        lessonName = try values.decode(String.self, forKey: .lessonName)
+        startTime = try values.decode(String.self, forKey: .startTime)
+        endTime = try values.decode(String.self, forKey: .endTime)
+        homeworkCompletionRate = try values.decode(Int.self, forKey: .homeworkCompletionRate)
+        students = try values.decode([Student].self, forKey: .students)
+        homeworks = try values.decode([Homework].self, forKey: .homeworks)
+    }
 }
 
 // MARK: - Homework
 struct Homework: Codable {
     let homeworkId: Int
     let homeworkName: String
-    let content: String
+    let content: String // TODO: - 서버 수정 후 삭제 예정
     let numberOfStudents: Int
     let numberOfCompletions: Int
 }

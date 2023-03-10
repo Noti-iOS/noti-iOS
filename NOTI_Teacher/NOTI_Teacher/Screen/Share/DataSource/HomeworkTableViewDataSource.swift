@@ -44,7 +44,7 @@ class HomeworkTableViewDataSource: NSObject, UITableViewDataSource {
             studentListTVC.students = viewModel.lessons[indexPath.section].students
             return studentListTVC
         default:
-            homeworkTVC.configureCell()
+            homeworkTVC.configureCell(viewModel.lessons[indexPath.section].homeworks[indexPath.row - 1])
             return homeworkTVC
         }
     }

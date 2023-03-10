@@ -56,11 +56,10 @@ extension HomeworkTVC {
         homeworkTitle.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
     }
     
-    func configureCell() {
-        // TODO: response 모델 생성 후 수정
-        let studentsCnt = 5
-        let students = 2
-        let homework = "프린트물로 준 단어장 100개 암기 > 시험있ㅇㅇㅇㅇㅇㅇ"
+    func configureCell(_ homework: Homework) {
+        let studentsCnt = homework.numberOfStudents
+        let students = homework.numberOfCompletions
+        let homework = homework.homeworkName
         let percent = Float(students) / Float(studentsCnt)
         
         homeworkTitle.text = homework
