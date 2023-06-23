@@ -26,7 +26,7 @@ extension NotiTBC {
     private func setTabBar() {
         // 탭바 스타일 설정
         tabBar.backgroundColor = .white
-        tabBar.tintColor = .main
+        tabBar.tintColor = .gray03
         tabBar.unselectedItemTintColor = .tagGray
         tabBar.isTranslucent = false
         
