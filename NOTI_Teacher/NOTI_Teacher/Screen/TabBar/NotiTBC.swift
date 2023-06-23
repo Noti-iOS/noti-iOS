@@ -45,8 +45,8 @@ extension NotiTBC {
                                     tabBarImage: UIImage(named: "tab_calendar") ?? UIImage())
         
         let addTab = makeTabVC(vc: HomeVC(),
-                               tabBarTitle: "숙제추가",
-                               tabBarImage: UIImage(named: "tab_add") ?? UIImage())
+                               tabBarTitle: "관리",
+                               tabBarImage: UIImage(named: "tab_management") ?? UIImage())
         
         let mypageTab = makeTabVC(vc: HomeVC(),
                                   tabBarTitle: "마이페이지",
@@ -66,7 +66,10 @@ extension NotiTBC {
         tab.tabBarItem = UITabBarItem(title: tabBarTitle,
                                       image: tabBarImage,
                                       selectedImage: tabBarImage)
-        tab.tabBarItem.imageInsets = UIEdgeInsets(top: -0.5, left: -0.5, bottom: -0.5, right: -0.5)
+        tab.tabBarItem.imageInsets = UIEdgeInsets(top: -0.5,
+                                                  left: -0.5,
+                                                  bottom: -0.5,
+                                                  right: -0.5)
         
         return tab
     }
