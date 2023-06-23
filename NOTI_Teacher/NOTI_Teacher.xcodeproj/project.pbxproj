@@ -36,8 +36,6 @@
 		235281FA28E47760002BB290 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235281F928E47760002BB290 /* NavigationBar.swift */; };
 		235281FD28E477BC002BB290 /* NaviType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235281FC28E477BC002BB290 /* NaviType.swift */; };
 		2352820128E5D134002BB290 /* NotiTBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2352820028E5D134002BB290 /* NotiTBC.swift */; };
-		2352820528E60875002BB290 /* NotiTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2352820428E60875002BB290 /* NotiTabBar.swift */; };
-		2352820728E61164002BB290 /* NotiTBC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2352820628E61164002BB290 /* NotiTBC.storyboard */; };
 		235885DF299D3F260069FE1A /* SuccessResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235885DE299D3F260069FE1A /* SuccessResponseModel.swift */; };
 		235885E1299D409F0069FE1A /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235885E0299D409F0069FE1A /* APIError.swift */; };
 		235885E5299FCF0E0069FE1A /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235885E4299FCF0E0069FE1A /* AddButton.swift */; };
@@ -116,8 +114,6 @@
 		235281F928E47760002BB290 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		235281FC28E477BC002BB290 /* NaviType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaviType.swift; sourceTree = "<group>"; };
 		2352820028E5D134002BB290 /* NotiTBC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotiTBC.swift; sourceTree = "<group>"; };
-		2352820428E60875002BB290 /* NotiTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotiTabBar.swift; sourceTree = "<group>"; };
-		2352820628E61164002BB290 /* NotiTBC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NotiTBC.storyboard; sourceTree = "<group>"; };
 		235885DE299D3F260069FE1A /* SuccessResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessResponseModel.swift; sourceTree = "<group>"; };
 		235885E0299D409F0069FE1A /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		235885E4299FCF0E0069FE1A /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
@@ -350,9 +346,7 @@
 		235281FF28E5D07A002BB290 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
-				2352820628E61164002BB290 /* NotiTBC.storyboard */,
 				2352820028E5D134002BB290 /* NotiTBC.swift */,
-				2352820428E60875002BB290 /* NotiTabBar.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -613,7 +607,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2352820728E61164002BB290 /* NotiTBC.storyboard in Resources */,
 				235281F028E46EE0002BB290 /* NotoSansKR-Medium.otf in Resources */,
 				235281EF28E46EE0002BB290 /* NotoSansKR-Light.otf in Resources */,
 				235281B628E45B5D002BB290 /* LaunchScreen.storyboard in Resources */,
@@ -721,7 +714,6 @@
 				235281C928E463A1002BB290 /* Loadable.swift in Sources */,
 				235281CB28E46410002BB290 /* String+.swift in Sources */,
 				235281F828E47071002BB290 /* HomeVC.swift in Sources */,
-				2352820528E60875002BB290 /* NotiTabBar.swift in Sources */,
 				23BAC5922930CDF5002DC53F /* DisturbTimeVC.swift in Sources */,
 				23C15A97294329AE00E0BF5C /* TimePickerView.swift in Sources */,
 				235281C728E4638B002BB290 /* Output.swift in Sources */,
