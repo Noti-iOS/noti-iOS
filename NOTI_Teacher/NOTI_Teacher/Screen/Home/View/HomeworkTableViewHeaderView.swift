@@ -70,7 +70,8 @@ extension HomeworkTableViewHeaderView: UICollectionViewDataSource {
                                                             for: indexPath) as? HomeworkProgressCVC
         else { return UICollectionViewCell() }
         cell.setClassProgress(lessons[indexPath.row])
-        cell.addShadow()
+        cell.layer.borderWidth = 1
+        cell.layer.borderColor = UIColor.strokeGreen.cgColor
         return cell
     }
 }
