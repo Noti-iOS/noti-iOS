@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
+/// 홈화면 과목별 학생의 숙제 완료 상태를 나타내는 CollectionViewCell
 class StudentCVC: BaseCollectionViewCell {
     private let markerLabel = UILabel()
         .then {

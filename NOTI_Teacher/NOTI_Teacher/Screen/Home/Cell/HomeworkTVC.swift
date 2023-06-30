@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
+/// 홈화면 숙제 목록 TableViewCell
 class HomeworkTVC: BaseTableViewCell {
     private var homeworkTitle = UILabel()
         .then {

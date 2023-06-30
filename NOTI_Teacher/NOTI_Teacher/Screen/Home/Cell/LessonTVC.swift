@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
+/// 홈화면 숙제 목록의 숙제 타이틀 TableViewCell
 class LessonTVC: BaseTableViewCell {
     private let classTitle = UILabel()
         .then {

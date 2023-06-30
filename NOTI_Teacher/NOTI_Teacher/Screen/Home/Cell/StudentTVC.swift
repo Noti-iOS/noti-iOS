@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
+/// 홈화면 과목별 학생의 숙제 완료 상태 CollectionView를 저장하는 TableViewCell
 class StudentTVC: BaseTableViewCell {
     private let studentListCV = UICollectionView(frame: .zero,
                                                  collectionViewLayout: UICollectionViewLayout())

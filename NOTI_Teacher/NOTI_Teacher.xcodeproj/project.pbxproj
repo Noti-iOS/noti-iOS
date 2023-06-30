@@ -230,6 +230,7 @@
 				237573DC28F6E003006026ED /* Login */,
 				235281FF28E5D07A002BB290 /* TabBar */,
 				235281F428E47042002BB290 /* Home */,
+				2356C8512A4EC40B00AFF0F4 /* Notification */,
 				2378A498290953C800FB7031 /* Calendar */,
 			);
 			path = Screen;
@@ -351,6 +352,59 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		2356C8512A4EC40B00AFF0F4 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				2356C8572A4EC44100AFF0F4 /* ViewModel */,
+				2356C8552A4EC43200AFF0F4 /* Model */,
+				2356C8542A4EC42E00AFF0F4 /* View */,
+				2356C8532A4EC42600AFF0F4 /* ViewController */,
+				2356C8522A4EC41F00AFF0F4 /* Cell */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		2356C8522A4EC41F00AFF0F4 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				23EFB83229279CE4009A2D01 /* NotificationTVC.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		2356C8532A4EC42600AFF0F4 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				23EFB82C29279400009A2D01 /* NotificationListVC.swift */,
+				23EFB83429290282009A2D01 /* NotificationSettingVC.swift */,
+				23BAC5912930CDF5002DC53F /* DisturbTimeVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		2356C8542A4EC42E00AFF0F4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				23EFB830292799D2009A2D01 /* NoneNotificationView.swift */,
+				23EFB83629290440009A2D01 /* ToggleStatusView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2356C8552A4EC43200AFF0F4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2356C8572A4EC44100AFF0F4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		235885EE29B209500069FE1A /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
@@ -458,9 +512,6 @@
 			children = (
 				23EFB82E292794D1009A2D01 /* HomeNC.swift */,
 				235281F728E47071002BB290 /* HomeVC.swift */,
-				23EFB82C29279400009A2D01 /* NotificationListVC.swift */,
-				23EFB83429290282009A2D01 /* NotificationSettingVC.swift */,
-				23BAC5912930CDF5002DC53F /* DisturbTimeVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -469,8 +520,6 @@
 			isa = PBXGroup;
 			children = (
 				237A2E8428E697C60030FBCE /* HomeHeaderView.swift */,
-				23EFB830292799D2009A2D01 /* NoneNotificationView.swift */,
-				23EFB83629290440009A2D01 /* ToggleStatusView.swift */,
 				235885E629A8C0910069FE1A /* HomeNoLessonView.swift */,
 				2394FEFA29B31A5400F3EB2D /* HomeworkTableViewHeaderView.swift */,
 			);
@@ -485,7 +534,6 @@
 				2359B09328F18BDA00930EF0 /* StudentTVC.swift */,
 				2359B09128F1844300930EF0 /* StudentCVC.swift */,
 				2359B09828F1BB1C00930EF0 /* LessonTVC.swift */,
-				23EFB83229279CE4009A2D01 /* NotificationTVC.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";

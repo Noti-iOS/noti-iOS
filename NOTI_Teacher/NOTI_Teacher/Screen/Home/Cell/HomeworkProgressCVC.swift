@@ -10,6 +10,7 @@ import SnapKit
 import Then
 import CircleProgressView
 
+/// 홈화면 상단 분반별 숙제 진행률 Cell
 class HomeworkProgressCVC: BaseCollectionViewCell {
     private let circleProgressView = CircleProgressView()
         .then {
