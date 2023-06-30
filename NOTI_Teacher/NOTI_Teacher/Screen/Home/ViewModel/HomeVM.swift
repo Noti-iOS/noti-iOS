@@ -43,10 +43,9 @@ final class HomeVM: BaseViewModel, LessonList {
 
 // MARK: - Custom Methods
 extension HomeVM {
-    func makeTimeTable() {
-        var result:String?
+    func makeTimeTable(_ nickname: String) {
+        var result: String?
         let now = Date.now.toString(separator: .time24)
-        guard let nickname = UserDefaults.standard.string(forKey: UserDefaults.Keys.nickname) else { return }
         
         var idx = 0
         while idx < lessons.count {
@@ -95,7 +94,7 @@ extension HomeVM {
                 switch result {
                 case .success(let data):
                     owner.lessons = data.lessons
-                    owner.makeTimeTable()
+                    owner.makeTimeTable(data.teacherNickName)
                     owner.output.isLessonCreated.accept(data.isLessonCreated)
                 case .failure(let error):
                     owner.apiError.onNext(error)
