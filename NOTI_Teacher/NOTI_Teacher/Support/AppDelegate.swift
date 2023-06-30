@@ -19,7 +19,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         KakaoSDK.initSDK(appKey: "2e6f596fd79dad3a8e9fec57c3f7fe9c")
         
-        window?.rootViewController = NotiTBC()
+        if UserDefaults.standard.string(forKey: UserDefaults.Keys.refreshToken) == nil {
+            // 신규 유저 or 토큰이 누락된 유저
+            window?.rootViewController = LoginVC()
+        } else {
+            // 로그인 이력이 있는(자체 토큰을 가지고 있는) 유저
+            window?.rootViewController = NotiTBC()
+        }
+        
         window?.makeKeyAndVisible()
         
         return true
