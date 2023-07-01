@@ -16,7 +16,6 @@ class NotiTBC: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setTabBar()
     }
 }
@@ -38,21 +37,21 @@ extension NotiTBC {
         // 탭 구성
         let homeTab = makeTabVC(vc: HomeNC(),
                                 tabBarTitle: "홈",
-                                tabBarImage: UIImage(named: "tab_home") ?? UIImage())
+                                tabBarImage: .tabHome)
         
         let calendarTab = makeTabVC(vc: CalendarVC(),
                                     tabBarTitle: "캘린더",
-                                    tabBarImage: UIImage(named: "tab_calendar") ?? UIImage())
+                                    tabBarImage: .tabCalendar)
         
-        let addTab = makeTabVC(vc: HomeVC(),
-                               tabBarTitle: "관리",
-                               tabBarImage: UIImage(named: "tab_management") ?? UIImage())
+        let managementTab = makeTabVC(vc: HomeVC(),
+                                      tabBarTitle: "관리",
+                                      tabBarImage: .tabManagement)
         
         let mypageTab = makeTabVC(vc: HomeVC(),
                                   tabBarTitle: "마이페이지",
-                                  tabBarImage: UIImage(named: "tab_mypage") ?? UIImage())
+                                  tabBarImage: .tabMypage)
         
-        let tabs =  [homeTab, calendarTab, addTab, mypageTab]
+        let tabs =  [homeTab, calendarTab, managementTab, mypageTab]
         
         // VC에 루트로 설정
         self.setViewControllers(tabs, animated: false)

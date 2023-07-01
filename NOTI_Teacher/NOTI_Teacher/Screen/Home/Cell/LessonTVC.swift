@@ -60,8 +60,7 @@ extension LessonTVC {
         classTitle.text = lesson.lessonName
         time.text = lesson.startTime.addSpacingToColon() + " - " + lesson.endTime.addSpacingToColon()
         openStatusImageView.image = lesson.isOpened ?? false
-        ? UIImage(named: "arrow_down")
-        : UIImage(named: "arrow_up")
+        ? .arrowDown : .arrowUp
     }
 }
 

@@ -30,7 +30,7 @@ class AddButton: UIButton {
         config.baseForegroundColor = .gray00
         configuration = config
 
-        setImage(UIImage(named: "add"), for: .normal)
+        setImage(.add, for: .normal)
         layer.cornerRadius = 5
         layer.borderColor = UIColor.lineGray.cgColor
         layer.borderWidth = 1        

@@ -16,7 +16,7 @@ import AuthenticationServices
 class LoginVC: BaseViewController {
     private let logoImageView = UIImageView()
         .then {
-            $0.image = UIImage(named: "Logo")
+            $0.image = .logo
         }
     
     private let sloganLabel = UILabel()
@@ -26,7 +26,7 @@ class LoginVC: BaseViewController {
             $0.textColor = .white
         }
     
-    private let kakaoLoginBtn = LoginBtn(image: UIImage(named: "kakaoIcon"),
+    private let kakaoLoginBtn = LoginBtn(image: .kakaoIcon,
                                          title: "카카오로 시작하기",
                                          backgroundColor: UIColor(red: 254.0/255.0,
                                                                   green: 229.0/255.0,
@@ -38,7 +38,7 @@ class LoginVC: BaseViewController {
                                                             alpha: 1.0))
     
     
-    private let appleLoginBtn = LoginBtn(image: UIImage(named: "appleIcon"),
+    private let appleLoginBtn = LoginBtn(image: .appleIcon,
                                          title: "Apple로 계속하기",
                                          backgroundColor: .black,
                                          textColor: .white)

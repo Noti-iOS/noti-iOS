@@ -59,7 +59,7 @@ extension NotificationListVC {
                                  naviType: .push,
                                  title: "알림")
         naviBar.configureBackBtn()
-        naviBar.configureRightBarBtn(image: UIImage(named: "setting")!)
+        naviBar.configureRightBarBtn(image: .setting)
     }
     
     private func configureContentView() {

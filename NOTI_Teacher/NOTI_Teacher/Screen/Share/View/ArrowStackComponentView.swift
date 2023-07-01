@@ -30,7 +30,7 @@ class ArrowStackComponentView: BaseView {
     
     private var arrowImageView = UIImageView()
         .then {
-            $0.image = UIImage(named: "arrow_right")
+            $0.image = .arrowRight
         }
     
     override func configureView() {
