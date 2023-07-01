@@ -55,3 +55,10 @@ struct Student: Codable {
     /// NONE, IN_PROGRESS, COMPLETION
     let homeworkProgressStatus: String
 }
+
+extension Student {
+    var profileImageURL: URL? {
+        guard let profileImageURL = profileImage?.encodeURL() else { return nil }
+        return URL(string: profileImageURL)
+    }
+}
