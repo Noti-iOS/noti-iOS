@@ -1,5 +1,5 @@
 //
-//  ClassProgressCVC.swift
+//  HomeworkProgressCVC.swift
 //  NOTI_Teacher
 //
 //  Created by 황윤경 on 2022/09/30.
@@ -10,7 +10,8 @@ import SnapKit
 import Then
 import CircleProgressView
 
-class ClassProgressCVC: BaseCollectionViewCell {
+/// 홈화면 상단 분반별 숙제 진행률 Cell
+class HomeworkProgressCVC: BaseCollectionViewCell {
     private let circleProgressView = CircleProgressView()
         .then {
             $0.trackFillColor = .main
@@ -18,7 +19,6 @@ class ClassProgressCVC: BaseCollectionViewCell {
             $0.trackWidth = 4
             $0.clockwise = true
             $0.backgroundColor = .clear
-            $0.transform = $0.transform.rotated(by: .pi * 1.5)
         }
     
     private let percentStackView = UIStackView()
@@ -67,7 +67,7 @@ class ClassProgressCVC: BaseCollectionViewCell {
 
 // MARK: - Configure
 
-extension ClassProgressCVC {
+extension HomeworkProgressCVC {
     private func configureContentView() {
         addSubviews([circleProgressView,
                      percentStackView,
@@ -81,22 +81,18 @@ extension ClassProgressCVC {
         backgroundColor = .white
     }
     
-    func setClassProgress() {
-        // TODO: response 모델 생성 후 수정
-        let homeworkCnt = 5
-        let students = 2
-        let className = "중2단어&독해"
-        let percent = Double(students) / Double(homeworkCnt)
+    func setClassProgress(_ lesson: Lesson) {
+        let lessonName = lesson.lessonName
         
-        circleProgressView.progress = percent
-        percentLabel.text = "\(Int(percent * 100))"
-        classTitleLabel.text = "\(className)"
+        circleProgressView.progress = Double(lesson.homeworkCompletionRate) / 100
+        percentLabel.text = "\(lesson.homeworkCompletionRate)"
+        classTitleLabel.text = "\(lessonName)"
     }
 }
 
 // MARK: - Layout
 
-extension ClassProgressCVC {
+extension HomeworkProgressCVC {
     private func configureLayout() {
         circleProgressView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(10)

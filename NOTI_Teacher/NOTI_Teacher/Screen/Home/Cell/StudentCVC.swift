@@ -8,7 +8,9 @@
 import UIKit
 import SnapKit
 import Then
+import Kingfisher
 
+/// 홈화면 과목별 학생의 숙제 완료 상태를 나타내는 CollectionViewCell
 class StudentCVC: BaseCollectionViewCell {
     private let markerLabel = UILabel()
         .then {
@@ -21,15 +23,15 @@ class StudentCVC: BaseCollectionViewCell {
     private let checkLayerImageView = UIImageView()
         .then {
             $0.layer.cornerRadius = 24
-            $0.layer.borderWidth = 1
-            $0.layer.borderColor = UIColor.main.cgColor
             $0.backgroundColor = UIColor.main21
-            $0.isHidden = true
+            $0.contentMode = .scaleAspectFit
         }
     
     private let profileImageView = UIImageView()
         .then {
             $0.layer.cornerRadius = 24
+            $0.image = .defaultProfileImage
+            $0.clipsToBounds = true
         }
     
     private let studentNameLabel = UILabel()
@@ -52,8 +54,9 @@ class StudentCVC: BaseCollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         markerLabel.isHidden = true
-        checkLayerImageView.isHidden = true
-        profileImageView.image = nil
+        checkLayerImageView.image = nil
+        checkLayerImageView.backgroundColor = nil
+        profileImageView.image = .defaultProfileImage
         studentNameLabel.text = nil
     }
 }
@@ -68,11 +71,12 @@ extension StudentCVC {
         profileImageView.addSubview(checkLayerImageView)
     }
     
-    func configureCell() {
-        // TODO: - 데이터 연결 후 수정
-        markerLabel.isHidden = false
-        checkLayerImageView.isHidden = false
-        studentNameLabel.text = "ASDF"
+    func configureCell(_ student: Student) {
+        profileImageView.kf.setImage(with: student.profileImageURL)
+        markerLabel.isHidden = !student.focusStatus
+        studentNameLabel.text = student.studentNickname
+        checkLayerImageView.image = HomeworkProgressStatusType(rawValue: student.homeworkProgressStatus)?.image
+        checkLayerImageView.backgroundColor = HomeworkProgressStatusType(rawValue: student.homeworkProgressStatus)?.backgroundColor
     }
 }
 
@@ -81,7 +85,7 @@ extension StudentCVC {
 extension StudentCVC {
     private func configureLayout() {
         markerLabel.snp.makeConstraints {
-            $0.top.equalToSuperview()
+            $0.top.equalToSuperview().offset(2)
             $0.leading.equalToSuperview().offset(6)
         }
         

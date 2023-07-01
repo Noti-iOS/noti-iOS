@@ -19,9 +19,9 @@ extension NaviType {
         case .base:
             return nil
         case .push:
-            return UIImage(named: "pop") ?? UIImage()
+            return .pop
         case .present:
-            return UIImage(named: "dismiss") ?? UIImage()
+            return .dismiss
         }
     }
 }

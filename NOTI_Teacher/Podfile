@@ -21,4 +21,5 @@ target 'NOTI_Teacher' do
   pod 'SnapKit'
   pod 'Then'
   pod 'CircleProgressView', '~> 1.0'
+  pod 'Kingfisher'
 end

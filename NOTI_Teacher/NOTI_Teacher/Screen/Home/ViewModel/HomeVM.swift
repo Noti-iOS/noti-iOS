@@ -9,12 +9,13 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-final class HomeVM: BaseViewModel {
+final class HomeVM: BaseViewModel, LessonList {
     var apiSession: APIService = APISession()
     let apiError = PublishSubject<APIError>()
     var bag = DisposeBag()
     var input = Input()
     var output = Output()
+    var lessons = [Lesson]()
     
     // MARK: - Input
     
@@ -23,7 +24,9 @@ final class HomeVM: BaseViewModel {
     // MARK: - Output
     
     struct Output {
-        var classes = [ClassSection]()
+        var isLessonCreated = PublishRelay<Bool>()
+        var presentClassIndex = PublishRelay<Int>()
+        var headerMessage = PublishRelay<String?>()
     }
     
     // MARK: - Init
@@ -35,6 +38,34 @@ final class HomeVM: BaseViewModel {
     
     deinit {
         bag = DisposeBag()
+    }
+}
+
+// MARK: - Custom Methods
+extension HomeVM {
+    func makeTimeTable(_ nickname: String) {
+        var result: String?
+        let now = Date.now.toString(separator: .time24)
+        
+        var idx = 0
+        while idx < lessons.count {
+            if now > lessons[idx].endTime
+                && idx + 1 >= lessons.count {  // 수업 끝
+                result = "\(nickname)T, 오늘 수고많았습니다."
+                idx = lessons.count + 1
+            } else { // 현재 인덱스의 수업 시간
+                let time = lessons[idx].startTime.split(separator: ":")
+                let hour = "\(time[0])시"
+                let minute = time[1] == "00" ? "" : " \(time[1])분"
+
+                result = idx == 0
+                ? "\(nickname)T, 오늘의 첫 수업은 \(hour)\(minute)입니다."
+                : "\(nickname)T, 다음 수업은 \(hour)\(minute)입니다."
+                idx += 1
+            }
+        }
+        output.presentClassIndex.accept(idx-1)
+        output.headerMessage.accept(result)
     }
 }
 
@@ -62,7 +93,9 @@ extension HomeVM {
             .subscribe(onNext: {owner, result in
                 switch result {
                 case .success(let data):
-                    dump(data)
+                    owner.lessons = data.lessons
+                    owner.makeTimeTable(data.teacherNickName)
+                    owner.output.isLessonCreated.accept(data.isLessonCreated)
                 case .failure(let error):
                     owner.apiError.onNext(error)
                 }

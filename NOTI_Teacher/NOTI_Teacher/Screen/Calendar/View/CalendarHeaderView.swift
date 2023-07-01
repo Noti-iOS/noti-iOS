@@ -21,14 +21,12 @@ class CalendarHeaderView: BaseView {
     
     let prevMonthBtn = UIButton()
         .then {
-            $0.setImage(UIImage(named: "arrow_left")?
-                .withTintColor(.label, renderingMode: .alwaysOriginal), for: .normal)
+            $0.setImage(.arrowLeft.withTintColor(.label, renderingMode: .alwaysOriginal), for: .normal)
         }
     
     let nextMonthBtn = UIButton()
         .then {
-            $0.setImage(UIImage(named: "arrow_right")?
-                .withTintColor(.label, renderingMode: .alwaysOriginal), for: .normal)
+            $0.setImage(.arrowRight.withTintColor(.label, renderingMode: .alwaysOriginal), for: .normal)
         }
     
     override func configureView() {

@@ -12,7 +12,7 @@ class AuthInterceptor: RequestInterceptor {
     let bag = DisposeBag()
     
     func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
-        guard let accessToken = UserDefaults.standard.string(forKey: UserDefaults.Keys.accessToken) else { return }
+        guard let accessToken = UserDefaults.standard.string(forKey: UserDefaults.Keys.accessToken) else { fatalError() }
         
         var urlRequest = urlRequest
         urlRequest.headers.add(.authorization("Bearer \(accessToken)"))

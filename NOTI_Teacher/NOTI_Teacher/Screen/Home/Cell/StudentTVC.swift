@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
+/// 홈화면 과목별 학생의 숙제 완료 상태 CollectionView를 저장하는 TableViewCell
 class StudentTVC: BaseTableViewCell {
     private let studentListCV = UICollectionView(frame: .zero,
                                                  collectionViewLayout: UICollectionViewLayout())
@@ -22,6 +23,8 @@ class StudentTVC: BaseTableViewCell {
             $0.showsHorizontalScrollIndicator = false
             $0.backgroundColor = .clear
         }
+    
+    var students: [Student]?
     
     override func configureView() {
         super.configureView()
@@ -61,13 +64,13 @@ extension StudentTVC {
 
 extension StudentTVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        8
+        students?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StudentCVC.className, for: indexPath) as? StudentCVC else { fatalError() }
-        // TODO: - 데이터 연결
-        cell.configureCell()
+        guard let students = students,
+              let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StudentCVC.className, for: indexPath) as? StudentCVC else { fatalError() }
+        cell.configureCell(students[indexPath.row])
         return cell
     }
 }

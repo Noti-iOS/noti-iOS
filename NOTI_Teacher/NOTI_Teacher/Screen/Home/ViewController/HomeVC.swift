@@ -20,36 +20,19 @@ class HomeVC: BaseViewController {
             $0.backgroundColor = .main
         }
     
-    private let baseScrollView = UIScrollView()
-        .then {
-            $0.showsVerticalScrollIndicator = false
-        }
-    
-    private let contentView = UIView()
-    
-    private let classProgressCV = UICollectionView(frame: .zero,
-                                                   collectionViewLayout: UICollectionViewLayout())
-        .then {
-            let layout = UICollectionViewFlowLayout()
-            layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-            layout.minimumLineSpacing = 10
-            layout.scrollDirection = .horizontal
-            
-            $0.collectionViewLayout = layout
-            $0.showsHorizontalScrollIndicator = false
-            $0.backgroundColor = .clear
-        }
+    private let noLessonView = HomeNoLessonView()
     
     private let homeworkTV = UITableView(frame: .zero,
                                          style: .grouped)
         .then {
-            $0.isScrollEnabled = false
             $0.separatorStyle = .none
             $0.backgroundColor = .systemBackground
         }
     
     let viewModel = HomeVM()
     private let bag = DisposeBag()
+    
+    var homeworkTableViewDataSource: HomeworkTableViewDataSource?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,31 +45,24 @@ class HomeVC: BaseViewController {
     
     override func configureView() {
         super.configureView()
-        configureContentView()
+        addHeaderView()
         configureNaviBar()
-        configureClassProgressCV()
-        configureHomeworkTV()
     }
     
     override func layoutView() {
         super.layoutView()
-        configureLayout()
+        configureHeaderLayout()
     }
     
     override func bindInput() {
         super.bindInput()
         bindNaviBarRightBtn()
-        bindHomeworkTV()
     }
     
     override func bindOutput() {
         super.bindOutput()
         bindErrorAlert()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        setHomeworkTVHeight()
+        bindHomeData()
     }
     
 }
@@ -94,73 +70,65 @@ class HomeVC: BaseViewController {
 // MARK: - Configure
 
 extension HomeVC {
-    private func configureContentView() {
-        view.addSubviews([headerView,
-                          baseScrollView])
-        baseScrollView.addSubview(contentView)
-        contentView.addSubviews([classProgressCV,
-                                 homeworkTV])
-    }
-    
     private func configureNaviBar() {
         naviBar.configureNaviBar(targetVC: self)
         naviBar.configureRightBarBtn(image: UIImage(named: "alarm")!)
     }
     
-    private func configureClassProgressCV() {
-        classProgressCV.register(ClassProgressCVC.self, forCellWithReuseIdentifier: ClassProgressCVC.className)
-        classProgressCV.dataSource = self
-        classProgressCV.delegate = self
+    private func addHeaderView() {
+        view.addSubview(headerView)
+    }
+    
+    private func configureNoLessonView(_ isJustToday: Bool) {
+        view.addSubview(noLessonView)
+        noLessonView.configureContentView(title: isJustToday ? "오늘은 수업이 없어요" : "아직 수업이 없어요",
+                                          message: "수업을 등록하고 학생들의 숙제 현황을 파악하세요.",
+                                          addBtnTitle: "수업 등록하기")
+        
+        configureNoLessonViewLayout()
+    }
+    
+    private func configureLessonListView() {
+        view.addSubview(homeworkTV)
+        configureHomeworkTV()
+        configureLessonListLayout()
     }
     
     private func configureHomeworkTV() {
-        homeworkTV.register(ClassTVC.self, forCellReuseIdentifier: ClassTVC.className)
+        homeworkTV.register(HomeworkTableViewHeaderView.self, forHeaderFooterViewReuseIdentifier: HomeworkTableViewHeaderView.className)
+        
+        homeworkTV.register(LessonTVC.self, forCellReuseIdentifier: LessonTVC.className)
         homeworkTV.register(HomeworkTVC.self, forCellReuseIdentifier: HomeworkTVC.className)
         homeworkTV.register(StudentTVC.self, forCellReuseIdentifier: StudentTVC.className)
-        homeworkTV.dataSource = self
+        
+        homeworkTableViewDataSource = HomeworkTableViewDataSource(viewModel: viewModel)
+        homeworkTV.dataSource = homeworkTableViewDataSource
+        
         homeworkTV.delegate = self
-    }
-    
-    private func setHomeworkTVHeight() {
-        let height = homeworkTV.contentSize.height
-        
-        homeworkTV.snp.updateConstraints {
-            $0.height.equalTo(height)
-        }
-        
-        view.layoutIfNeeded()
     }
 }
 
 // MARK: - Layout
 
 extension HomeVC {
-    private func configureLayout() {
+    private func configureHeaderLayout() {
         headerView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
             $0.height.equalTo(184)
         }
-        
-        baseScrollView.snp.makeConstraints {
+    }
+    
+    private func configureNoLessonViewLayout() {
+        noLessonView.snp.makeConstraints {
+            $0.top.equalTo(headerView.snp.bottom).offset(Double(screenHeight - headerView.frame.height) / 3.2)
+            $0.leading.trailing.equalToSuperview()
+        }
+    }
+    
+    private func configureLessonListLayout() {
+        homeworkTV.snp.makeConstraints {
             $0.top.equalTo(headerView.snp.bottom)
             $0.leading.trailing.bottom.equalToSuperview()
-        }
-        
-        contentView.snp.makeConstraints {
-            $0.edges.width.equalToSuperview()
-        }
-        
-        classProgressCV.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(18)
-            $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(120)
-        }
-        
-        homeworkTV.snp.makeConstraints {
-            $0.top.equalTo(classProgressCV.snp.bottom)
-            $0.leading.trailing.equalToSuperview()
-            $0.bottom.equalToSuperview().offset(-30)
-            $0.height.equalTo(0)
         }
     }
 }
@@ -177,19 +145,6 @@ extension HomeVC {
                 notificationListVC.hidesBottomBarWhenPushed = true
                 self.navigationController?.pushViewController(notificationListVC,
                                                               animated: true)
-                
-            })
-            .disposed(by: bag)
-    }
-    
-    func bindHomeworkTV() {
-        homeworkTV.rx.itemSelected
-            .asDriver()
-            .drive(onNext: {[weak self] indexPath in
-                guard let self = self else { return }
-                self.viewModel.output.classes[indexPath.section].isOpened.toggle()
-                self.homeworkTV.reloadSections([indexPath.section], with: .none)
-                self.setHomeworkTVHeight()
             })
             .disposed(by: bag)
     }
@@ -206,29 +161,84 @@ extension HomeVC {
             })
             .disposed(by: bag)
     }
+    
+    func bindHomeData() {
+        // header message
+        viewModel.output.headerMessage
+            .asDriver(onErrorJustReturn: nil)
+            .drive(onNext: {[weak self] message in
+                guard let self = self else { return }
+                self.headerView.setHeaderValue(firstClassTime: message)
+            })
+            .disposed(by: bag)
+        
+        // 숙제 목록 열려있는 부분 바인딩
+        viewModel.output.presentClassIndex
+            .asDriver(onErrorJustReturn: -1)
+            .drive(onNext: {[weak self] index in
+                guard let self = self else { return }
+                if index >= self.viewModel.lessons.count || index < 0 { return }
+                for i in 0..<self.viewModel.lessons.count {
+                    self.viewModel.lessons[i].isOpened = false
+                }
+                self.viewModel.lessons[index].isOpened = true
+                
+                self.homeworkTV.reloadData()
+            })
+            .disposed(by: bag)
+        
+        // 분반 존재 여부에 따른 화면 구성
+        viewModel.output.isLessonCreated
+            .asDriver(onErrorJustReturn: false)
+            .drive(onNext: { [weak self] isLessonCreated in
+                guard let self = self else { return }
+                if !isLessonCreated || self.viewModel.lessons.count == 0 {
+                    self.configureNoLessonView(isLessonCreated)
+                } else {
+                    self.configureLessonListView()
+                }
+            })
+            .disposed(by: bag)
+        
+    }
 }
 
-// MARK: - UICollectionViewDataSource
+// MARK: - UITableViewDelegate
 
-extension HomeVC: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+extension HomeVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let totalRows = tableView.numberOfRows(inSection: indexPath.section)
+        
+        switch indexPath.row {
+        case 0:
+            return 46
+        case totalRows - 1:
+            return 93
+        default:
+            return 52
+        }
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ClassProgressCVC.className,
-                                                            for: indexPath) as? ClassProgressCVC
-        else { fatalError() }
-        cell.setClassProgress()
-        cell.addShadow()
-        return cell
+    // tableView HeaderView - 분반별 진도율 CollectionView
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return section == 0 ? 176 : 0
     }
-}
-
-// MARK: - UICollectionViewFlowLayout
-
-extension HomeVC: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 94, height: 118)
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let lessons = tableView.dequeueReusableHeaderFooterView(withIdentifier: HomeworkTableViewHeaderView.className) as? HomeworkTableViewHeaderView
+        else { fatalError() }
+        
+        lessons.lessons = viewModel.lessons
+        
+        return lessons
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            viewModel.lessons[indexPath.section].isOpened?.toggle()
+            homeworkTV.reloadSections([indexPath.section], with: .none)
+        } else {
+            // TODO: - 숙제 화면 연결
+        }
     }
 }

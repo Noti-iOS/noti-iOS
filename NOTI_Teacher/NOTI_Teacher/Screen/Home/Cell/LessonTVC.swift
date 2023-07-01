@@ -1,5 +1,5 @@
 //
-//  ClassTVC.swift
+//  LessonTVC.swift
 //  NOTI_Teacher
 //
 //  Created by 황윤경 on 2022/10/08.
@@ -9,7 +9,8 @@ import UIKit
 import SnapKit
 import Then
 
-class ClassTVC: BaseTableViewCell {
+/// 홈화면 숙제 목록의 숙제 타이틀 TableViewCell
+class LessonTVC: BaseTableViewCell {
     private let classTitle = UILabel()
         .then {
             $0.font = .notoSansKR_Bold(size: 14)
@@ -42,31 +43,30 @@ class ClassTVC: BaseTableViewCell {
 
 // MARK: - Configure
 
-extension ClassTVC {
+extension LessonTVC {
     private func configureContentView() {
         selectionStyle = .none
         contentView.layer.cornerRadius = 6
         contentView.layer.borderWidth = 1
-        contentView.layer.borderColor = UIColor.main.cgColor
-        contentView.backgroundColor = .main21
+        contentView.layer.borderColor = UIColor.strokeGreen.cgColor
+        contentView.backgroundColor = .sub01
         contentView.addSubviews([classTitle,
                                  time,
                                  openStatusImageView])
         classTitle.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
     }
     
-    func configureCell(_ classSection: ClassSection) {
-        classTitle.text = classSection.className
-        time.text = classSection.time
-        openStatusImageView.image = classSection.isOpened
-        ? UIImage(named: "arrow_down")
-        : UIImage(named: "arrow_up")
+    func configureCell(_ lesson: Lesson) {
+        classTitle.text = lesson.lessonName
+        time.text = lesson.startTime.addSpacingToColon() + " - " + lesson.endTime.addSpacingToColon()
+        openStatusImageView.image = lesson.isOpened ?? false
+        ? .arrowDown : .arrowUp
     }
 }
 
 // MARK: - Layout
 
-extension ClassTVC {
+extension LessonTVC {
     private func configureLayout() {
         classTitle.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(12)

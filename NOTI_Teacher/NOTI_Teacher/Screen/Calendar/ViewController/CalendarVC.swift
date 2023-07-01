@@ -80,7 +80,7 @@ class CalendarVC: BaseViewController {
 extension CalendarVC {
     private func configureNaviBar() {
         naviBar.configureNaviBar(targetVC: self)
-        naviBar.configureRightBarBtn(image: UIImage(named: "search")!)
+        naviBar.configureRightBarBtn(image: .search)
     }
     
     private func configureContentView() {

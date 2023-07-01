@@ -13,6 +13,7 @@ PODS:
     - KakaoSDKCommon/Common (= 2.11.1)
   - KakaoSDKUser (2.11.1):
     - KakaoSDKAuth (= 2.11.1)
+  - Kingfisher (7.6.2)
   - RxCocoa (6.1.0):
     - RxRelay (= 6.1.0)
     - RxSwift (= 6.1.0)
@@ -34,6 +35,7 @@ DEPENDENCIES:
   - CircleProgressView (~> 1.0)
   - KakaoSDKAuth (= 2.11.1)
   - KakaoSDKUser (= 2.11.1)
+  - Kingfisher
   - RxCocoa (< 6.2.0)
   - RxDataSources (< 5.1.0)
   - RxGesture (< 4.1.0)
@@ -49,6 +51,7 @@ SPEC REPOS:
     - KakaoSDKAuth
     - KakaoSDKCommon
     - KakaoSDKUser
+    - Kingfisher
     - RxCocoa
     - RxDataSources
     - RxGesture
@@ -64,6 +67,7 @@ SPEC CHECKSUMS:
   KakaoSDKAuth: bb2dfa7be30daa8403c9cfc8001aa6fde7a5b779
   KakaoSDKCommon: 555e1bb46595b842ded01cf7888cc17bbae4e113
   KakaoSDKUser: 08c0a4f40bebdebdf948a9e3d0e44ed5c2754f99
+  Kingfisher: 6c5449c6450c5239166510ba04afe374a98afc4f
   RxCocoa: 5c51f02d562cbd94629f6c26cf0c80fe4ab8d343
   RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
   RxGesture: f3efb47ed2d26a8082f7b660d4a59970e275a7f8
@@ -72,6 +76,6 @@ SPEC CHECKSUMS:
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   Then: 844265ae87834bbe1147d91d5d41a404da2ec27d
 
-PODFILE CHECKSUM: fe00c7c16eefe3b63d11908631206d2b5175fbd9
+PODFILE CHECKSUM: e3855cfb1b6e7e116fe2347dc204245000806d62
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.12.0

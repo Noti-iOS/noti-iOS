@@ -6,20 +6,26 @@
 //
 
 import UIKit
+import SnapKit
+import Then
+import RxCocoa
+import RxSwift
 
 class NotiTBC: UITabBarController {
+    // MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureTabBar()
+        setTabBar()
     }
 }
 
-// MARK: - Configure
-
 extension NotiTBC {
-    private func configureTabBar() {
+    
+    private func setTabBar() {
+        // 탭바 스타일 설정
         tabBar.backgroundColor = .white
-        tabBar.tintColor = .main
+        tabBar.tintColor = .gray03
         tabBar.unselectedItemTintColor = .tagGray
         tabBar.isTranslucent = false
         
@@ -29,34 +35,40 @@ extension NotiTBC {
         tabBar.layer.shadowOpacity = 0.1
         
         // 탭 구성
-        // TODO: - 화면 구현 후 연결 & 탭 아이콘 추가
         let homeTab = makeTabVC(vc: HomeNC(),
                                 tabBarTitle: "홈",
-                                tabBarImage: UIImage(named: "tab_home"))
+                                tabBarImage: .tabHome)
         
         let calendarTab = makeTabVC(vc: CalendarVC(),
                                     tabBarTitle: "캘린더",
-                                    tabBarImage: UIImage(named: "tab_calendar"))
+                                    tabBarImage: .tabCalendar)
         
-        let addTab = makeTabVC(vc: HomeVC(),
-                               tabBarTitle: "숙제추가",
-                               tabBarImage: UIImage(named: "tab_add"))
+        let managementTab = makeTabVC(vc: HomeVC(),
+                                      tabBarTitle: "관리",
+                                      tabBarImage: .tabManagement)
         
         let mypageTab = makeTabVC(vc: HomeVC(),
                                   tabBarTitle: "마이페이지",
-                                  tabBarImage: UIImage(named: "tab_mypage"))
+                                  tabBarImage: .tabMypage)
         
-        let tabs =  [homeTab, calendarTab, addTab, mypageTab]
+        let tabs =  [homeTab, calendarTab, managementTab, mypageTab]
+        
+        // VC에 루트로 설정
         self.setViewControllers(tabs, animated: false)
     }
     
     private func makeTabVC(vc: UIViewController,
-                           tabBarTitle: String?,
-                           tabBarImage: UIImage?) -> UIViewController {
+                           tabBarTitle: String,
+                           tabBarImage: UIImage) -> UIViewController {
         let tab = vc
+        let tabBarImage = tabBarImage.withRenderingMode(.alwaysTemplate)
         tab.tabBarItem = UITabBarItem(title: tabBarTitle,
                                       image: tabBarImage,
                                       selectedImage: tabBarImage)
+        tab.tabBarItem.imageInsets = UIEdgeInsets(top: -0.5,
+                                                  left: -0.5,
+                                                  bottom: -0.5,
+                                                  right: -0.5)
         
         return tab
     }
