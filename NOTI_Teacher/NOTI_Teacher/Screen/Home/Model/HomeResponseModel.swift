@@ -52,5 +52,6 @@ struct Student: Codable {
     let studentNickname: String
     let focusStatus: Bool
     let profileImage: String?
+    /// NONE, IN_PROGRESS, COMPLETION
     let homeworkProgressStatus: String
 }

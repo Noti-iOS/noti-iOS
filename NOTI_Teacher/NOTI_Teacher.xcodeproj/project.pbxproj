@@ -36,6 +36,8 @@
 		235281FA28E47760002BB290 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235281F928E47760002BB290 /* NavigationBar.swift */; };
 		235281FD28E477BC002BB290 /* NaviType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235281FC28E477BC002BB290 /* NaviType.swift */; };
 		2352820128E5D134002BB290 /* NotiTBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2352820028E5D134002BB290 /* NotiTBC.swift */; };
+		2356C8592A4EEFE700AFF0F4 /* HomeworkProgressStatusType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356C8582A4EEFE700AFF0F4 /* HomeworkProgressStatusType.swift */; };
+		2356C85B2A4FD5E300AFF0F4 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356C85A2A4FD5E300AFF0F4 /* UIImage+.swift */; };
 		235885DF299D3F260069FE1A /* SuccessResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235885DE299D3F260069FE1A /* SuccessResponseModel.swift */; };
 		235885E1299D409F0069FE1A /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235885E0299D409F0069FE1A /* APIError.swift */; };
 		235885E5299FCF0E0069FE1A /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235885E4299FCF0E0069FE1A /* AddButton.swift */; };
@@ -114,6 +116,8 @@
 		235281F928E47760002BB290 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		235281FC28E477BC002BB290 /* NaviType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaviType.swift; sourceTree = "<group>"; };
 		2352820028E5D134002BB290 /* NotiTBC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotiTBC.swift; sourceTree = "<group>"; };
+		2356C8582A4EEFE700AFF0F4 /* HomeworkProgressStatusType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeworkProgressStatusType.swift; sourceTree = "<group>"; };
+		2356C85A2A4FD5E300AFF0F4 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		235885DE299D3F260069FE1A /* SuccessResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessResponseModel.swift; sourceTree = "<group>"; };
 		235885E0299D409F0069FE1A /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		235885E4299FCF0E0069FE1A /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
@@ -288,6 +292,7 @@
 				235281D528E46BE8002BB290 /* Date+.swift */,
 				237A2E8828E6A43F0030FBCE /* UserDefaults+.swift */,
 				23BAC583292B9A5C002DC53F /* UIStackView+.swift */,
+				2356C85A2A4FD5E300AFF0F4 /* UIImage+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -340,6 +345,7 @@
 				235281FC28E477BC002BB290 /* NaviType.swift */,
 				237A2E8628E6999C0030FBCE /* DateType.swift */,
 				237CECF9296E4E0A00A8F23C /* LoginType.swift */,
+				2356C8582A4EEFE700AFF0F4 /* HomeworkProgressStatusType.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -748,6 +754,7 @@
 				23BAC584292B9A5C002DC53F /* UIStackView+.swift in Sources */,
 				235885DF299D3F260069FE1A /* SuccessResponseModel.swift in Sources */,
 				235281E928E46DA1002BB290 /* APISession.swift in Sources */,
+				2356C8592A4EEFE700AFF0F4 /* HomeworkProgressStatusType.swift in Sources */,
 				235281D128E466BF002BB290 /* UIViewController+.swift in Sources */,
 				235281DB28E46C96002BB290 /* BaseView.swift in Sources */,
 				2359B08E28ED950700930EF0 /* HomeworkTVC.swift in Sources */,
@@ -762,6 +769,7 @@
 				235281C928E463A1002BB290 /* Loadable.swift in Sources */,
 				235281CB28E46410002BB290 /* String+.swift in Sources */,
 				235281F828E47071002BB290 /* HomeVC.swift in Sources */,
+				2356C85B2A4FD5E300AFF0F4 /* UIImage+.swift in Sources */,
 				23BAC5922930CDF5002DC53F /* DisturbTimeVC.swift in Sources */,
 				23C15A97294329AE00E0BF5C /* TimePickerView.swift in Sources */,
 				235281C728E4638B002BB290 /* Output.swift in Sources */,
